@@ -1,0 +1,50 @@
+% Finnish or English, gives the right language to title page and Finnish enables special chars ä ö å.
+\documentclass[a4paper,finnish,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+\usepackage{mathtools}
+\usepackage[lstlisting]{/usr/share/texlive/texmf-dist/tex/latex/mcode/mcode}
+\usepackage{amsfonts,amssymb,amsbsy}
+\usepackage{fancyhdr}
+\usepackage[a4paper]{geometry}
+\usepackage[RGB,ELEC,%
+    Library,Tolo,Coated,%
+    SchoolofElectricalEngineering]{/home/micsu/limppu/Dropbox/aaltologo}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{titlepage}
+    \centering
+    \vspace*{11\baselineskip}
+    \huge
+    \bfseries
+    Kurssikoodi \\
+    Kurssin nimi \\
+    [1.5\baselineskip]
+    \normalfont
+    \vfill
+    \small
+    Automaatio- ja systeemitekniikka \\
+    \vfill
+    Miikka Eloranta \\
+    80294A \\[2\baselineskip]
+    \textbf{\today} \\[2\baselineskip]
+    \vfill
+	\AaltoLogoSmall{1}{?}{aaltoPurple}
+
+
+\end{titlepage}
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+% DOCUMENT START
+
+\end{document}
