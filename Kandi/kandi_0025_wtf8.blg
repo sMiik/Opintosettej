@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (Web2C 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: kandi_0025_wtf8.aux
+The style file: ieeetr.bst
+Database file #1: huonevastekorjaus.bib
+You've used 23 entries,
+            1876 wiz_defined-function locations,
+            643 strings with 7314 characters,
+and the built_in function-call counts, 6289 in all, are:
+= -- 630
+> -- 200
+< -- 0
++ -- 76
+- -- 53
+* -- 409
+:= -- 856
+add.period$ -- 29
+call.type$ -- 23
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 342
+empty$ -- 627
+format.name$ -- 53
+if$ -- 1599
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 26
+newline$ -- 78
+num.names$ -- 23
+pop$ -- 80
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 241
+stack$ -- 0
+substring$ -- 423
+swap$ -- 146
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 56
+width$ -- 25
+write$ -- 228

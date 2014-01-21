@@ -1,0 +1,1133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                %%
+%% Esimerkki opinnäytteen tekemisestä LaTeX:lla 20100316          %%
+%% Alkuperäinen versio Luis Costa,  muutokset Perttu Puska        %%
+%%                                                                %%
+%% Tähän esimerkkiin kuuluu tiedostot                             %%
+%%               opinnaytepohja.tex (versio 1.3)                  %%
+%%               aaltothesis.sty (versio 1.3)                     %%
+%%               kuva1.eps                                        %%
+%%               kuva2.eps                                        %%
+%%                                                                %%
+%%                                                                %%
+%% Kääntäminen                                                    %%
+%% latex:                                                         %%
+%%             $ latex opinnaytepohja                             %%
+%%             $ latex opinnaytepohja                             %%
+%%                                                                %%
+%%   Tuloksena on tiedosto opinnayte.dvi, joka                    %%
+%%   muutetaan ps-muotoon seuraavasti                             %%
+%%                                                                %%
+%%             $ dvips opinnaytepohja -o                          %%
+%%                                                                %%
+%% Selittävät kommentit on tässä esimerkissä varustettu           %%
+%% %%-merkeillä ja muutokset, joita käyttäjä voi tehdä,           %%
+%% on varustettu %-merkeillä                                      %%
+%%                                                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Käytä näitä, jos kirjoitat suomeksi
+%%
+%% Use these you write in Finnish
+\documentclass[finnish,12pt]{article}
+\bibliographystyle{ieeetr}
+
+%% Käytä näitä, jos kirjoitat englanniksi
+%%
+%% Uncomment these if you write in English
+%\documentclass[english,12pt]{article}
+
+%% Tämä paketti on pakollinen
+%%
+%% This package is required
+\usepackage{aaltothesis}
+\usepackage{mathtools}
+
+%% Epämääräisiä käännöksiä
+\def\excitation_representation{heräte-esitys}
+\def\to_excitation_representation{heräte-esitykseen}
+
+%% Jos käytät latex-komentoa käännettäessä (oletusarvo) 
+%% kuvat kannattaa tehdä eps-muotoon. Älä käytä ps-muotoisia kuvia!
+%% Käytä seuraavaa latex-komennon ja eps-kuvien kanssa 
+%%
+%% Use this if you run latex and use eps-format pictures
+%\usepackage[dvips]{graphicx}
+
+%% Jos tääs käytät pdflatex-komentoa, 
+%% joka kääntää tekstin suoraan pdf-tiedostoksi ja kuvasi
+%% ovat esim. jpg-formaatissa tai pdf-formaatissa,   
+%% käytetään seuraavaa pakettia, kommentoi siis kommenttimerkki pois
+%% Huom! Tekstin marginaalit saattavat poiketa n. 2-5 mm
+%% suosituksesta, jos käytät pdflatex-komentoa!
+%% 
+%% Use this if you run pdflatex and use jpg/pdf-format pictures
+%% Note that margins are not correct with pdflatex output. 
+%\usepackage[pdftex]{graphicx} 
+
+%% Saat pdf-tiedoston viittaukset ja linkit kuntoon seuraavalla paketilla.
+%% Paketti toimii erityisen hyvin pdflatexin kanssa. 
+%%
+%% Use this if you want to get links and nice output with pdflatex
+%\usepackage[pdfpagemode=None,colorlinks=true,urlcolor=red,%
+%linkcolor=blue,citecolor=black,pdfstartview=FitH]{hyperref}
+
+%% Jos et jostain syystä tykkää käyttää
+%% edellistä hyperref pakettia, voit käyttää myös seuraavaa pakettia
+%% (tarvitaan lähinnä url-komennon määrittämiseen ja formatoimiseen)
+%%
+%% Use this if you do not like hyperref package - this
+%% defines url environment and formats it correctly
+\usepackage{url}
+
+%% Matematiikan fontteja, symboleja ja muotoiluja lisää, näitä tarvitaan usein 
+%%
+%% Use this if you write hard core mathematics, these are usually needed
+\usepackage{amsfonts,amssymb,amsbsy}  
+
+%% Vaakasuunnan mitat, ÄLÄ KOSKE!
+\setlength{\hoffset}{-1in}
+\setlength{\oddsidemargin}{35mm}
+\setlength{\evensidemargin}{25mm}
+\setlength{\textwidth}{15cm}
+%% Pystysuunnan mitat, ÄLÄ KOSKE!
+\setlength{\voffset}{-1in}
+\setlength{\headsep}{7mm}
+\setlength{\headheight}{1em}
+\setlength{\topmargin}{25mm-\headheight-\headsep}
+\setlength{\textheight}{23cm}
+
+
+%% Kaikki mikä paperille tulostuu, on tämän jälkeen
+%%
+%% Output starts here
+\begin{document}
+
+%% Korjaa vastaamaan korkeakouluasi
+%%
+%% Change the school field to describe your school 
+\university{aalto university}{aalto-yliopisto}
+\school{school of electrical engineering}{sähkötekniikan korkeakoulu}
+
+%% Korjaa seuraavat vastaamaan omaa tiedekuntaasi
+%%
+%% Change the faculty field to describe your faculty
+\faculty{Faculty of Electronics, Communications and Automation}%
+{Sähkötekniikan korkeakoulu}%
+%%
+
+%% Vain kandityölle: Korjaa seuraavat vastaamaan tutkinto-ohjelmaasi
+%%
+%% Only for B.Sc. thesis: Choose your degree programme. 
+\degreeprogram{Electronics and electrical engineering}%
+{Automaatio- ja systeemitekniikka}
+%%
+
+%% Vain DI/M.Sc.- ja lisensiaatintyölle: valitse laitos, 
+%% professuuri ja sen professuurikoodi. 
+%%
+%% Only for M.Sc. and Licentiate thesis: Choose your department,
+%% professorship and professorship code. 
+%\department{Department of Radio Science and Technology}%
+%{Radiotieteen ja -tekniikan laitos}
+%\professorship{Circuit theory}{Piiriteoria}
+%\code{S-55}
+%%
+
+%% Valitse yksi näistä kolmesta
+%%
+%% Choose one of these:
+\univdegree{BSc} %kandi
+%\univdegree{MSc}
+%\univdegree{Lic}
+
+%% Oma nimi
+%%
+%% Should be self explanatory...
+\author{Miikka Eloranta}
+
+%% Opinnäytteen otsikko tulee vain tähän. Älä tavuta otsikkoa ja
+%% vältä liian pitkää otsikkotekstiä. Jos latex ryhmittelee otsikon
+%% huonosti, voit joutua pakottamaan rivinvaihdon \\ kontrollimerkillä.
+%% Muista että otsikkoja ei tavuteta! 
+%% Jos otsikossa on ja-sana, se ei jää rivin viimeiseksi sanaksi 
+%% vaan aloittaa uuden rivin.
+%% 
+%% Your thesis title. If the title is very long and the latex 
+%% does unsatisfactory job of breaking the lines, you will have to
+%% break the lines yourself with \\ control character. 
+%% Do not hyphenate titles.
+\thesistitle{Digital room equalisation from the aspect of automatic control engineering}{Huonevasteen digitaalinen korjaus säätötekniikan näkökulmasta}
+
+\place{Espoo}
+%% Kandidaatintyön päivämäärä on sen esityspäivämäärä! 
+%% 
+%% For B.Sc. thesis use the date when you present your thesis. 
+\date{27.04.2012}
+
+%% Kandidaattiseminaarin vastuuopettaja tai diplomityön valvoja.
+%% Huomaa tittelissä "\" -merkki pisteen jälkeen, 
+%% ennen välilyöntiä ja seuraavaa merkkijonoa. 
+%% Näin tehdään, koska kyseessä ei ole lauseen loppu, jonka jälkeen tulee 
+%% hieman pidempi väli vaan halutaan tavallinen väli.
+%%
+%% B.Sc. or M.Sc. thesis supervisor 
+%% Note the "\" after the comma. This forces the following space to be 
+%% a normal interword space, not the space that starts a new sentence. 
+\supervisor{Prof.\ Kai Zenger}{Prof.\ Kai Zenger}
+
+%% Kandidaatintyön ohjaaja(t) tai diplomityön ohjaaja(t)
+%% 
+%% B.Sc. or M.Sc. thesis instructor(s)
+%\instructor{Prof. Pirjo Professori}{Prof. Pirjo Professori}
+%\instructor{D.Sc.\ (Tech.) Olli Ohjaaja}{TkT Olli Ohjaaja}
+\instructor{M.Sc.\ (Tech.) Alex Mattsson}{DI Alex Mattsson}
+
+%% Aaltologo: syntaksi: \uselogo{red|blue|yellow}{?|!|''}
+%% Logon kieli on sama kuin dokumentin kieli
+%%
+%% Aalto logo: syntax: \uselogo{red|blue|yellow}{?|!|''} 
+%% Logo language is set to be the same as the document language.
+\uselogo{blue}{!}{tkk}
+
+%% Tehdään kansilehti
+%%
+%% Create the coverpage
+\makecoverpage
+
+%% Suomenkielinen tiivistelmä
+%% 
+%% Finnish abstract
+%%
+%% Tiivistelmän avainsanat
+\keywords{Huonevaste, korjaus, impulssivaste, säätötekniikka, digitaalinen, akustiikka, signaalinkäsittely}
+%% Tiivistelmän tekstiosa
+\begin{abstractpage}[finnish]
+
+Tämän kandidaatintyön tavoitteena on esitellä erilaisia digitaalisia huonevasteen korjausmenetelmiä. Työssä ei keskitytä tarkasti tutkimustuloksiin, vaan tuodaan esille eri menetelmien ongelmia ja ratkaisumalleja. Ongelmaa lähestytään säätöteknisestä näkökulmasta, jossa huonetta käsitellään järjestelmänä. Äänisignaalissa tapahtuneet muutokset kuvataan pulssinsiirtofunktiona, jolloin on mahdollista selvittää, kuinka paljon alkuperäinen äänilähteeltä lähtenyt äänisignaali on muuttunut ennen sen saapumista kuulijalle. 
+\newline
+
+Huonetiloissa liikkuva äänisignaali muuttuu matkalla äänilähteeltä kuulijalle. Äänisignaalit heijastuvat huonerakenteista ja siellä olevista esineistä, jolloin syntyy jälkikaikuja ja ääni vääristyy. Äänisignaali vääristyy huoneen eri pisteissä eri tavalla, joten eri kuuntelijoiden kuulemat äänet eroavat toisistaan. Työssä perehdytäänkin menetelmiin, jotka pyrkivät kumoamaan äänessä huoneakustiikan vuoksi tapahtuneet muutokset. Käytännössä tämä tapahtuu luomalla äänisignaalissa tapahtuneista muutoksista pulssinsiirtofunktio, laskemalla sen käänteismuunnos ja suodattamalla signaali käänteismuunnoksen läpi.
+\newline
+
+Pelkän huonevasteen käänteismuunnoksen lisäksi menetelmistä löytyy niin huonevasteen muutoksiin mukautuvia adaptiivisia suotimia kuin napa-nolla-kuvauksiin perustuvia ja sumean logiikan menetelmiä. Työssä tarkastelluista menetelmistä sumealla logiikalla taajuustasossa suoritettava korjaus mahdollistaa parhaan korjauksen täsmällisellä suunnittelulla. Taajuustasossa signaalin vaihetta ei tarvitse huomioida ja eri huonevasteiden lajittelu klustereihin mahdollisimman toistensa kaltaisten vasteiden kanssa mahdollistaa epähomogeenisen, laajemman alueen kattavan korjauksen. Eri korkuiset taajuudet voidaan korjata erilaisella erottelulla, joten psykoakustiikka voidaan huomioida laskentatehokkuuden parantamiseksi.
+
+\end{abstractpage}
+
+%% Pakotetaan uusi sivu varmuuden vuoksi, jotta 
+%% mahdollinen suomenkielinen ja englanninkielinen tiivistelmä
+%% eivät tule vahingossakaan samalle sivulle
+%%
+%% Force new page so that English abstract starts from a new page
+%\newpage
+
+%% Esipuhe 
+%%
+%% Preface
+\mysection{Esipuhe}
+%\mysection{Preface}
+Haluan kiittää ohjaajaani Alex Mattssonia aktiivisuudesta, hyvästä ohjauksesta ja ohjeistamisesta niin materiaalin hakuvaiheessa, kuin myös työn edetessä. Lisäksi haluan kiittää VLSI Solution Oy:n työntekijä Pasi Ojalaa ohjeistuksesta huone- ja psykoakustiikan, sekä digitaalisiin signaalinkäsittelymenetelmiin liittyvissä kysymyksissäni.
+
+
+\vspace{5cm}
+Otaniemi, 27.04.2012
+
+\vspace{5mm}
+{\hfill Miikka Eloranta \hspace{1cm}}
+
+%% Pakotetaan varmuuden vuoksi esipuheen jälkeinen osa
+%% alkamaan uudelta sivulta
+%%
+%% Force new page after preface
+\newpage
+
+%% Sisällysluettelo
+%% addcontentsline tekee pdf-tiedostoon viitteen sisällysluetteloa varten
+%% 
+%% Table of contents. 
+\addcontentsline{toc}{section}{Sisällysluettelo}
+%\addcontentsline{toc}{section}{Contents}
+%% Tehdään sisällysluettelo
+%% 
+\tableofcontents
+
+%%
+%% Symbolit
+%%
+\mysection{Symbolit}
+
+\subsection*{Yleiset symbolit}
+
+\begin{tabular}{p{2cm}p{12cm}}
+
+h(n)					& äänisignaalin impulssivaste \\
+H(e$^{j \omega}$)		& äänisignaalin taajuusvaste \\
+X(z)					& digitaalisen järjestelmän tulosignaali Z-tasossa \\
+Y(z)					& digitaalisen järjestelmän lähtösignaali Z-tasossa \\
+H(z)					& digitaalisissa järjestelmissä käytetty pulssinsiirtofunktio, lähtö- ja tulosignaalien osamäärä \\
+e(n)					& virhetermi \\
+R$_p$					& neliövirhe \\
+$\delta(n)$				& Kroneckerin deltafunktio, kuvattu yhtälössä \eqref{Kronecker delta} \\
+$\otimes$				& konvoluutio \\
+\end{tabular}
+
+\subsection*{Mukautuvissa suotimissa käytetyt symbolit}
+
+\begin{tabular}{p{2cm}p{12cm}}
+V(z)					& yhden tulo- ja usean lähtösignaalin järjestelmässä käytetty suodin \\
+F(z)					& usean tulo- ja yhden lähtösignaalin järjestelmässä käytetty suodin \\
+d(z)					& alkuperäinen äänisignaali \\
+$\alpha$				& hetkellisen keskineliövirheen suppenemiskerroin \\
+\end{tabular}
+
+\subsection*{Napa- ja nolla-kuvauksissa käytetyt symbolit}
+
+\begin{tabular}{p{2cm}p{12cm}}
+q$_k$					& järjestelmän $k$. nolla \\
+p$_k$					& järjestelmän $k$. napa \\
+a$_k$					& järjestelmän $k$. autoregressiokerroin \\
+b$_k$					& järjestelmän $k$. liukuvan keskiarvon kerroin \\
+\end{tabular}
+
+\subsection*{Sumeassa logiikan menetelmissä käytetyt symbolit}
+
+\begin{tabular}{p{2cm}p{12cm}}
+$\mu(h)$				& sumean logiikan jäsenyysfunktio eli vasteen $h$ kuuluvuus tiettyyn jäsenfunktioon \\
+$\hat{h}_i^*$			& $i$:nnen klusterin massakeskipisteelle laskettu prototyyppi \\
+h$_{final}$				& eri klustereiden prototyypit yhdistävä lopullinen esitys \\
+\end{tabular}
+
+\mysection{Lyhenteet}
+
+\begin{tabular}{p{2cm}p{12cm}}
+ARMA					& Auto-regressive moving average model; autoregressiivinen liukuvan keskiarvon malli \\
+CAP						& Common acoustical pole; yleisten napojen malli \\
+CAPZ					& Common acoustical pole-zero model; yleisten akustisten napojen napa-nolla-malli \\
+FCM						& fuzzy c-means clustering; sumean logiikan massakeskipisteiden mukaan painotettu klusterointi \\
+FFT						& fast Fourier transform; nopea Fourier-muunnos \\
+FIR						& finite impulse response; äärellinen impulssivaste \\
+IIR						& infinite impulse response; ääretön impulssivaste \\
+LPC						& linear predictive coding; lineaarisesti ennustava koodaus \\
+MIMO					& multiple-input multiple-output; usea tulo- ja lähtösignaalia \\
+MINT					& multiple-input/output inverse theorem; monen tulo- ja lähtösignaalin käänteismuunnosteoreema \\
+MPAP					& multiple-point all-pole equalization filter; usean pisteen napoihin perustuva korjain \\
+PNS						& pienin neliösumma \\
+RTF						& room transfer function; huonesiirtofunktio eli pulssinsiirtofunktio huonevasteelle \\
+SISO					& single-input single-output; yksi tulo- ja lähtösignaali \\
+
+\end{tabular}
+
+%% Sivulaskurin viilausta opinnäytteen vaatimusten mukaan:
+%% Aloitetaan sivunumerointi arabialaisilla numeroilla (ja jätetään
+%% leipätekstin ensimmäinen sivu tyhjäksi, 
+%% ks. alla \thispagestyle{empty}).
+%% Pakotetaan lisäksi ensimmäinen varsinainen tekstisivu alkamaan 
+%% uudelta sivulta clearpage-komennolla. 
+%% clearpage on melkein samanlainen kuin newpage, mutta 
+%% flushaa myös LaTeX:n floatit 
+%% 
+%% Corrects the page numbering, there is no need to change these
+\cleardoublepage
+\storeinipagenumber
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+%% Leipäteksti alkaa
+%%
+%% Text body begins. Note that since the text body
+%% is mostly in Finnish the majority of comments are
+%% also in Finnish after this point. There is no point in explaining
+%% Finnish-language specific thesis conventions in English.
+\section{Johdanto}
+
+%% Ensimmäinen sivu tyhjäksi
+%% 
+%% Leave first page empty
+\thispagestyle{empty}
+
+Äänentoistossa yleisenä ongelmana on huoneakustiikka. Huoneen rakenne sekä huonekalujen, äänentoistolaitteiden ja kuulijoiden sijainnit vaikuttavat siihen, miltä ääni kuulostaa. Alkuperäinen ääni heijastuu huoneessa olevista pinnoista, esineistä ja ihmisistä, jolloin ääni vääristyy ja esiintyy jälkikaikuja. Äänisignaalien heijastumista voidaan vähentää erilaisilla absorboivilla materiaaleilla. Käyttämällä mattoja ja verhoja heijastumia saadaan vaimennettua, mutta minkään materiaalin absorptiokyky ei riitä eliminoimaan niitä täysin. Varsinkin matalien taajuuksien tapauksessa materiaalien absorptiokyky on käytännössä aina heikko. Lisäksi ääni voi heijastua pintojen välillä aiheuttaen niin kutsuttuja seisovia aaltoja, huonemoodeja, joiden taajuudet riippuvat huoneen mitoista. \cite{MMiyoshi1988}
+
+Huonevasteen korjaamiseksi on kehitetty erilaisia menetelmiä, joissa testiäänen ominaisuuksia mitataan ja toistettavaa ääntä korjataan mittausten perusteella. Ensimmäiset kehitetyt huonevasteen korjaimet olivat analogisia taajuusmuuntimia, joilla vastetta saatiin hieman korjattua, mutta jotka olivat kuitenkin epätarkkoja. Tämän lisäksi analogiset korjaimet piti nimensä mukaisesti kasata erilaisista analogisista komponenteista, jolloin kokonaisuuksista tuli monimutkaisia, niiden käytännön toteutus oli vaikeaa ja kokonaiskustannukset suuria.
+
+Digitaalisiin järjestelmiin sen sijaan saadaan kompleksisemmat ratkaisut toteutettua helpommin ja monimutkaiset järjestelmät edullisemmin. Kehittyneimmissä ratkaisuissa huonevasteen korjaukseen käytetään säätötekniikasta tutuksi tulleita periaatteita. Kuunteluhuonetta kuvataan järjestelmänä ja vastaavasti äänessä tapahtuvia muutoksia eli vääristymiä pulssinsiirtofunktiona äänilähteeltä kuulijalle. Huonevasteesta tehdään mittauksia ja sitä korjataan takaisinkytkennällä huomioiden navat ja nollat järjestelmän stabiilisuuden säilyttämiseksi. Nykymarkkinoilla osaan AV-viritinvahvistimista sisältyy automaattisia taajuuskorjaimia, jotka korjaavat kuunteluhuoneen akustisia ongelmia ainakin osittain tässä työssä esitetyillä ratkaisumalleilla. 
+
+Tässä työssä keskitytään matalien taajuuksien korjaukseen säätötekniikan näkökulmasta huomioiden ihmiskuulolle olennaiset äänen ominaisuudet. Matalilla taajuuksilla aallonpituus on niin suuri, ettei ihmiskorva pysty havaitsemaan niiden tulosuuntaa. Tästä johtuen käsittelyssä ei huomioida kuuntelijan roolia pään asentoineen ja korvan rakenteineen, vaan keskitytään ainoastaan teknisten huonevasteen korjausmenetelmien vertailuun. Matalissa taajuuksissa myös huonevaste ja tyypillinen kuuntelualue eroavat korkeammista taajuuksista suurempien jälkivaikutusten ja huoneen rakenteiden vaikutuksen osalta. Huonevasteen korjauksessa rajoitteita esiintyy niin psykoakustiikan, huoneakustiikan, kuin signaalinkäsittelymenetelmienkin kannalta. \cite{MKarjalainen2005}
+
+Työn toisessa luvussa kuvataan huonevasteessa esiintyvät ongelmat ja työn lähestymistapa niihin. Luvun alussa kuvataan matalien taajuuksien osalta huonevasteen korjauksen kannalta merkittävät psykoakustiikan ominaisuudet ja lopussa kuvataan huoneakustiikkaa ja siinä esiintyviä ongelmia. Kolmannessa luvussa kuvataan keskeiset tiedot niistä säätötekniikan osa-alueista, jotka ovat työn kannalta olennaisia. Neljännessä luvussa kuvataan erilaisia digitaaliseen huonevasteen korjaukseen käytettyjä menetelmiä. Lopuksi huonevasteen korjauksesta ja siihen käytetyistä menetelmistä on koostettu yhteenveto ja tehdyt johtopäätökset.
+
+%Nykyiset AV-viritinvahvistimet sisältävät automaattisia taajuuskorjaimia, jotka korjaavat %kotiteattereissa esiintyviä kuunteluhuoneesta aiheutuvia akustisia ongelmia. Varsinkin %matalien taajuuksien vasteen korjaukseen myydään myös erillisiä laitteita. Osa %kehittyneemmistä laitteista käyttää hyväksi säätötekniikasta tuttuja periaatteita. Tässä
+%työssä tehdään katsaus kirjallisuudessa julkaistuihin algoritmeihin varsinkin matalien %taajuuksien korjauksen osalta ja tarkastellaan niiden mallinnusosuutta säätötekniikan %näkökulmasta. Samalla tutustutaan kaupallisiin toteutuksiin.
+
+%% Opinnäytteessä jokainen osa alkaa uudelta sivulta, joten \clearpage
+%%
+%% In a thesis, every section starts a new page, hence \clearpage
+\clearpage
+
+\section{Akustiikka}
+
+Akustiikka on ääntä eli kaasussa olevaa mekaanista aaltoliikettä käsittelevä tieteenala \cite[luku 1]{Pierce1991}. Tässä luvussa keskitytään psykoakustiikkaan ja huoneakustiikkaan niiltä osin, joilta ne tämän työn huonevasteen korjausmenetelmien osalta ovat olennaisia.
+
+\subsection{Psykoakustiikka}
+
+Psykoakustiikan tavoitteena on määritellä ihmisen kuulemien äänten kvantitatiiviset eli määrälliset esitykset. Esitykset pyritään määrittelemään tuomalla esiin niitä vastaavat tarkasti määritellyt herätteet \cite{Kahrs2002}. Sähköakustiikan tuntemus on tässä ehdotonta ja sähköakustisten parametrien tarkka kontrollointi välttämätöntä \cite{Fastl1997}. Sähköakustiikka liittyy ilmiöihin, joilla sähköiset signaalit ja värähtelyt muutetaan akustisiksi tai akustiset sähköisiksi \cite{Karjalainen2002}. Psykoakustiikassa kuuloa keskitytään tutkimaan epäsuorasti psykofyysisillä kokeilla. Äänen aiheuttamaa vastetta tutkitaan suorien fysiologisten mittausten sijaan epäsuorasti havainnoimalla äänisignaalien ominaisuuksia, jotka vaikuttavat ihmisen kuulemaan ääneen. Tällaisia ominaisuuksia ovat mm. äänenvoimakkuus ja sävelkorkeus. Nämä suureet sisältävät itsessään jo tietyn verran fysikaalisia suureita, kuten intensiteettiä ja taajuutta \cite[luku 1.4]{Kahrs2002}. Psykoakustinen lähestymistapa huonevasteen korjaukseen keskittyy korjaamaan äänestä juuri ihmiskuulon kannalta tärkeitä ominaisuuksia.
+
+Huonevasteen korjauksen tärkeimpiä korjattavia ominaisuuksia psykoakustiikan kannalta ovat maskaus eli komponenttien painotus, jossa ihmiskorvalle ``turhat'' komponentit poistetaan ja tärkeitä painotetaan, sekä osittain maskattujen ja täysin maskaamattomien aika-taajuus-komponenttien voimakkuus. Vaikka tasoitus liittyy aika-taajuus-alueen maskaukseen, joka on ihmiskuulolle tärkeä ominaisuus, siitä tuloksena saatava \excitation_representation ei ole vielä itsessään kovin hyödyllinen. Mahdollisimman tarkasti kuulijan laadun arviointia tyydyttävän sisällön saamiseksi \excitation_representation täytyy pakata siten, että se heijastuu samalla tavalla kuin sisäkorvassa ja hermostoissa oleva ääni. \cite[luku 1.4]{Kahrs2002}
+
+Energia tasoittuu enimmäkseen oheisprosessien vaikutuksesta, kun taas pakkautuminen on oma prosessinsa. Tasoituksen ja pakkaamisen avulla on mahdollista luoda maskausominaisuuksista malli myös äänijärjestelmän osittaismaskaukselle kynnysarvojen yli. Matemaattisesti nämä molemmat ovat yksinkertaisia operaatioita. \cite[luku 1.4]{Kahrs2002}
+
+Perinteisesti on kuvailtu vain korvan aiheuttamaa äänisignaalien aika-taajuus-tasoitusta, joka johtaa \to_excitation_representation. Tämä \excitation_representation mitataan yleisesti desibeleissä ajan ja taajuuden suhteen. Taajuusasteikossa ei yleensä käytetä lineaarista hertsiasteikkoa, vaan epälineaarista Bark-asteikkoa. Bark-asteikko on taajuuksia vastaavia psykofyysisiä ekvivalentteja esittävä korkeusasteikko. Taajuus saadaan muutettua hertseistä Bark-asteikkoon kaavalla \begin{equation}
+	\label{Bark}
+	z = 13 \cdot arctan(0,0076f)+3,5 \cdot arctan((f/7500)^2).
+\end{equation} Tätä kuitenkin approksimoidaan usein jaottelulla
+\begin{equation}
+	\label{Barkappr}
+	z = \begin{cases}
+		10^{-2} f,						& \mbox{f <= 500Hz} \\
+		9 + 4 \cdot log_{2}(10^{-3}f),	& \mbox{f > 500Hz}
+	\end{cases}.
+\end{equation} Asteikkomuunnoksessa yksikkö muuttuu hertseistä Barkeiksi \cite{Fastl1997, Smith1999}. Bark-asteikko taajuuden suhteen on esitetty kuvassa \ref{fig:Bark_approksimations}, jossa katkoviivalla on esitetty kaavan \eqref{Barkappr} approksimaatiot.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{Bark_approksimations.png}
+\caption{Bark-muunnos taajuuden suhteen. Katkoviivalla esitetty yhtälön \eqref{Barkappr} approksimaatiot. \cite{Fastl1997}}
+\label{fig:Bark_approksimations}
+\end{figure}
+
+\subsection{Huoneakustiikka}
+
+Huoneakustiikassa ongelmia aiheuttavat muun muassa sisustus, huoneen rakenne ja äänilähteiden asettelu ja laatu. Hyvälaatuisilla ja oikein sijoitelluilla äänentoistolaitteillakin huonerakenteissa tapahtuva äänisignaalien absorboituminen ja huonekalujen sijoittelu voivat aiheuttaa matalilla taajuuksilla seisovia aaltoja muuttaen äänenvoimakkuutta joillain kaistanleveyksillä jopa 20-30 dB  \cite{CBean1989}.
+
+Huolella suunnitelluissa kuunteluhuoneissa olosuhteet on hallittu huolellisella akustisella suunnittelulla ja laadukkailla äänentoistolaitteilla. Kotona olevat äänentoistojärjestelmät sen sijaan altistuvat muuttuville ympäristöolosuhteille, joissa on usein jälkikaikuja aiheuttavia tiloja ja paljon heijastavia pintoja. Tämän lisäksi heikkenemättömät matalat taajuusmoodit tai äänilähteiden väärinsijoittaminen tuottavat matalia bassoääniä, jotka aiheuttavat liian voimakkaita matalien taajuuksien komponentteja. Autoissa akustiset ominaisuudet eroavat huonetiloista täysin, mutta ne jätetään tässä huomioimatta, koska keskitytään symmetrisiin huoneisiin. \cite{MKarjalainen2005}
+
+\subsubsection{Heijastumat ja jälkikaiut}
+
+Äänisignaali heijastuu huonetiloissa olevista esteistä ja ihminen kuulee äänisignaalin heijastuman kaikuna. Uudelleenheijastunutta äänisignaalin heijastumaa kutsutaan jälkikaiuksi. Pienikokoisissa huoneissa äänisignaalin heijastumat eivät kuitenkaan erotu erillisinä kaikuina, vaan yhdistyvät alkuperäiseen äänisignaaliin vääristäen sitä. Nämä vääristyneet signaalit eivät ole toivottuja haluttaessa optimaalista äänikenttää huoneeseen. Kuvassa \ref{fig:echos in room} on esitetty äänilähteeltä lähtevän äänen heijastuminen ja heijastumien yhtyminen alkuperäiseen signaaliin vastaanottajalla.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.3]{echos.png}
+	\caption{Äänilähteeltä lähetettävän signaalin heijastuminen huonerakenteista \cite{YHaneda1994}.}
+	\label{fig:echos in room}
+\end{figure}
+
+Ääntä voidaan korjata huonekalujen sijoittelulla ja pintamateriaaleilla, joista signaali heijastuu mahdollisimman vähän. Tämä kuitenkin rajaa huoneen sisustuksellisia mahdollisuuksia, edellyttää ikkunattomia huoneita tai ikkunoiden peittämistä, eivätkä nämä seikat ole kaikissa huoneissa edes mahdollisia. Vaikka heijastusten määrää saataisiinkin verhojen ja mattojen avulla vähennettyä, materiaalien absorptiokyky on alhainen varsinkin matalilla taajuuksilla, jolloin suurin osa äänisignaaleista heijastuu materiaaleista huolimatta.  \cite{MMiyoshi1988}
+
+Koska äänisignaalit ovat aaltoliikettä ja heijastumiensa vuoksi vääristyneitä, kuultavaan ääneen vaikuttaa myös kuulijan sijainti huoneessa. Riippuen sijainnista alkuperäinen äänisignaali ja sen heijastumat ovat eri vaiheissa, jolloin kuultavan vääristyneen äänen eri komponentit voivat olla joko korostuneita tai vaimentuneita. Vääristyneitä äänisignaaleja pyritään korjaamaan etsimällä mittauksia tekemällä sellainen suodin, jolla lopullisesta huonevasteesta saadaan poistettua mahdollisimman paljon heijastumia ja jälkikaikuja.
+
+\subsubsection{Seisovat aallot sisätiloissa}
+
+Seisovaksi aalloksi eli huonemoodiksi kutsutaan äänisignaalia, joka on heijastunut rakenteiden välissä siten, että sekä heijastuma, että alkuperäinen signaali ovat samassa pisteessä samassa vaiheessa. Seisovia aaltoja syntyy rakenteiden välille, jos niiden välinen etäisyys on puolet aallonpituudesta tai sen monikerta. Tällöin signaali heijastuu huoneessa siten, että se on rakenteeseen törmäyshetkellä aina samassa vaiheessa, joten aalto jää ``seisomaan'' rakenteiden väliin ollen aina samassa pisteessä samassa vaiheessa. Kuvassa \ref{fig:standing_wave} on esitetty seisova aalto kahden vastakkaisen rakenteen välissä. Paikallaan pysyviä ``risteyskohtia,'' joissa amplitudi on aina nolla kutsutaan aallon solmukohdiksi. Solmujen välillä olevia aallon amplitudihuippuja kutsutaan kuvuiksi.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{stationary_wave.png}
+	\caption{Seisova aalto kahden vastakkaisen seinän välissä \cite{YHaneda1994}.}
+	\label{fig:standing_wave}
+\end{figure} 
+
+Paras esitystapa seisovien aaltojen kuvaamiseksi on spektrien keskiarvo. Spektrin arvot saadaan mitattua käyttämällä kapean kaistanleveyden omaavaa testisignaalia, esimerkiksi siniaallon muotoista ääntä \cite[s. 9]{Kahrs2002}. Seisovan aallon solmukohdat ja kuvut ovat aina samassa kohdassa, kuten kuvassa \ref{fig:standing_wave} piste C on solmukohta ja piste A kupu. Kun kapean kaistanleveyden testisignaali heijastuu seinien välillä useita kertoja, saadaan seisovasta aallosta mahdollisimman monesta pisteestä vaihe. Tällöin spektrien keskiarvona saadaan melko tarkka estimaatti signaalista. Muiden äänisignaalien kuvaamiseksi on parempi käyttää hetkellisten esitysten keskiarvoja. Mittaus voidaan suorittaa lyhytkestoisten testisignaalien keskiarvoina \cite[luku 1.4]{Kahrs2002}. Koska ei-seisovan signaalin vaiheet tietyissä pisteissä muuttuvat koko ajan, tulisi pitkäkestoisella testisignaalilla samasta pisteestä useita eri vaiheita, eikä todellista äänisignaalia saisi näin ollen mitattua tarkasti.
+
+\clearpage
+
+\section{Säätötekniikka}
+
+Säätöteknisesti systeeminä eli järjestelmänä voidaan ajatella mikä tahansa prosessi tai ympäristö, jossa järjestelmään tuleva tulosignaali muuttuu tai sitä muutetaan, ja jonka jälkeen järjestelmästä lähtee muuttunut lähtösignaali. Tulo- ja lähtösignaaleita voi olla useita ja järjestelmä on takaisinkytketty, jos siinä on lähtösignaali kytkettynä joko suoraan tai alijärjestelmän kautta tulosignaaliin.
+
+Tyypillinen huone on suljettu akustinen ympäristö, jota voidaan mallintaa lineaarisena järjestelmänä, ja jonka käyttäytymistä kuvaavat impulssivasteet, $h(n); n \in \{ 0, 1, 2, ... \}$, jotka liittyvät taajuusvasteisiin, $H(e^{j \omega})$. Impulssivaste tuottaa täydellisen kuvauksen äänisignaalin läpikäymistä muutoksista sen kulkiessa tulosignaaleista lähtösignaaleihin, tässä tapauksessa äänilähteiltä kuulijoille. Huonevaste voidaan yksilöllisesti määritellä karteesisten koordinaattien joukkona, $l_i \triangleq (x_i, y_i, z_i)$, jossa äänilähde on origossa ja $i$:s vastaanottaja saman koordinaatiston pisteessä ($x_i,y_i,z_i$). \cite{SBharitkar2001}
+
+\subsection{Siirtofunktio}
+
+Siirtofunktio kuvaa tulo- ja lähtösignaaleiden välillä tapahtuneet muutokset. Siirtofunktiossa huomioidaan transformaatio kokonaisuudessaan eli se sisältää myös kaikki järjestelmässä signaaliin liittyneet häiriöt ja vääristymät. Kun digitaalista järjestelmää käsitellään Z-tasossa, syötteen ja vasteen välillä tapahtuva kuvaus on pulssinsiirtofunktio. 
+
+Kuvitellaan huone digitaalisena järjestelmänä, jossa on yksi äänilähde $S_1$ ja yksi mikrofoni $M$, joka vastaa kuulijaa. Digitaalisen järjestelmän akustiselle signaalinlähetykselle voidaan kuvata pulssinsiirtofunktio äänilähteestä $S_{1}$ mikrofoniin $M$ pulssinsiirtofunktiona H(z). H(z) sisältää varsinaisen äänilähteeltä $S_1$ lähetetyn äänisignaalin lisäksi kaikki huonetilassa tapahtuneet heijastumat ja kaiut, jotka päätyvät mikrofonille $M$ asti. Jos $S_1$:ltä lähtevää signaalia kuvataan $X(z)$:lla ja vastaanottajalle $M$ saapuvaa signaalia $Y(z)$:lla, voidaan huonesiirtofunktio (RTF) esittää yksinkertaisesti kaavalla \begin{equation}
+\label{RTF}
+Y(z) = H(z)X(z),
+\end{equation} jossa pulssinsiirtofunktio $H(z)$ kuvaa heijastumien ja vääristymien aiheuttaman transformaation signaalissa \cite{YHaneda1994}. H(z) sisältää kaikki signaalissa tapahtuneet muutokset äänilähteiden ja vastaanottajien välillä ja kaava \eqref{RTF} vastaakin kuvan \ref{fig:echos in room} järjestelmää.
+
+\subsection{Navat ja nollat}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{marg-stabil_min-phase.png}
+\caption{Jatkuva-aikaisen marginaalisesti stabiilin minimivaiheisen järjestelmän napa-nolla-kuvaaja.}
+\label{fig:Laplace marginally stabil minimum phase pzmap}
+\end{figure}
+
+Analogisen järjestelmän siirto- tai digitaalisen järjestelmän pulssinsiirtofunktion osoittajan nollakohdat ovat järjestelmän nollia. Vastaavasti nimittäjän nollakohdat ovat järjestelmän napoja. Järjestelmän stabiilisuus saadaan määritettyä napojen avulla. Analoginen järjestelmä on asymptoottisesti stabiili, jos kaikki sen navat ovat kompleksitason vasemmassa puolitasossa, eli \begin{equation}
+Re(p_i) < 0 \qquad \forall p_i,
+\end{equation} jossa $p_i$ on järjestelmän $i$:s napa. Marginaalisesti stabiilille analogiselle järjestelmälle ainakin yksi navoista on imaginääriakselilla, eli
+\begin{equation}
+\label{Laplace stabil}
+\exists \quad p_i : Re(p_i) = 0.
+\end{equation} Kuvassa \ref{fig:Laplace marginally stabil minimum phase pzmap} on esitetty marginaalisesti stabiilin jatkuva-aikaisen järjestelmän napa-nolla-kuvaaja. Napa-nolla-kuvaajassa napoja kuvataan x:llä ja nollia o:lla. Mikäli imaginääriakselilla on päällekkäisiä napoja tai yksikin navoista on oikeassa puolitasossa, järjestelmä on epästabiili.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{Z_stabil_non-stabil_inverse.png}
+\caption{Diskreetin tason stabiili järjestelmä, jolla on epästabiili inverssi.}
+\label{fig:Z stabil non-stabil inverse}
+\end{figure}
+
+Digitaalisissa järjestelmissä vastaavia stabiilisuuksia kuvaa tarkastelu siitä, ovatko navat yksikköympyrän sisällä, eli \begin{equation}
+\left|\left|p_i\right|\right| < 1 \qquad \forall p_i,
+\label{Z stabil}
+\end{equation} jossa $p_i$ on järjestelmän $i$:s napa. Kuvan \ref{fig:Z stabil non-stabil inverse} järjestelmä on asymptoottisesti stabiili digitaalinen järjestelmä. Marginaalisesti stabiilille järjestelmälle vähintään yksi napa on yksikköympyrällä, eli \begin{equation}
+\exists p_i : \left|\left|p_i\right|\right| = 1
+\label{Z marginal stabil}
+\end{equation} ja muulloin järjestelmä on epästabiili. \cite{Hall2010}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{min-phase_step_analog.png}
+\caption{Analogisen minimivaiheisen järjestelmän askelvaste.}
+\label{fig:min-phase analog step function}
+\end{figure}
+
+Nollat vaikuttavat vasteiden alkuarvoihin. Mikäli kaikki analogisen järjestelmän nollat ovat kompleksitason vasemmassa puolitasossa, kuten kuvassa \ref{fig:Laplace marginally stabil minimum phase pzmap}, järjestelmä on minimivaiheinen. Tällöin systeemin vasteessa ilmenee aluksi ylitys, eli vaste nousee alussa loppuarvoa korkeammalle. Askelvasteen minimivaiheisuus, eli alussa tapahtuva ylitys nähdään kuvasta \ref{fig:min-phase analog step function}. Käytännössä siis ehdolla \eqref{Laplace stabil} voidaan tarkastella sekä järjestelmän stabiilisuutta, että minimivaiheisuutta riippuen siitä, tarkastellaanko napoja $p_i$ vai nollia $q_i$. Ei-minimivaiheisuus voi kuitenkin aiheutua järjestelmään myös siinä esiintyvästä viiveestä.
+
+Diskreetissä tasossa vastetta käsitellään digitaalisesti eli se koostuu pulsseista. Pulsseissa varsinaista siirtymää vaiheesta toiseen ei ole. Jos yksikin napa-nolla-kuvaajan nollista on yksikköympyrän ulkopuolella, järjestelmällä on niin sanottu epästabiili inverssi, kuten kuvan \ref{fig:Z stabil non-stabil inverse} järjestelmällä. Mikäli kaikki nollat ovat yksikköympyrän sisällä, eli yhtälön \eqref{Z stabil} ehto täyttyy, kun $p_i$ korvataan digitaalisen järjestelmän nollalla $q_i$, järjestelmällä on stabiili inverssi. Digitaalisen järjestelmän, jolla on stabiili inverssi, askelvaste on esitetty kuvassa \ref{fig:stabil inverse digital step function}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{stabil_inverse_step_digital.png}
+\caption{Digitaalisen stabiilin inverssin järjestelmän askelvaste.}
+\label{fig:stabil inverse digital step function}
+\end{figure}
+
+Nollat voivat kumota niitä vastaavan navan ja näin ollen myös navan aiheuttaman käyttäytymisen. Järjestelmän epästabiilia napaa ja sen aiheuttamaa järjestelmän epästabiilia käyttäytymistä ei kuitenkaan voida kompensoida täydellisesti ei-minimivaiheisella nollalla, vaan vasteen epästabiiliksi muuttuminen siirtyy myöhemmäksi. \cite{Hall2010}
+
+\subsection{Sumea logiikka}
+
+Sumea logiikka eroaa perinteisestä logiikasta sillä, että se vastaa ihmisen luonnollista tapaa käsitellä suureita. Tarkkojen numeeristen arvojen sijaan suureita kuvataan vertaillen kuulumista eri jäsenfunktioihin. Täten looginen ohjaus voidaan toteuttaa lähemmin ihmisen ajattelutapaa vastaavalla tavalla, mutta tarkasti.
+
+Sumeassa logiikassa lähtökohtana on sumean joukon käsite, jossa kuulumista ei kuvata perinteisen logiikan tapaan binäärisellä kuulumisarvolla, vaan sille asetetaan kuulumisaste jäsenfunktion avulla. Jäsenfunktio saa arvoja väliltä [0, 1] ja on määritelty kaikille perusjoukon alkioille. Käytännössä kuulumisasteesta voidaan sanoa perinteisen logiikan tapaan, että sen ollessa nolla alkio ei varmasti kuulu joukkoon, ja sen ollessa yksi varmasti kuuluu. Kaikilla avoimen välin ]0, 1[ kuuluvuuksilla puhutaan vain tietyn asteisesta kuuluvuudesta. \cite[luku 2.1]{Harris1992}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}[b]{| c | c |}
+\hline
+\textbf{Perinteinen logiikka} & \textbf{Sumea logiikka} \\ \hline
+A $\cup$ B & max\{A, B\} \\ \hline 
+A $\cap$ B & min\{A, B\} \\ \hline
+$\overline{A}$ & 1 - $\mu(A)$ \\ \hline
+\end{tabular}
+\caption{Perinteisen ja sumean logiikan operaatiovastineet.}
+\label{tab:fuzzy_vs_conventional_logic}
+\end{table}
+
+Sumeassa logiikassa on perinteisen logiikan tapaan olemassa leikkaus-, unioni- ja komplementti-operaatiot, joiden vastineet on esitetty taulukossa \ref{tab:fuzzy_vs_conventional_logic}. Taulukon $\mu$ vastaa jäsenyysfunktiota. On kuitenkin huomattava, että sumeassa logiikassa alkion ja sen komplementin leikkaus ei ole tyhjä joukko, eikä alkion ja sen komplementin unioni ole täysi joukko, eli se ei sisällä kaikkia mahdollisia arvoja. \cite[luku 2.1]{Harris1992}
+
+Sumean ohjauksen ja säädön vaiheet on esitetty kuvassa \ref{fig:fuzzy step-by-step}. Alussa tulosignaalin arvo sumeutetaan eli sille haetaan jäsenfunktioista numeerista arvoa vastaava kuuluvuus. Tämän jälkeen sumean logiikan sääntöjen perusteella suoritetaan jäsenfunktioiden perusteella halutut säädöt. Lopuksi arvot selkeytetään, eli esimerkiksi kuulumisfunktion painopisteen tai mediaanin numeerinen arvo asetetaan kyseisen joukon numeeriseksi edustajaksi \cite[luku 2.3]{Harris1992}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{fuzzy2.png}
+	\caption{Sumean ohjauksen ja säädön vaiheet \cite[s. 19]{Harris1992}.}		\label{fig:fuzzy step-by-step}
+\end{figure}
+
+Tavallisen huoneen ollessa kuunteluympäristönä olosuhteet muuttuvat lähes jatkuvasti. Kuuntelijat liikkuvat koko ajan, mutta liike on useimmiten pientä, esimerkiksi pään kääntöä, siirtymistä sohvalla tai muuta vastaavaa. Tässä tapauksessa perinteinen looginen ohjaus huonevasteen korjauksessa jää helposti muuttumattomaksi tai muuttuu liian aggressiivisesti. Sumealla logiikalla korjauksessa päästään tarkempaan ``hienosäätöön,'' eikä hyvin suunniteltu sumea korjain tee liian äkkinäisiä korjauksia.
+
+\clearpage
+
+\section{Digitaaliset korjausmenetelmät}
+
+Ensimmäiset huonevasteen korjausmenetelmät, analogiset taajuusmuuntimet, olivat turhan epätarkkoja ja vaativat käyttäjän itse määrittämiä mittauksia ja hienosäätöä. Kiinteillä taajuuskaistoilla ja kaistanleveyksillä ``huonevasteena'' mitataan todellisuudessa amplitudivastetta, jolloin vaiheen vääristymä tuo häiriötä mataliin taajuuksiin, vaikka amplitudivaste olisikin ekvivalisoitu. Matalilla taajuuksilla aallonpituus on niin pitkä, että vaihe-erot ovat pieniä toisiaan lähellä olevissa pisteissä. Tämän lisäksi, koska tiedetään, että yhden pisteen mittauksella ei päästä tyydyttävään tulokseen, eikä näin ollen voida tyytyä yksinkertaisiin ratkaisumalleihin, tulisi analogisista komponenteista kasatuista korjauslaitteistoista erittäin monimutkaisia, haasteellisia rakentaa ja järjestelmän kokonaishinta kasvaisi suureksi  \cite{MMiyoshi1988,SBharitkar2001,ACarini2012,S.J.Elliot1989,YHaneda1997}. 
+
+Kun äänisignaali lähetetään huoneessa lähteeltä tietylle vastaanottajalle $i$, se saapuu perille vääristyneenä pääasiassa huonerakenteiden ja matalataajuuksisten seisovien aaltojen vuoksi. Vääristymät voidaan poistaa korjaavalla suotimella, joka on huoneen impulssivasteen käänteismuunnos, ja jonka läpi lähtösignaali suodatetaan ennen sen lähetystä. Jos $h_{eq}(n)$ on korjaussuodin $h(n)$:lle, täydellisessä korjauksessa $h_{eq}(n) \otimes h(n) = \delta(n)$, jossa $\otimes$ on konvoluutio ja $\delta(n)$ on Kroneckerin deltafunktio, \begin{equation}
+ \label{Kronecker delta}
+ \delta(n) = \begin{cases}
+	1, 	& \mbox{i = 0} \\
+	0,  & \mbox{i $\neq$ 0}
+\end{cases}.
+\end{equation} Tässä on kuitenkin kaksi ongelmaa. Ensinnäkin huonevasteesta ei saa käänteismuunnosta, jos se ei ole minimivaiheinen. Käänteismuunnoksessa navat ja nollat vaihtavat paikkaa, koska ne ovat osoittajan ja nimittäjän nollakohtia. Tästä johtuen ei-minimivaiheisen järjestelmän käänteismuunnoksesta tulee epästabiili. Toinen ongelma on se, ettei tiettyyn pisteeseen luotu korjaussuodin todennäköisesti korjaa vastetta oikein muissa pisteissä. Etenkin agressiivisilla korjauksilla yhden mittauspisteen korjaus voi aiheuttaa suurta virhettä myös melko lähellä kyseistä pistettä olevissa pisteissä \cite{S.J.Elliot1989}, sillä se korjaa huonevastetta vain aallonpituuden murto-osan etäisyydellä mittauspisteestä \cite{ACarini2012}. Tästä johtuen huonevasteen käänteismuunnoksen muodostamisessa on huomioitava se, että pulssinsiirtofunktion nollakohtia ei pidä muuntaa helposti kuultaviksi ja pitkäkestoisiksi resonansseiksi eli navoiksi, vaan taajuutta pyritään siloittamaan jollain tapaukseen sopivilla siloitusmenetelmillä. Kompleksisessa siloituksessa yleisin menetelmä on vasteiden pehmennys lineaarisilla taajuussuotimien yhdistelmillä, joskin tähän voidaan käyttää myös monia muita painotusmenetelmiä \cite{MKarjalainen2005}. 
+% Nää kaks yhdistetty eellä:
+% Tästä johtuen huonevastetta pyritään menetelmissä useimmiten siloittamaan ja korjausta varten tehtävät mittaukset tehdään siloitetun vasteen avulla useassa pisteessä. 
+% Tärkeä ominaisuus huonevasteen käänteissiirtofunktion muodostamisessa on se, että kuulolle siirtofunktion nollakohtia ei pidä muuntaa huomattaviksi ja pitkäkestoisiksi resonansseiksi eli navoiksi, vaan taajuutta pyritään siloittamaan jollain tapaukseen sopivilla siloitusmenetelmillä. Kompleksisessa siloituksessa yleisin menetelmä on vasteiden pehmennys lineaarisilla taajuussuppiloiden yhdistelmillä, joskin tähän voidaan käyttää myös monia muita painotusmenetelmiä. \cite{MKarjalainen2005}
+
+Huonevasteen digitaalisessa korjauksessa kuunteluhuone toimii järjestelmänä, jossa äänilähteet toimivat tulosignaaleina ja kuuntelijat lähtösignaaleina. Käytännössä lähtösignaalit tulevat kuitenkin mikrofoneihin, joista mitattua ääntä korjataan takaisinkytkennän avulla poistamalla mahdollisimman paljon heijastumia, jälkikaikuja ja muita vääristymiä. Huonevasteen korjauksen tarpeet vaihtelevat laajalti riippuen äänentoistosta ja huoneakustiikasta. Muuttuvia tekijöitä korjauksessa ovat muun muassa seuraavat seikat: \begin{itemize}
+\item kuuntelijan sijainti,
+\item huoneen akustiset ominaisuudet,
+\item reaaliaikaisen vastemittaimen suunnittelu,
+\item dynaamisen taajuusalueen rajoitukset,
+\item korjainten tekemät kompromissit esi- ja jälkikaikujen välillä niiden poistossa,
+\item sovelluksesta riippuva sallittu viive,
+\item reaaliaikaisen suorittamisen vaatimat tehot ja haasteet kymmenien tai satojen äänikanavien liitosten optimoinnissa äänikenttään \cite{MKarjalainen2005}.
+\end{itemize}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=1]{alternative_choises_in_room_equalizer_design.png}
+	\caption{Vaihtoehdot huonevasteen korjaimen suunnittelussa \cite{MKarjalainen2005}.}
+	\label{fig:alternatives}
+\end{figure}
+
+Huonevasteen käänteissuodinten suunnittelun vaihtoehtojen moniulotteisuutta on esitetty kuvassa \ref{fig:alternatives}. Kuvasta voidaan havaita, että jokaisella vaakarivillä valittu vaihtoehto voidaan yhdistää mihin tahansa vaihtoehtoihin muilla riveillä \cite{MKarjalainen2005}. Tässä työssä on huomioitu vain matalien taajuuksien korjaukset, eikä yhden pisteen menetelmiin ole keskitytty, ellei niitä käytetä myöhemmin esiteltävän monipistekorjauksen pohjana. Muilta osin työssä tarkastellaan ainakin pintapuoleisesti kaikki muut kuvan \ref{fig:alternatives} vaihtoehdot, paitsi hetkellisen vaimenemisen hallinnan (temporal decay control) käsittely, joka sivuaa napa-nolla-kuvausten resonanssikäsittelyä \cite{Antsalo2004}.
+
+\subsection{Huonevasteen käänteismuunnos}
+
+Jos huoneessa liikkuvaa äänisignaalia käsitellään pulssinsiirtofunktiona H(z), siten että äänilähteet ovat tulosignaaleita ja kuuntelijat lähtöjä, voisi olettaa, että sen käänteismuunnoksen saisi suoraan kaavalla \begin{equation}
+	\label{inverseG}
+	H^{-1}(z) = \frac{1}{H(z)},
+\end{equation} mutta tämä johtaisi epästabiiliin käänteispulssinsiirtofunktioon, koska H(z):aa ei voida olettaa minimivaiheiseksi. Huonevasteen käänteismuunnokseen on esitetty monia menetelmiä, mutta ainoastaan MINT saa aikaiseksi täydellisen käänteismuunnoksen \cite{MMiyoshi1988}. Suurin osa muista ratkaisumalleista perustuu pienimmän neliövirheen laskentaan, jolloin korjain saadaan muodostettua stabiililla FIR-suotimella. Tämä on kuitenkin yleisesti vain approksimaatio järjestelmän käänteismuunnoksesta.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=1]{considered_siso-system_with_fir.png}
+\caption{Tavanomainen pienimpään neliövirheeseen perustuva käänteissuodinmenetelmä \cite{MMiyoshi1988}.}
+\label{fig:siso with fir}
+\end{figure}
+
+Oletetaan käytössä olevan kuvan \ref{fig:siso with fir} mukainen yhden tulon ja yhden lähdön lineaarinen FIR-järjestelmä. Järjestelmän ei-minimivaiheiseksi oletettava impulssivaste on $h(n)$, jossa $n$ on epänegatiivinen kokonaislukuindeksi. Suotimen kerrointen $f(n)$ ja järjestelmän pulssinsiirtofunktion impulssivasteen $h(n)$ tulee noudattaa yhtälön \begin{equation}
+\label{fir siso system}
+\delta(n) = h(n) \otimes f(n)
+\end{equation} mukaista riippuvuutta, jossa $\delta$(n) on kaavan \eqref{Kronecker delta} mukainen Kroneckerin deltafunktio. Kaavaa \eqref{fir siso system} voidaan kuvata matriisimuodossa \begin{equation}
+\underbrace{\begin{bmatrix}
+\label{matrixDGH}
+1 \\
+0 \\
+ \\
+ \\
+\vdots \\
+ \\
+ \\
+0
+\end{bmatrix}}_{(L+1) \times 1} = \underbrace{\begin{bmatrix}
+h(0) \\
+h(1) & h(0) & & 0 \\
+\vdots & h(1) & \ddots \\ 
+h(m) & \vdots & & h(0) \\
+ & h(m) & & h(1) \\
+ 0 & & \ddots & \vdots \\
+& & & h(m) \\
+\end{bmatrix}}_{(L+1) \times (i+1)} \underbrace{\begin{bmatrix}
+f(0) \\
+f(1) \\
+f(2) \\
+ \\
+\vdots \\
+ \\
+f(i-1) \\
+f(i) \\
+\end{bmatrix}}_{(i+1) \times 1}
+\end{equation} tai \begin{equation}
+\label{plainDGH}
+\textbf{D} = \textbf{HF}.
+\end{equation} Tiedetään, että \begin{equation}
+L = i+m,
+\end{equation} jossa $m$ on h(n):n Z-muunnoksen asteluku ja $i$ suotimen asteluku. Huomataan, ettei kaavalle \eqref{matrixDGH} löydy vastausta, sillä \begin{equation}
+L + 1 = i + m + 1 > i + 1, 
+\end{equation} joten pystyvektorin \textbf{D} korkeus on suurempi kuin matriisin \textbf{H} leveys, joten yhtälölle \eqref{plainDGH} ei ole löydettävissä ratkaisua. Tavallisessa pienimmän neliövirheen menetelmässä suotimen kertoimet saadaan approksimoimalla kaavasta \eqref{plainDGH} muokkaamalla se muotoon \begin{equation}
+\textbf{F}=(\textbf{H}^T \textbf{H})^{-1}\textbf{H}^T \textbf{D}, 
+\end{equation} joten täydellisen käänteismuunnoksen saaminen lineaariselle FIR-järjestelmälle on tällä menetelmällä mahdotonta. Lisäksi, riippumatta siitä kuinka korkeaa astetta käänteissuodin onkaan, virhe $(\textbf{D}-\textbf{HF})^T(\textbf{D}-\textbf{HF})$ ei suppene nollaan, sillä $h(n)$ ei ole minimivaiheinen, joten pienimmällä neliövirheellä ei koskaan saada aikaiseksi täydellistä käänteismuunnosta järjestelmästä. \cite{MMiyoshi1988}
+
+Vaikka edellä kuvattu lähestymistapa ei pysty tuottamaan täydellistä käänteismuunnosta yhden tulon ja yhden lähdön (SISO) järjestelmille, useimmiten järjestelmissä tulosignaaleita on useampia. Kuvitellaan lineaarinen järjestelmä, jossa kuvan \ref{fig:siso with fir} järjestelmään on lisätty toinen signaalinlähetyskanava, aikaansaaden järjestelmän, jossa on kaksi tulosignaalia ja yksi lähtösignaali, kuten kuvassa \ref{fig:MINT MISO system}. Merkitään järjestelmän signaalinlähetyskanavia $\textbf{H}_1$(z) ja $\textbf{H}_2$(z), jolloin vastaavasti tarvitaan kaksi FIR-suodinta, $\textbf{F}_1$(z) ja $\textbf{F}_2$(z), jotka ovat indeksoinnin mukaisesti yhdistetty järjestelmän lähetyskanaviin kuvan mukaisesti. Jotta käänteismuunnos olisi mahdollista, tulee suotimien täyttää ehto \begin{equation}
+\label{MINT miso system}
+\textbf{D}(z) = \textbf{H}_1(z) \textbf{F}_1(z) + \textbf{H}_2(z) \textbf{F}_2(z) = 1,
+\end{equation} jossa \textbf{D}(z) on Z-muunnos yhtälön \eqref{fir siso system} termistä $\delta$(n). Koska $\textbf{H}_1$(z), $\textbf{H}_2$(z), $\textbf{F}_1$(z) ja $\textbf{F}_2$(z) ovat z:n polynomeja, on yhtälön \eqref{MINT miso system} ratkaisulla ($\textbf{F}_1$(z) ja $\textbf{F}_2$(z)) seuraavat ehdot:
+\begin{itemize}
+\item Ratkaisu kaavalle \eqref{MINT miso system} on olemassa, jos ja vain jos $\textbf{H}_1$(z) ja $\textbf{H}_2$(z) ovat riippumattomia, eli niillä ei ole yhtään yhteisiä nollia Z-tasolla.
+\item Kun kaavalla \eqref{MINT miso system} on olemassa ratkaisu, se on ainoa ratkaisu sillä ehdolla, että $\textbf{F}_1$(z) ja $\textbf{F}_2$(z) ovat kertaluvuiltaan pienempiä kuin $\textbf{H}_1$(z) ja $\textbf{H}_2$(z).
+\end{itemize} Siispä on olemassa FIR-suotimet $\textbf{F}_1$(z) ja $\textbf{F}_2$(z), jotka voivat toteuttaa täydellisen käänteismuunnossuodatuksen kaksituloiselle yksilähtöiselle  lineaariselle FIR-järjestelmälle. \cite{MMiyoshi1988}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=1]{mint_system.png}
+	\caption{Kahden tulo- ja yhden lähtösignaalin järjestelmä. \cite{MMiyoshi1988}}
+	\label{fig:MINT MISO system}
+\end{figure}
+
+Tätä periaatetta voidaan soveltaa äänikentälle huoneessa, jossa on kaksi äänilähdettä, $S_1$ ja $S_2$, ja vastaanottopiste, eli mikrofoni $M$. $S_1$:stä ja $S_2$:sta lähtevät signaalit yhdistetään $M$:ssä alijärjestelmien $\textbf{H}_1$(z) ja $\textbf{H}_2$(z) läpäisemisen jälkeen. Kun alijärjestelmillä $\textbf{H}_1$(z) ja $\textbf{H}_2$(z) ei ole yhteisiä nollia, on olemassa FIR-suotimet $\textbf{F}_1$(z) ja $\textbf{F}_2$(z), jotka toteuttavat yhtälön \eqref{MINT miso system}, jolloin täydellinen käänteissuodatus saadaan yhdistämällä ne tulosignaaleihin $S_1$ ja $S_2$. Täten on mahdollista jäljentää haluttu akustinen signaali vastaanottopisteessä $M$ täysin ilman heijastumia tai häiriöitä. Vastaavasti samaa periaatetta voidaan soveltaa yhden tulo- ja kahden lähtösignaalin lineaariseen FIR-järjestelmään rakentamalla tulosignaali uudelleen. Tällöin suotimet $\textbf{V}_1$(z) ja $\textbf{V}_2$(z) kytketään järjestelmän lähetyskanavien, $\textbf{H}_1$(z) ja $\textbf{H}_2$(z) perään, jolloin signaalin uudelleenrakentamista varten ehdon \begin{equation}
+\label{MINT simo system}
+\textbf{H}_1(z)\textbf{V}_1(z)+\textbf{H}_2(z)\textbf{V}_2(z) = 1
+\end{equation} täytyy toteutua. Voidaan huomata, että ehto \eqref{MINT simo system} on identtinen ehdon \eqref{MINT miso system} kanssa, joten samoilla periaatteilla voidaan perustella FIR-suodinten olemassaolo. Voidaan siis todeta, että lineaarisen yhden tulo- ja kahden lähtösignaalin FIR-järjestelmän tulosignaalin uudelleenrakennus on mahdollista sen lähtösignaalien perusteella. Huoneakustiikassa nämä periaatteet ovat hyödyllisiä akustisten signaalien heijastuksien mittaamisessa huoneesta. Koska todistetusti kahden tulo- ja yhden lähtösignaalin, sekä yhden tulo- ja kahden lähtösignaalin lineaarisissa FIR-järjestelmissä voidaan löytää korjaimet, jolla vääristymät saadaan täysin poistettua, voidaan näitä yhdistämällä soveltaa samaa periaatetta myös useampien tulo- ja lähtösignaalien järjestelmiin, kuten kuvassa \ref{fig:proposed MINT system} esitetty $n+1$ tulon ja $n$ lähdön järjestelmään. Siispä MINT-teoreemalla järjestelmän huonesiirtofunktiosta saadaan täydellinen käänteismuunnos. \cite{MMiyoshi1988}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{mint_system_combination.png}
+\caption{Monen tulo- ja lähtösignaalin käänteismuunnosteoriaan (MINT) perustuva käänteissuodatusmenetelmä \cite{MMiyoshi1988}.}
+\label{fig:proposed MINT system}
+\end{figure}
+
+\subsection{Mukautuvat digitaaliset suotimet}
+
+Mukautuvia digitaalisia suotimia käytettäessä pyritään hakemaan usean mittauspisteen perusteella korjaimiin optimaaliset kertoimet. Yksinkertaisin ja yleisimmin käytetty menetelmä signaalinkorjauksessa on pienimmän keskineliösumman menetelmä, jossa yksittäinen virhesignaali esitetään kaavalla \begin{equation}
+e_1(n) = d(n) - \textbf{x}^T(n) \textbf{h}(n),
+\end{equation} jossa
+\newline
+d(n) on alkuperäinen signaali,
+\newline
+$\textbf{x}(n)$ = $\begin{bmatrix}
+x(n) & x(n-1) & \hdots & x(n-I-1) \\
+\end{bmatrix}^T$ ja
+\newline
+$\textbf{h}(n)$ = $\begin{bmatrix}
+h_0(n) & h_1(n) & \hdots & h_{I-1}(n)
+\end{bmatrix}^T$.
+
+Pienimmän keskineliösumman algorimilla jokainen suotimen kerroin asetetaan $\textbf{h}(n)$:ssa jokaisella näytteenottohetkellä hetkellisen keskineliövirheen suhteellisen nousun mukaan kaavalla \begin{equation} \label{adaptive single channel LMS}
+\textbf{h}(n+1) = \textbf{h}(n) - \alpha \frac{\partial e_1^2(n)}{\partial \textbf{h}(n)} = \textbf{h}(n) + \alpha \textbf{x}(n) e_1(n),
+\end{equation} jossa $\alpha$ on suppenemiskerroin, joka määrittää algoritmin suppenemisnopeuden \cite{S.J.Elliot1989}. Liian suurella $\alpha$:n arvolla algoritmista tulee kuitenkin epästabiili ja estimaatti suurimmasta $\alpha$:n arvosta, $\alpha_{max}$, onkin määritettävä $\textbf{h}(n)$:n toisen kertaluvun statistiikan perusteella \cite{S.J.Elliot1989} \begin{equation}
+\alpha_{max} \approx \frac{2}{\bar{x}^2 I}.
+\end{equation}
+
+Huono puoli yhden mittauspisteen pienimmän keskineliösumman menetelmässä on se, että kertoimet voivat esiasettua suotimen tulosignaalin sisältämän kohinan mukaisesti. Tämän vuoksi Elliot ja Nelson \cite{S.J.Elliot1989} esittävät vaihtoehtoisen virhekaavan \begin{equation}
+e_2(n) \simeq d(n) - \textbf{r}^T(n) \textbf{h}(n),
+\end{equation} jossa
+\newline
+$\textbf{r}(n) = \begin{bmatrix}
+r(n) & r(n-1) & \hdots & r(n-I+1)
+\end{bmatrix}^T$,
+\newline
+$r(n) = \sum\limits_{j=0}^{J-1} c_j x(n-j)$ ja
+\newline
+$c_j$ on suotimen j:s kerroin.
+\newline
+Tälle saadaan kaavaa \eqref{adaptive single channel LMS} vastaavalla tavalla hetkellisen keskineliövirheen nousukulman mukaisesti kertoimet, jolloin saadaan \begin{equation}  \label{adaptive single channel LMS filtered}
+\textbf{h}(n+1) = \textbf{h}(n) + \alpha \textbf{r}(n) e_2(n),
+\end{equation} jota kutsutaan suodatetuksi x-algoritmiksi, sillä \textbf{r}(n) sisältää impulssivasteen käänteismuunnoksen mukaan suodatetun referenssisignaalin \textbf{x}(n), kuten edellä kuvattiin. Käytännössä impulssivastetta ei kuitenkaan voi estimoida täydellisesti, ja algoritmissa tulee käyttää sen approksimaatiota r(n), joka on kuitenkin melko tarkka approksimaatio algoritmin robustisuuden vuoksi. Tässäkin $\alpha$ on suppenemiskerroin, jolla on tietty maksimiarvonsa ennen algoritmin muuttumista epästabiiliksi. Termin \textbf{h}(n) ensimmäisen kertaluvun statistiikan tarkastelu osoittaa, että $\alpha_{max}$ olisi kääntäen verrannollinen $\bar{x}^2$:n sijaan $\bar{r}^2$:n kanssa. Maksimiarvo riippuu kuitenkin suotimen pituuden lisäksi myös suodatetun referenssisignaalin spektristä, mutta myös sisäisistä viiveistä virheiden osalta. Simulaatioita tutkimalla Elliot ja Nelson ovat osoittaneet, että parhaiten soveltuva maksimiarvo on \begin{equation}
+\alpha_{max} \approx \frac{2}{\bar{r}^2 (I + W)},
+\end{equation} jossa $W$ kuvaa näytteiden määrää. \cite{S.J.Elliot1989}
+
+Edellä kuvattu menetelmä voidaan helpohkosti laajentaa kattamaan monikanavaista korjausta muuttamalla kaava \eqref{adaptive single channel LMS filtered} muotoon \begin{equation}
+\textbf{h}(n+1) = \textbf{h}(n) + \alpha \textbf{R}^T(n) \textbf{e}(n),
+\end{equation} jossa 
+\newline
+$\textbf{R}(n) = \begin{bmatrix}
+\textbf{r}_1(n) & \textbf{r}_2(n) & \hdots & \textbf{r}_L(n)
+\end{bmatrix}^T$ ja
+\newline
+$\textbf{e}(n) = \textbf{d}(n) - \textbf{R}(n) \textbf{h}.$
+\newline
+Tällöin jokaiselle mittaukselle tulee laskea erilliset viiveet, kuten kuvassa \ref{fig:multiple adaptive filter block model}. Näiden avulla korjaus pysyy synkronisena jokaisen mittauspisteen suhteen. Nyt suppenemiskertoimelle saadaan ratkaistua $L$:n mikrofonin tapaukselle maksimiarvo \begin{equation}
+\alpha_{max} \approx \frac{2}{\sum\limits_{i=1}^L \bar{r_i}^2 (I + W_i)},
+\end{equation} jossa
+\newline
+$\bar{r_i}^2$ on keskineliöarvo $i$:nnelle referenssisignaalille ja
+\newline
+$i$:nnellä virhepolulla on $W_i$ viive. \cite{S.J.Elliot1989}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{block_diagram_multiple_point_equalization_adaptive.png}
+\caption{Lohkokaavio monen pisteen korjauksessa käytettävästä signaalien näytteistyksestä. \cite{S.J.Elliot1989}}
+\label{fig:multiple adaptive filter block model}
+\end{figure}
+
+Mukautuville suotimille on olemassa myös algoritmi, joka käyttää IIR-suotimia. Suotimet toimivat tässä rekursiivisesti, jolloin lähtösignaali on suorassa yhteydessä omaan tulosignaaliinsa kaavalla \begin{equation} \label{adaptive recursive IIR}
+y(n) = \sum\limits_{i=0}^{I/2} a_i (n-i) + \sum\limits_{j=1}^{I/2} b_j y(n-j), 
+\end{equation} jossa suotimien kertoimia $a_i$ ja $b_j$ on yhteensä $I$ + 1 kappaletta. Perustana algoritmin kehitykselle on se, että rekursiiviset IIR-suotimet ovat perinteisesti FIR-suotimia tehokkaampia, sillä niillä päästään samaan suorituskykyyn pienemmällä määrällä kertoimia. Kuitenkin kaavan \eqref{adaptive recursive IIR} rekursiivinen luonne monimutkaistaa minkä tahansa kertoimien säätämiseen tarkoitetun mukautuvan suotimen toiminnan, johtuen mahdollisista epästabiileista kerrointen $b_j$ kombinaatioista, sekä keskineliön laskennan monimutkaistumisesta ja mahdollisesta suppenemattomuudesta. Näistä varjopuolista huolimatta rekursiivisten algoritmien käytöllä on päästy vasteen korjauksessa luotettaviin, robusteihin ja lähes yhtä laadukkaisiin lopputuloksiin jopa puolet pienemmällä kerroinmäärällä verrattuna äärellisten impulssivasteiden ratkaisuihin ilman rekursiota. \cite{S.J.Elliot1989}
+
+\subsection{Napa- ja nolla-kuvaukset}
+
+Vaikka edellä kuvatut lineaarisiin digitaalisiin suotimiin perustuvat huonevasteen korjausmenetelmät parantavat äänikenttää huoneissa huomattavasti, huoneakustiikka aiheuttaa niiden toteutuksiin tiettyjä rajoituksia. Ensinnäkin äärellisen impulssivasteen esitysmuoto voi olla huoneessa asteluvultaan jopa 10 000, jolloin myös korjauksen suunnittelussa vaaditaan erittäin korkeaa astelukua oleva suodin. Tämän lisäksi huonevaste voi muuttua erittäin paljon jo pienillä äänilähteen ja vastaanottajan sijainnin muutoksilla, joten suunniteltu korjain toimii tehokkaasti ja halutulla tavalla vain erittäin rajatussa tilassa. Edellä mainitut seikat rajoittavat suuresti käytännön toteutusmahdollisuuksia korjausjärjestelmille, oli kyseessä sitten yksi- tai monikanavainen korjain. Vaikka mukautuvien suotimien käytöllä vältytään pitkälti jälkimmäiseltä rajoitteelta, voi sen jatkuva suotimen rakenteen mukautuminen muuttuvaan huoneakustiikkaan aiheuttaa suuria laskentavaatimuksia. \cite{YHaneda1994, Mourjopoulos1991}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{pole-zero-inverses.png}
+\caption{Käänteismuunnokset (a) vain napoja sisältävälle kuvaukselle (b) vain nollia sisältävälle kuvaukselle (c) napa-nolla-kuvaukselle. \cite{Mourjopoulos1991}.}
+\label{fig:pole-zero inverses}
+\end{figure}
+
+Jos lämpötilan muutokset, ovien tai ikkunoiden avaamiset ja kuuntelijoiden liikkeet jätetään huomioimatta, voidaan huoneen pulssinsiirtofunktiota stabiilille ja syyperäiselle järjestelmälle kuvata kaavalla \begin{equation}
+H(z) = \frac{N(z)}{D(z)} = \frac{\prod\limits_{k=1}^{m_i} (1-q_{k,min} z^{-1}) \prod\limits_{k=1}^{m_o} (1-q_{k, max} z) }{ \prod\limits_{k=1}^{n_i} (1-p_k z^{-1}) },
+\label{pole zero RTF}
+\end{equation} jossa navoille $p_k$ pätee $\left| p_k \right|$ < 1, k=1,2,...,$n_i$ ja nollille $\left| q_{k, min} \right|$ ja $\left| q_{k, max} \right|$ < 1, k = 1,2,..., $m_o$. Nollista q$_{k, min}$ on $k$:nnen nollan minimivaiheinen komponentti ja q$_{k, max}$ saman nollan maksimivaiheinen komponentti. Yleisesti yhtälön \eqref{pole zero RTF} kuvausta kuitenkin approksimoidaan käyttämällä mallia, jota kuvataan pelkästään navoilla tai pelkästään nollilla, jolloin saadaan toimiva -- joskaan ei täysin yhtälöä \eqref{pole zero RTF} vastaava -- huonesiirtofunktio. Tämä approksimoitu huonesiirtofunktio noudattaa joko FIR- tai IIR-suotimien periaatteita. \cite{Mourjopoulos1991}
+
+\subsubsection{Kuvaus pelkillä navoilla}
+
+Pelkkiä napoja sisältävää järjestelmää käytettäessä navat vastaavat huoneen resonansseja. Näin voidaan approksimoida järkevällä tavalla kaavaa \eqref{pole zero RTF} pienentäen huoneen siirtofunktion astelukua ja kompleksisuutta mahdollistaen näin nopeammin toimivan laskennan. Vain navoilla kuvattua approksimaatiota yhtälöstä \eqref{pole zero RTF} kuvataan yhtälöllä \begin{equation}
+H_p(z) = \frac{G}{\prod\limits_{k=1}^{n_i} \left( 1-p_k z^{-1} \right)} = \frac{G}{1+\sum\limits_{k=1}^{n_i} a_k z^{-k}} = \frac{G}{D(z)},
+\label{all-pole RTF}
+\end{equation} jossa $a_k$:t ovat mallin kertoimet, $\left| a_k \right| < 1, k=1,2,...n_i$, ja G mielivaltainen vakio, joka yksinkertaisesti jätetään huomioimatta myöhemmässä käsittelyssä oletuksella G=1. Yleinen haaste pelkillä navoilla kuvaamisessa on skalaarikerrointen $a_k$ määrittäminen, joka tapahtuu PNS-menetelmällä. Kuvauksen etuna on se, että se sallii kerrointen $a_k$ määrittämisten siten, että aikatason suotimet voidaan kuvata yhtälöllä \begin{equation}
+h_p(n) = f(n) - \sum\limits_{k=1}^{p_i} a_k h_p(n-k),
+\end{equation} jossa f(n) on suotimen heräte ja näin ollen paras ennuste ulostulosta voidaan esittää yhtälöllä \begin{equation}
+\hat{h}_p(n) = - \sum\limits_{k=1}^{p_i} a_k h_p(n - k),
+\end{equation} jossa kertoimet määritetään lineaarisilla ennusteilla, jolloin termien virhe on yksinkertaisesti \begin{equation}
+e_p(n) = h_p(n) - \hat{h}_p(n) = h_p(n) + \sum\limits_{k=1}^{p_i} a_k h_p(n - k).
+\end{equation} Neliövirhe $R_p$ on \begin{equation}
+\label{all-pole squared error}
+R_p = \sum_n e_p^2(n) = \sum_n \left[ h_p(n) + \sum\limits_{k=1}^{p_i} a_k h_p(n - k) \right]^2, 
+\end{equation} jolla saadaan ratkaistua skalaarikertoimet olettamalla neliövirheen nollaksi, saadaan \begin{equation}
+\sum\limits_{k=1}^{p_i} a_k \left[ \sum_n h_p(n-k) h_p(n-i) \right] = - \sum_n h_p(n) h_p(n-i).
+\end{equation}
+Seuraamalla Makhoulin esittämää \cite{Makhoul1975} autokorrelaation lähestymistapaa tästä saadaan \begin{equation}
+\begin{bmatrix}
+R_0 & R_1 & \hdots & R_{p-1} \\
+R_1 & R_0 & \hdots & R_{p-2} \\
+\hdots & \hdots & \ddots & \hdots \\
+R_{p-1} & R_{p-2} & \hdots & R_0 \\
+\end{bmatrix} \cdot \begin{bmatrix}
+d_1 \\
+d_2 \\
+\vdots \\
+d_p
+\end{bmatrix} = - \begin{bmatrix}
+R_1 \\
+R_2 \\
+\vdots \\
+R_p \\
+\end{bmatrix},
+\end{equation} jonka vasen puoli on symmetrinen positiivinen Toeplitzin matriisi, joka voidaan ratkaista tehokkaasti Wiener-Levinsonin algoritmilla. Kun suodinta ei ole rajattu kausaaliseksi tai äärelliseksi, tämä johtaa ideaaliseen vain napoihin perustuvaan korjaimeen. Pakottamalla tämän kausaaliseksi ja äärelliseksi, päädytään minimivaiheiseen approksimaatioon.
+\cite{Mourjopoulos1991}
+
+\subsubsection{Kuvaus pelkillä nollilla}
+
+%%%%%%% VANHA ARTIKKELI! %%%%%%%%%
+%Pelkkiä nollia sisältävää mallia käytettäessä nollat vastaavat huonesiirtofunktiossa olevia pykäliä. Nyt siirtofunktiota \eqref{pole zero RTF} voidaan approksimoida kaavalla \begin{equation}
+%\label{all-zero RTF}
+%H_z(z) = \prod\limits_{k=1}^{m_i} (1 - a_k z^{-1}) \prod\limits_{k=1}^{m_o} (1 - b_k z), 
+%\end{equation} jossa ensimmäinen tulosarja vastaa minimivaiheista komponenttia ja jälkimmäinen maksimivaiheista komponenttia huoneen vain nollia sisältävässä siirtofunktiossa. Tästä on mahdollista selvittää minimivaiheinen termi, joka sisältää kaikki $m_i + m_o$ nollat $H_z(z)$:sta, ja jota kutsutaan $H(z)$:n "ekvivalentiksi minimivaiheiseksi" funktioksi. Jotta tämä funktio saadaan selvitettyä, tulee kaavan \eqref{all-zero RTF} oikea puoli saattaa muotoon \begin{equation} \label{all-zero equivalent RTF}
+%H_z(z) = H_{ze}(z) H_{ap}(z) = \prod\limits_{k=1}^{m_i} (1 - a_k z^{-1}) \prod\limits_{k=1}^{m_o} (1 - b_k z^{-1}) \cdot \frac{ \prod\limits_{k=1}^{m_o} (1 - b_k z) }{ \prod\limits_{k=1}^{m_o} (1 - b_k z^{-1}) },
+%\end{equation} jolloin kahden ensimmäisen tulosarjan tulo $H_{ze}(z)$ on "ekvivalentti" minimivaiheinen versio mallista ja jäljelle jäävä kahden jälkimmäisen tulosarjan osamäärä $H_{ap}(z)$ kaikkia taajuuksia tasapuolisesti läpipäästävä funktio, sillä $\left| H_{ap}(e^{j \omega}) \right| = 1$ $\forall$ $\omega$. \cite{Mourjopoulos1991}
+
+%Huonesiirtofunktion vain nollia sisältävän approksimaation selvittämiseen on monia erilaisia vaihtoehtoja, mutta tässä keskitytään homomorfiseen lähestymistapaan koko huonevastefunktion approksimoimiseksi vain nollia sisältävään muotoon. Tunnetusti \cite{Mourjopoulos1991} aikatason ja laskennallisen tehokkuuden kustannuksella kertoimille saadaan täsmälliset approksimaatiot. 
+
+%Tähän oli muuten eri kaava \cite{YHaneda1994} s. 321!!!!!!
+
+Huonesiirtofunktio voidaan perinteisesti kuvata myös pelkästään nollilla $q_k$  käyttäen esityksenä yhtälöä \begin{equation}
+\hat{H}_z(z) = \prod\limits_{k=1}^{m_i} (1-q_{k,min} z^{-1}) \prod\limits_{k=1}^{m_o} (1-q_{k, max} z), 
+\end{equation} jossa q$_{k, min}$ ja q$_{k, max}$ ovat samat kuin yhtälössä \eqref{pole zero RTF}. Tämä on kuitenkin laskennallisesti raskas esitys ja käyttää vain minimi- ja maksimivaiheisia komponentteja. Vaihtoehtoisesti malli voidaan kuvata pelkästään nollilla $q_k(\textbf{r}_j)$ tai liukuvan keskiarvon kertoimilla $b_k(\textbf{r}_j)$ käyttäen esityksenä yhtälöä \begin{equation}
+\hat{H}(\textbf{r}_j,z) = C z^{-Q_1} \prod\limits_{k=1}^{Q_2} \left( 1-q_k(\textbf{r}_j) z^{-1} \right) = \sum\limits_{k=0}^Q b_k(\textbf{r}_j) z^{-k},
+\end{equation} jossa $r_j$ on $j$:s yhdistelmä äänilähteen ja vastaanottajan sijainneille, $\hat{H}(\textbf{r}_j,z)$ on vain nollia sisältävä huonesiirtofunktio $\textbf{r}_j$:lle, M on huonesiirtofunktioiden lukumäärä, C on yleinen kerroin, Q, $Q_1$ ja $Q_2$ nollien astelukuja (Q = $Q_1 + Q_2$), $q_k(\textbf{r}_j)$ nolla $\textbf{r}_j$:lle ja $b_k(\textbf{r}_j)$ liukuvan keskiarvon kerroin $\textbf{r}_j$:lle. Liukuvan keskiarvon kertoimet vastaavat huonesiirtofunktion impulssivasteen kertoimia. Vain nollia sisältävän mallin korjain vaatii yhtä monta FIR-suodinta kuin mallissa on huonesiirtofunktioita ja jokainen näistä suotimista sisältää $Q + 1$ kerrointa, joten kaiken kaikkiaan $M$:lle kappaleelle huonesiirtofunktioita, tarvitaan $M \times (Q+1)$ kerrointa. \cite{YHaneda1994}
+
+\subsubsection{Napa-nolla-kuvaus}
+
+%%%%%%% VANHASTA ARTIKKELISTA! (otetaan lyhyemmin) %%%%%%%%%%
+%Kun äänen vääristymiä lähdetään poistamaan hakemalla impulssivasteessa äänilähteen ja vastaanottajan välillä tapahtunutta traformaatiota käänteismuuntamalla, saadaan tietylle äänilähteen ja vastaanottajan sijaintia vastaavalle impulssivasteelle $h(n)$ laskettua käänteismuunnos $h_i(n)$ kaavalla \begin{equation} \label{pole-zero delta}
+%h(n) \ast h_i(n) = \delta(n).
+%\end{equation} Impulssivasteen käänteismuunnoksen selvittäminen ei kuitenkaan ole yksinkertainen operaatio, sillä kuten yhtälöstä \eqref{pole zero RTF} tiedetään, huoneen siirtofunktiolla on yleisesti monia vaiheita sekaryhmiteltynä, joten sillä ei ole suoraan stabiilia ja äärellistä käänteismuunnosta. Siksi usein funktiosta käännetään vain minimivaiheinen komponentti tai vaihtoehtoisesti monivaiheinen funktio kompensoidaan jollain sopivalla algoritmilla. Tämän lisäksi käänteissuodin on hitaanlainen ja sovelias käytettäväksi vain tietyille mittaushetkellä käytetyille sijainneille, huonontaen yleisesti laatua muissa pisteissä. Nämä ongelmat huomioon ottaen on mahdollista löytää parannuksia huomioimalla seuraavat seikat: \begin{itemize} 
+%\item Vain napoja sisältävän huonemallin tehokkuus suotimen pituuden ja sijainnin muutosherkkyyden kustannuksella.
+%\item Vain nollia sisältävän mallin tehokkuus suotimen pituuden ja sijainnin muutosherkkyyden kustannuksella.
+%\end{itemize} Koska molemmat edellämainituista ovat minimivaiheisia funktioita, niiden käänteismuunnokset saadaan stabiileissa jaksoissa. Näin ollen käänteismuunnos  saadaan kaavoilla \begin{equation} \label{all-pole & all-zero inverse}
+%\begin{cases}
+%h_{ip}(n) = Z^{-1} \left\{ 1/H_p(z) \right\} \\
+%h_{iz}(n) = Z^{-1} \left\{ 1/H_z(z) \right\} \\
+%\end{cases},
+%\end{equation} jossa $Z^{-1}$ kuvaa käänteistä Z-muunnosta. Vastaavat käänteismuunnokset saa aikaiseksi myös suoraan pienimmän neliösumman menetelmällä. Kompensoimalla lähetyksen viivettä stabiili käänteismuunnos voidaan saada aikaiseksi myös monivaiheiselle funktiolle. Mallien toimivuutta voidaan nyt estimoida tarkkailemalla kuinka lähelle niiden käänteismuunnokset vastaavat alkuperäisteä funktiota. Kaavoilla \begin{equation} \label{all-pole & all-zero delta}
+%\begin{cases}
+%h(n) \ast h_{ip}(n) = \hat{\delta}_p(n) \\
+%h(n) \ast h_{iz}(n) = \hat{\delta}_z(n) \\
+%\end{cases},
+%\end{equation} jossa $\hat{\delta}_p(n)$ ja $\hat{\delta}_z(n)$ kuvaavat approksimaatiota kaavan \eqref{pole-zero delta} ideaalille $\delta(n)$:lle, saadaan ratkaistua mallien virheet \begin{equation} \label{all-pole & all-zero error}
+%\begin{cases}
+%e_p(n) = \delta(n) - \hat{\delta}_p(n) \\
+%e_z(n) = \delta(n) - \hat{\delta}_z(n) \\
+%\end{cases}.
+%\end{equation} Mitä pienemmät virheet $e_p$ ja $e_z$ kaavoilla \eqref{all-pole & all-zero error} saadaan, sitä parempi approksimaatio tietylle huoneensiirtofunktiolle saadaan aikaiseksi. Kun lopulta molempien aiemmin esiteltyjen kuvauksien käänteismuunnokset suoritetaan sarjassa, saadaan approksimoitu napa-nolla-kuvauksen käänteismuunnos, kuten kuvassa \ref{fig:pole-zero inverses}(c). Napaesitykselle saadaan kuvaa \ref{fig:pole-zero inverses}(a) vastaava minimivaiheinen käänteismuunnos kaavasta \eqref{all-pole RTF}, jolloin saadaan \begin{equation}
+%\label{inverse all-pole}
+%H_{ip}(z) = \prod\limits_{k=1}^{p_i} \left( 1 - c_k z^{-1} \right)
+%\end{equation} ja vastaavasti kuvaa \ref{fig:pole-zero inverses}(b) vastaava minimivaiheinen käänteismuunnos kaavan \eqref{all-zero equivalent RTF} ideaalista ekvivalentista kaavalla \begin{equation}
+%\label{inverse all-zero equivalent}
+%H_{ize}(z) = \frac{1}{\prod\limits_{k=1}^{m_i} \left( 1 - a_k z^{-1} \right) \prod\limits_{k=1}^{m_o} \left( 1 - b_k z^{-1} \right) }.
+%\end{equation} Nyt kuvaa \ref{fig:pole-zero inverses}(c) vastaava käänteismuunnos saadaan kaavalla \begin{equation}
+%\label{inverse room response}
+%H_{is}(z) = H_{ip}(z) H_{ize}(z) = \frac{ \prod\limits_{k=1}^{p_i} \left( 1 - c_k z^{-1} \right) }{ \prod\limits_{k=1}^{m_i} \left( 1 - a_k z^{-1} \right) \prod\limits_{k=1}^{m_o} \left( 1 - b_k z^{-1} \right) }.
+%\end{equation}
+%ottamalla kaavojen \eqref{inverse all-pole} ja \eqref{inverse all-zero equivalent} tulo, jollon $H_{is}(z)$ on siis approksimoitu huonevasteen $H(z)$ käänteismuunnos kaavan \eqref{all-zero equivalent RTF} poissuljetun kaikkia taajuuksia läpipäästävän funktion $H_ap(z)$ rajoissa. \cite{Mourjopoulos1991}
+
+%\begin{figure}[hb]
+%\centering
+%\includegraphics[scale=0.5]{pole-zero-inverses.png}
+%\caption{Käänteismuunnokset (a) vain napoja sisältävälle kuvaukselle (b) vain nollia sisältävälle kuvaukselle (c) napa-nolla-kuvaukselle. \cite{Mourjopoulos1991}.}
+%\label{fig:pole-zero inverses}
+%\end{figure}
+
+%Tilalle vois lätkästä suoran napa-nolla-muunnoksen \cite{YHaneda1994} s. 321!!!!!!
+
+Kun äänen vääristymiä lähdetään poistamaan hakemalla impulssivasteessa äänilähteen ja vastaanottajan välillä tapahtunutta traformaatiota käänteismuuntamalla, saadaan tietylle äänilähteen ja vastaanottajan sijaintia vastaavalle impulssivasteelle $h(n)$ laskettua käänteismuunnos $h_i(n)$ kaavalla \begin{equation} \label{pole-zero delta}
+h(n) \otimes h_i(n) = \delta(n).
+\end{equation} Tässä $\delta$ on jälleen yhtälössä \eqref{Kronecker delta} esitetty Kroneckerin deltafunktio. Impulssivasteen käänteismuunnoksen selvittäminen sekä napojen, että nollien suhteen ei kuitenkaan ole yksinkertainen operaatio, sillä kuten yhtälöstä \eqref{pole zero RTF} tiedetään, huoneen siirtofunktio on yleisesti ei-minimivaiheinen, joten sillä ei ole suoraan stabiilia ja äärellistä käänteismuunnosta. Siksi usein funktiosta käännetään vain minimivaiheinen komponentti tai vaihtoehtoisesti funktion muita vaiheita kompensoidaan jollain sopivalla algoritmilla. Tämän lisäksi käänteissuodin on hitaanlainen ja sovelias käytettäväksi vain tietyille mittaushetkellä käytetyille sijainneille, huonontaen yleisesti laatua muissa pisteissä. Käänteismuunnos voidaan suorittaa perinteisten vain napoja ja vain nollia sisältävien käänteismuunnosten sarjana kuten kuvassa \ref{fig:pole-zero inverses}(c). Tällöin kuitenkin molemmista käänteismuunnoksista on saatava minimivaiheinen komponentti, joten nollia sisältävä käänteismuunnos pitää jakaa ``ekvivalentin'' minimivaiheisen komponentin ja kaikkia taajuuksia tasaisesti läpi päästävän komponentin tuloksi, ja näistä käyttää napa-nolla-kuvauksessa vain minimivaiheista komponenttia. \cite{Mourjopoulos1991} 
+
+Vaikka edellä kuvatulla tekniikalla aikaansaadaankin melko hyvä approksimaatio, se ei sisällä vain nollia sisältävää mallia kokonaisuudessaan ja laskennasta tulee kompleksinen. Napa-nolla-kuvauksessa voidaan käyttää myös autoregressiivistä liukuvan keskiarvon menetelmää (Auto-regressive moving average model, ARMA), joka voidaan esittää joko napojen $p_k(\textbf{r}_j)$ ja nollien $q_k(\textbf{r}_j)$ tai autoregressiokerrointen $a_k(\textbf{r}_j)$ ja liukuvan keskiarvon kerrointen $b_k(\textbf{r}_j)$ avulla kaavalla \begin{equation}
+\hat{H}(\textbf{r}_j,z) = \frac{Cz^{-Q_1} \prod\limits_{k=1}^{Q_2} \left( 1 - q_k(\textbf{r}_j) z^{-1} \right) }{\prod\limits_{k=1}^P \left( 1 - p_k(\textbf{r}_j) z^{-1} \right) } = \frac{\sum\limits_{k=0}^Q b_k(\textbf{r}_j) z^{-k}}{1 + \sum\limits_{k=1}^P a_k(\textbf{r}_j) z^{-k}},
+\end{equation} jossa $\textbf{r}_j$ kuvaa j:nnettä yhdistelmää äänilähteen ja vastaanottajan sijainneille, $\hat{H}(\textbf{r}_j,z)$ napa-nolla-kuvauksen huonesiirtofunktiota $\textbf{r}_j$:lle, Q, $Q_1$ ja $Q_2$ nollien astelukuja ja $P$ napojen astelukuja. Napa-nolla-malli voidaan toteuttaa IIR-suotimella. Perinteisessä napa-nolla-mallissa napoina toimivat autoregressiokertoimet ja nollina toimivat liukuvan keskiarvon kertoimet lasketaan erikseen jokaiselle huonesiirtofunktiolle, joten malli vaatii yhteensä $M \times (P+Q+1)$ kerrointa $M$:n huonesiirtofunktion esittämiseksi. \cite{YHaneda1994}
+
+\subsubsection{Napa-nolla-kuvaus yleisillä akustisilla navoilla}
+
+Käyttämällä napaestimaatteina yleisiä autoregressiivisen mallin kertoimia, menetelmä mallintaa huonesiirtofunktiot eri liukuvan keskiarvon kertoimille. Tällä tavoin saadaan malli, joka vaatii vähemmän parametreja kuin perinteinen vain nollia sisältävä tai napa-nolla-kuvaus. Haneda et al. \cite{YHaneda1994} saivat tutkimuksissaan tulokseksi, että akustisena kaiunpoistajana käytettäessä malli vaati puolet parametreista ja suppeni 1,5 kertaa nopeammin kuin vain nollia sisältävällä mallilla.
+
+Yleisesti napa-nolla-kuvauksiin pohjautuvissa korjauksissa korjaimena on käytetty vain nollia sisältävää mallia, jolloin mallin kertoimet vastaavat huonesiirtofunktion impulssivasteen kertoimia aikatasossa. Malli voidaan toteuttaa FIR-suotimilla. Mikäli huoneessa esiintyy pitkiä jälkikaikuja, tämä malli vaatii kuitenkin suuren määrän parametreja eli FIR-suodinten kertoimia, sillä näytteenotossa on käytettävä riittävän suurta taajuutta\footnote{Jälkikaiun keston ollessa esim. 500ms 8kHz näytteenottotaajuudella vaaditaan 4000 kerrointa, jotta päästään -60dB tarkkuuteen}. Lisäksi kaikkien suodinten kerrointen pitää päivittyä, mikäli äänilähteen tai vastaanottajan sijainti muuttuu, jolloin suppeneminen vaatii paljon muistia. \cite{YHaneda1994}
+
+Autoregressiivistä liukuvaa keskiarvoa käyttävässä napa-nolla-mallissa navat kuvaavat huoneen resonansseja ja nollat viiveitä ja vastaresonansseja. Koska napojen esittämät resonanssit voidaan esittää pitkillä, vähemmän parametreja sisältävillä impulssivasteilla, napa-nolla-malli kuvaa fysikaalisesti huonesiirtofunktiota paremmin kuin pelkkiä nollia käyttävä malli. Napojen mukana olo aiheuttaa myös sen, että tässä mallissa tarvitaan vähemmän parametreja, ja parametrit ovat pienempää astetta -- etenkin matalilla taajuuksilla. Perinteisessä napa-nolla-mallissa sekä navat, että nollat estimoidaan huonesiirtofunktion muuttujaparametreiksi, mutta koska akustiset navat vastaavat huoneen resonanssien ominaisuuksia, ne säilyvät muuttumattomina. \cite{YHaneda1994} 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{CAPZ-block_diagram2.png}
+\caption{Lohkoesitys usean huonesiirtofunktion mallinnuksesta yleisten napojen menetelmässä. \cite{YHaneda1994}.}
+\label{fig:CAPZ block diagram}
+\end{figure}
+
+Tässä menetelmässä järjestelmään estimoidaan akustisten eli fysikaalisten napojen perusteella yleiset vakiona säilyvät navat ja vain nollat jätetään muuttuviksi parametreiksi. Koska navat vastaavat huoneen resonanssiominaisuuksia, ne eivät muutu, vaikka äänilähde tai vastaanottaja liikuisivat huoneessa. Koska akustisten napojen kertaluku huoneissa on niin pieni, että ne kaikki voidaan estimoida matalilla taajuuksilla, tämä menettely on erityisen tehokas tarkkailtaessa matalia taajuuksia. Navat estimoidaan ensin monista vaihtoehtoisista huonesiirtofunktioista, ja sen jälkeen huonesiirtofunktioita esitetään vakiona pysyvillä navoilla ja toisistaan eriävillä nollilla. Täten tarvitaan runsaasti vähemmän muuttuvia parametreja kuin perinteisessä huonesiirtofunktion napa-nolla-kuvauksessa, jolloin tässä säästettävä muisti voidaan käyttää useamman vaihtoehtoisen huonesiirtofunktion tallennukseen. \cite{YHaneda1994}
+
+Käytettäessä yleisiä akustisia napoja huonesiirtofunktiossa on yksi rekursiivinen suodin, joka sisältää yleiset autoregressiiviset kertoimet $a_k$. Tämän lisäksi funktiossa on rekursittomia suotimia, joissa jokaisessa on oma joukkonsa liukuvan keskiarvon kertoimia $b_k(\textbf{r}_j)$, kuten esitetty kuvassa \ref{fig:CAPZ block diagram}. Malli vaatii siis $P + M \cdot (Q + 1)$ kerrointa esittääkseen $M$ kappaletta huonesiirtofunktioita $H(\textbf{r}_j, z)$; j=1,2,...,M. Koska yleiset akustiset navat eivät riipu äänilähteen ja vastaanottajan sijainneista, Haneda et al. \cite{YHaneda1994} ovat esittäneet menetelmälle muodon \begin{equation}
+\hat{\textbf{H}}(\textbf{r}_j,z) = \frac{\textbf{B}_k(z)}{\textbf{A}_{CAP}(z)} = \frac{ C z^{-Q_1} \prod\limits_{k=1}^{Q_2} \left( 1 - q_k(\textbf{r}_j) z^{-1} \right) }{ \prod\limits_{k=1}^P \left( 1 - p_k z^{-1} \right) } = \frac{\sum\limits_{k=0}^Q b_k(\textbf{r}_j) z^{-k} }{ 1 + \sum\limits_{k=1}^P a_k z^{-k} },
+\end{equation} jossa $\hat{\textbf{H}}(\textbf{r}_j,z)$ on saatu huonesiirtofunktio \textbf{r}$_j$:lle. \cite{YHaneda1994,YHaneda1997}
+
+Tietty huonesiirtofunktio ei välttämättä sisällä kaikkia akustisia napoja, sillä nollat vaikuttavat niihin vahvasti mahdollisesti muokaten tai jopa poistaen napoja tietyssä huonesiirtofunktiossa. Esimerkkinä voidaan ottaa kuvasta \ref{fig:standing_wave} piste C, jossa napa on juuri aallon solmukohdassa. Tässä huonesiirtofunktiossa kyseistä napaa ei voi tästä syystä havaita. Näin ollen yleiset akustiset navat tulee estimoida useiden huonesiirtofunktioiden perusteella autoregressiivisistä kertoimista. \cite{YHaneda1994,YHaneda1997}
+
+%%%%%%% VANHEMMASTA ARTIKKELISTA! %%%%%%%%%
+% Impulssivastetta esitetään kaavalla \begin{equation}
+%\hat{h}(\textbf{r}_j,k) = - \sum\limits_{i=1}^P a_i \hat{h}(\textbf{r}_j, k - i) + \sum\limits_{i=0}^Q b_i(\textbf{r}_j) \delta(k - i),
+%\end{equation} jossa $\hat{h}(\textbf{r}_j,k)$ kuvaa impulssivastetta mallille $\textbf{r}_j$, $a_i$ i:ttä estimoitua yleistä autoregressiivistä kerrointa, $b_i(\textbf{r}_j)$ estimoitua liukuvan keskiarvon kerroin mallille $\textbf{r}_j$ ja $\delta(k)$ Kroneckerin deltafunktio esitettynä kaavassa \eqref{Kronecker delta}. Todellisen impulssivasteen $h(\textbf{r}_j,k)$ ja mallin $\hat{h}(\textbf{r}_j,k)$ välinen virhe saadaan ratkaistua kaavalla \begin{equation}
+%\epsilon_{out}(\textbf{r}_j,k) = h(\textbf{r}_j,k) - \hat{h}(\textbf{r}_j,k) = h(r_j,k) + \sum\limits_{i=1}^P a_i \hat{h}(\textbf{r}_j,k - i) - \sum\limits_{i=0}^Q b_i(\textbf{r}_j) \delta(k - i)
+%\end{equation} Minimivirheen toteuttavien $a_i$:n ja $b_i$:n etsiminen tälle on kuitenkin tunnetusti \cite{YHaneda1994} vaikeaa, joten korvataan tämä yhtälövirheellä, jossa $\hat{h}(\textbf{r}_j, k - i)$ on korvattu $h(\textbf{r}_j, k - i)$:llä \begin{equation} \label{pole-zero equation error}
+%\epsilon_{eq}(\textbf{r}_j,k) = h(\textbf{r}_j,k) + \sum\limits_{i=1}^P a_i h(\textbf{r}_j,k - i) - \sum\limits_{i=0}^Q b_i(\textbf{r}_j) \delta(k - i),
+%\end{equation} jolla saadaan yleiset autoregressiokerrointen estimaatit minimoimalla kustannusfunktio \begin{equation} \label{pole-zero common acoustical pole cost}
+%J_{eq} = \sum\limits_{j=1}^M \sum\limits_{k=0}^\infty e_{eq}^2 (\textbf{r}_j,k),
+%\end{equation} jossa $M$ on estimoinnissa käytettävien impulssivasteiden määrä. Olettamalla, että asteluku impulssivasteille on N, tiedetään, että $h(\textbf{r}_j,k) = 0$ $\forall$ $k > N$. Näinpä $\epsilon_{eq}(\textbf{r}_j,k) = 0$ $\forall$ $k > N + P$, joten sisemmän summasarjan yläraja voidaan laskea $N + P$:ksi. Kustannusfunktion minimiarvon löytämiseksi tulee kaikkien $a_i$:n ja $b_i(\textbf{r}_j)$:n suhteen laskettavien osittaisderivaattojen arvojen olla nolla. Yhdistämällä kaavet \eqref{pole-zero equation error} ja \eqref{pole-zero common acoustical pole cost} saadaan \begin{equation}
+%J_{eq} = \sum\limits_{j=1}^M \sum\limits_{k=0}^{N+P} \left( h(\textbf{r}_j,k) + \sum\limits_{i=1}^P a_i h(\textbf{r}_j,k - i) - \sum\limits_{i=0}^Q b_i(\textbf{r}_j) \delta(k - i) \right)^2,
+%\end{equation} jolloin osittaisderivaatoksi saadaan \begin{equation}
+%\frac{\partial J_{eq}}{\partial a_i} = 2 \sum\limits_{j=1}^M \sum\limits_{k=0}^{N+P} h(\textbf{r}_j,k-i) \times \left( h(\textbf{r}_j,k) + \sum\limits_{m=1}^P a_m h(\textbf{r}_j,k-m) - \sum\limits_{m=0}^Q b_m(\textbf{r}_j) \delta(k-m) \right),
+%\end{equation} jossa i = 1, 2, ..., P, sekä
+%\begin{equation}
+%\frac{\partial J_{eq}}{\partial b_i(\textbf{r}_j)} = 2 \sum\limits_{j=1}^M \sum\limits_{k=0}^{N+P} \delta(k - i) \times \left( h(\textbf{r}_j,k) + \sum\limits_{m=1}^P a_m h(\textbf{r}_j,k - m) - \sum\limits_{m=0}^Q b_m(\textbf{r}_j) \delta(k - m) \right),
+%\end{equation} jossa i = 1, 2, ..., Q ja j = 1, 2, ..., M. Nyt yhtälön minimiarvoja voidaan hakea -- ottamalla huomioon muun muassa Kroneckerin deltafunktion \eqref{Kronecker delta} toiminnan -- yhtälöillä \begin{equation} \label{napadifferentiaaliyhtalo}
+%\sum\limits_{j=1}^M \sum\limits_{k=0}^{N+P} \left( h(\textbf{r}_j,k-i) h(\textbf{r}_j,k) + \sum\limits_{m=1}^P a_m h(\textbf{r}_j,k-i) \times h(\textbf{r}_j,k-m) - \sum\limits_{m=0}^Q b_m(\textbf{r}_j) \times h(\textbf{r}_j,k-i) \right) = 0,
+%\end{equation} jossa i = 1, 2, ..., P ja \begin{equation} \label{nolladifferentiaaliyhtalo}
+%h(\textbf{r}_j,i) + \sum\limits_{m=1}^P a_m h(\textbf{r}_j,i - m) - b_i(\textbf{r}_j) = 0,
+%\end{equation} jossa i = 1, 2, ..., Q ja j = 1, 2, ..., M. Yhtälöille matriisimuodoissa haettu ratkaisu on esitetty liitteessä \ref{CAPZ calculation}. \cite{YHaneda1994}
+Napoihin perustuvaa usean pisteen korjausta (MPAP) voidaan kuvata suotimella \begin{equation}
+F_{MPAP}(z) = A_{CAP}(z) = 1 - \sum\limits_{n=1}^P a_{CAP}(n) z^{-n},
+\end{equation} jossa autoregressiiviset kertoimet $a_{CAP}(n)$ saadaan ratkaistua PNS-menetelmällä useista huonesiirtofunktioista estimoimalla. Yleisten akustisten napojen malliin (CAP) perustuvan huonesiirtofunktion impulssivastetta voidaan kuvata kaavalla \begin{equation}
+h_i(k) = \sum\limits_{n=1}^P a_{CAP}(n) h_i(k - n) + \sum\limits_{n=0}^Q b_i(n) \delta(k - n),
+\end{equation} jossa $\delta$ on kaavassa \eqref{Kronecker delta} kuvattu Kroneckerin deltafunktio. Koska tässä menetelmässä tarvitaan vain yleiset autoregressiokertoimet, asetetaan Q:ksi, eli nollien asteluvuksi nolla, jolloin impulssivasteen esitys muuttuu muotoon \begin{equation}
+\hat{h}_i(k) = \sum\limits_{n=1}^P a_{CAP}(n) \hat{h}_i(k-n),
+\end{equation} jossa i=1,2,...,M. Näin mallinnetulle impulssivasteelle saadaan virhetermi kaavalla \begin{equation}
+e_i(k) = h_i(k) - \sum\limits_{n=1}^P a_{CAP}(N) h_i(k-n),
+\end{equation} jolloin parhaat estimaatit autoregressiokertoimiksi eli yleisiksi akustisiksi navoiksi saadaan etsimällä arvot, joilla kustannusfunktio \begin{equation} \label{MPAP PNS minimointi}
+\epsilon_{CAP} = \sum\limits_{i=1}^M \sum\limits_{k=0}^\infty e_i^2(k) = \sum\limits_{i=1}^M \sum\limits_{k=0}^\infty \left[ h_i(k) - \sum\limits_{n=1}^P a_{CAP}(n) h_i(k - n) \right]^2
+\end{equation} minimoituu PNS-menetelmällä. Yleiset autoregressiokertoimet $a_{CAP}(n)$, jotka minimoivat kaavalla \eqref{MPAP PNS minimointi} saadun kustannusfunktion, saadaan ratkaistua yhtälöstä \begin{equation} \label{MPAP PNS minimointi matrix}
+\textbf{a} = (\textbf{W}^T \textbf{W})^{-1} \textbf{W}^T \textbf{v},
+\end{equation} jossa esiintyvät matriisit on esitetty liitteessä \ref{CAPZ calculation}. Esitetty yleisiin akustisiin napoihin perustuva napa-nolla-kuvauksen korjausmenetelmä (CAPZ) voidaan toteuttaa FIR-suotimilla muutamalla sadalla näytteenotolla. Tällöin korjattu lähtösignaali on \begin{equation}
+Y_i(z) = H_i(z) F_{MPAP}(z) X(z) = \frac{B_i(z)}{A_{CAP}(z)} A_{CAP}(z) X(z) = B_i(z) X(z),
+\label{MPAP CAPZ}
+\end{equation} ja tämän mallin mukainen järjestelmä on esitetty kuvassa \ref{fig:MPAP_CAPZ}. Tämä korjain ei kata nollia $B_i(z)$, sillä ne vastaavat taajuuspudotuksia, joista vastakkaisvaiheiset signaalit kumoavat toisensa ja näin ollen vaativat paljon ylimääräistä energiaa. Yleisiä huippuja kuitenkin vaimennetaan huoneresonanssin vuoksi. \cite{YHaneda1997} 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{MPAP_CAPZ-model.png}
+\caption{Kaavan \eqref{MPAP CAPZ} mukainen autoregressiokertoimilla suoritettavaan minimointiin perustuva yleisten napojen napa-nolla-malli \cite{YHaneda1997}.}
+\label{fig:MPAP_CAPZ}
+\end{figure}
+
+\subsection{Sumean logiikan menetelmät}
+
+Sumean logiikan menetelmissä vasteita kerätään niin sanottuihin klustereihin, eli vastejoukkoihin, jotka koostuvat mahdollisimman samanlaisista vasteista. Perinteisesti klustereihin kuulumista merkittäisiin totuusarvolla (0 = vaste ei kuulu klusteriin, 1 = vaste kuuluu klusteriin), mutta koska kyseessä on sumea logiikka, tätä merkitään totuusarvon sijaan kuuluvuusfunktiolla $\mu_i(h_j) \in [0,1]$, joka kuvaa vasteen $h_j$ kuuluvuutta klusteriin $i$. Perinteisessä logiikassa kukin vaste voisi kuulua vain yhteen klusteriin, mutta sumeassa logiikassa sama vaste voi kuulua useaan klusteriin, jolloin \begin{equation}
+	\sum\limits_i \mu_i(h_j) = 1 \qquad \forall j.
+\end{equation} Jokaista klusteria kuvaa prototyyppi, joka on muodostettu klusterin vasteiden massakeskipisteisiin painottamalla (FCM) ja on siis kompakti esitys klusterissa esiintyvistä vasteista. \cite{SBharitkar2001,ACarini2012}
+
+Yleisimpiä tapoja jakaa huonevasteita klustereihin on verrata niiden välisiä etäisyyksiä. Tässä lähestymistavassa useimmiten käytetään Euklidistä metriikkaa. Hyvällä algoritmilla klusterointi johtaa siihen, että kahden vasteen välinen Euklidinen metrinen etäisyys on huomattavasti pienempi samassa klusterissa olevilla vasteilla kuin kahden eri klusterin vasteilla. \cite{SBharitkar2001}
+
+\subsubsection{Aikatasossa}
+
+Määritetään klustereille prototyypit kaavalla \begin{equation}
+\label{cluster prototype}
+\hat{h}_i^* = \frac{\sum\limits_{k=1}^N (\mu_i(h_k))^2 h_k}{\sum\limits_{k=1}^N \mu_i(h_k))^2},
+\end{equation} jossa kuuluvuudet on laskettu kaavalla \begin{equation}
+\mu_i(h_k) = \left[ \sum\limits_{j=1}^c (\frac{d_{ik}^2}{d_{jk}^2})\right] = \frac{\frac{1}{d_{ik}^2}}{\sum\limits_{j=1}^c \frac{1}{d_{jk}^2}},
+\end{equation} jossa taas $d_{ik}^2$ saadaan kaavalla \begin{equation}
+\label{cluster prototype expected value}
+d_{ik}^2 = \left|\left|h_k - \hat{h}_i^*\right|\right|^2 \qquad i = 1, 2, ..., c; \quad k = 1, 2, ..., N.
+\end{equation} Koska äänentoistolaitteilla ei voi käyttää eri korjaimia huoneen eri vasteiden korjauksiin, täytyy klustereiden prototyypit yhdistää. Tämä tapahtuu kaavalla \begin{equation}
+\label{final prototype}
+h_{final} = \frac{\sum\limits_{j=1}^c (\sum\limits_{k=1}^N (\mu_j(h_k))^2) \hat{h}_j^*}{\sum\limits_{j=1}^c (\sum\limits_{k=1}^N (\mu_j(h_k))^2)}.
+\end{equation} Täten laskettua yhteisprototyyppiä vastaava korjain saadaan käänteismuuntamalla  sen minivaiheinen komponentti $h_{min,final} \otimes h_{ap,final}$, jossa $h_{ap,final}$ on yhteisprototyypin kaikkia vaiheita tasaisesti sisältävä komponentti. Kaavan \eqref{final prototype} malli käyttää hyväksi painotuksia, miten suurelta osin mikäkin vaste aktivoi kunkin klusterin prototyyppiä. \cite{SBharitkar2001, ACarini2012}
+
+\subsubsection{Taajuustasossa}
+
+Vasteet saadaan aikatasosta taajuustasoon Fourier-muunnoksella. Olettamalla vaste $h(n) \xleftrightarrow{Fourier} H(e^{j \omega})$, jota korjataan sen approksimoidulla käänteismuunnoksella $\hat{h}_{inv}(n) \xleftrightarrow{Fourier} \hat{H}_{inv}(e^{j \omega})$, jossa korjaimen vaste $F(e^{j \omega})$ on \begin{equation}
+f(n) \xleftrightarrow{Fourier} \left| F(e^{j \omega}) \right| = \left| H(e^{j \omega}) \right| \left| \hat{H}_{inv}(e^{j \omega}) \right|.
+\end{equation} % jolloin spektrin poikkeaman mitta on \begin{equation}
+% \sigma_E = \sqrt{\left[ \frac{1}{P} \sum\limits_{i=0}^P (10 \cdot log_{10} \left| E(e^{j % \omega_i}) \right| \qquad \frac{1}{P} \sum\limits_{i=0}^P 10 \cdot log_{10} \left| E(e^{j \omega_i}) \right|^2 \right]}
+% \end{equation}
+
+Kun huonevastetta korjataan taajuustasossa, klusterointi suoritetaan huoneen magnitudivasteelle kaikissa mittauspisteissä. Koska vasteita käsitellään taajuustasossa, magnitudivaste vastaa impulssivasteen integraalia eli aallon pinta-alaa, joten vaihetta ei tarvitse huomioida. Taajuustason korjauksella päästään vähintään yhtä hyviin tuloksiin kuin aikatasossa tapahtuvalla korjauksella, mutta vähemmällä laskennallisella kompleksisuudella. Taajuustasossa vältytään monelta raskaalta toimenpiteeltä, joten päästään tehokkaampaan ratkaisuun. Lisäksi klusterointialgoritmina käytettävä derivointi voidaan korvata yksinkertaisemmalla prototyyppitekniikalla. \cite{ACarini2012}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{taajuus_c-cluster_workaround.png}
+	\caption{Monipisteisen huonevasteen korjauksen vaiheet taajuustasossa \cite{ACarini2012}.}
+	\label{fig:freqDomain}
+\end{figure}
+
+Tässä korjausmenetelmässä, jonka vaiheet on esitetty kuvassa \ref{fig:freqDomain}, huoneesta mitataan ensin $M$ eri pisteissä olevia impulssivasteita, joiden muistinleveys on $N$. Tämän jälkeen huoneen magnitudivasteet $|{H_k(e^{j \omega}})|$, kun k = 1, ..., M estimoidaan näiden keskiarvona nopealla Fourier-muunnoksella (FFT) $N$:stä näytteestä. Poistamalla tieto vasteen vaiheesta, minimivaiheessa olevan impulssivasteen purkua ei tarvitse toteuttaa, joten tässä vältytään ylimääräiseltä työmäärältä aikatason klustereiden luomiseen nähden. Huoneen vääristymiä selvitetään taajuustasossa ottamalla näytteitä huoneen magnitudivasteista valitsemalla $W$ tasavälein sijoitettua vääristynyttä taajuutta, jolloin niitä vastaavat taajuudet lineaarisessa taajuustasossa määritellään kaavalla \begin{equation} A(z) = \frac{z^{-1}+\lambda}{1+\lambda z^{-1}}, \end{equation} jossa $\lambda$ on määriteltävä parametri. Näin saatuja vääristyneitä näytteitä merkitään vastaavasti $|\hat{H}_k(e^{j \omega})|$. Murto-oktaavien pehmennys, jolla päästään eroon taajuusvasteen mahdollisesti LPC-mallinnusta häiritsevistä pykälistä, voidaan toteuttaa Hartziantonioun ja Mourjopoulosin \cite{Hatziantoniou2000} esittämällä menetelmällä ennen taajuuksien vääristämistä. Perinteisesti $H(e^{j \omega})$:n taajuusvasteen epähomogeenisen magnitudispektrin pehmennystä kuvataan kaavalla \begin{equation}
+\label{magnitudispektrin pehmennys}
+H_{cs}(e^{j (2 \pi / N)i)}) = \sum\limits_{l=0}^{N-1} W_{sm}(m(l),l)\left|H(e^{j(2 \pi / N)((i-l)mod N)})\right|, 
+\end{equation} jossa $0 \le i < N$, $W_{sm}(m(l),l)$ on nolla-vaiheinen ikkunafunktio ja $m(l)$ puoli-ikkunan pituus, joka on monotonisesti kasvava funktio taajuusindeksille $l$. Tällä menetelmällä simuloidaan kuulolle tunnettua ominaisuutta, ettei korkeiden taajuuksien eroja kuule yhtä tarkasti kuin matalien. Tällöin korkeille taajuuksille voidaan suorittaa heikompaa taajuuserottelua kuin matalille [12]. Näin ollen voidaan harkita käytettäväksi epähomogeenistä erottelua, jossa korkeita taajuuksia ei erotella yhtä tarkasti kuin matalia. Epähomogeenisella erottelulla päästään laajemman alueen korjaukseen \cite{Genereux1992}. Kaiken kaikkiaan spektrin tasoituksella saavutetaan robustimpi huonevasteen korjain, joka ei ole niin herkkä äänilähteiden ja kuulijoiden sijoittumisiin tai aikavariaatioihin \cite{Hatziantoniou2003}. 
+
+Sumean logiikan massakeskipisteiden mukaan painotetussa klusteroinnissa (Fuzzy c-means clustering, FCM) kerätään yleisiä magnitudivasteiden rakenteita samoihin klustereihin. Klustereiden massakeskipisteet lasketaan kaavalla \eqref{cluster prototype}, jota iteroidaan käyttämällä $W$:llä näytteellä $h_k$:lle arvoa \begin{equation}
+h_k = \left[ |\hat{H}_k(e^{j \omega_1})|,|\hat{H}_k(e^{j \omega_2})|, ..., |\hat{H}_k(e^{j \omega_W})| \right]^T,
+\end{equation} kun $k = 1, ... M$, jolloin saadut massakeskipisteet $\hat{h}_i^*$ kuvaavat klustereittain yleisimpiä magnitudivasteiden rakenteita. Magnitudivasteen prototyyppi saadaan painotetusta keskiarvosta kaavalla \eqref{final prototype}. Prototyypin magnitudivaste kuvaa huonevasteen komponenttia, joka halutaan korjata. Impulssivasteen prototyypistä estimoidaan autokorrelaatiofunktio ottamalla neliöidyn magnitudispektrin käänteismuunnos siten, että alkuperäistä impulssivastetta ei tarvitsee käänteismuuntaa. Näin ollen vältytään ylimääräiseltä laskennalta. \begin{figure}[h!]
+	\centering
+	\includegraphics[scale=1]{warped_IIR.png}
+	\caption{Vääristymäkorjain, jolla on ääretön impulssivaste \cite{ACarini2012}.}
+	\label{fig:infinite impulse response}
+\end{figure}
+
+Levinson-Durbin algoritmia sovelletaan kaikki navat kattavan LPC-mallin prototyyppisuotimen -- jolla on vähiten merkitsevä $P$ -- johtamiseen. Vähiten merkitsevän korjaimen käyttö on hyödyllistä laskentakompleksisuuden välttämisen lisäksi myös siksi, että se lisää korjaimen robustisuutta väärinsijoituksen ja huonevasteen hitaan aikavariaation osalta \cite{P.D.Hatziantoniou2004}. Edellä mainittu LPC-malli käänteismuunnetaan vääristyneessä tasossa huonevastetta korjaavan $P$ pituisen muistin äärellisen impulssivasteen omaavan korjaimen saavuttamiseksi. Korjaimen taajuusvaste on vääristymätön, joten operaatio voidaan suorittaa korvaamalla vääristyneen äärellisen impulssivasteen korjain kuvan \ref{fig:infinite impulse response} IIR-korjaimella. Tässä $p(\cdot)$ ovat vääristyneen prototyyppisuotimen kertoimia ja $\lambda$ on sama parametri, jolla impulssivasteet vääristettiin \cite{Karjalainen1997}.
+
+Edellä kuvattua menettelyä käyttämällä säästytään monelta aikatasossa vaadittavalta raskaalta operaatiolta. Erityisesti taajuuden vääristäminen on aikatasossa laskennallisesti erittäin raskas operaatio, mutta se saadaan toteutettua taajuustasossa yksinkertaisesti näytteistämällä magnitudivasteita sopivasti. Carinin et al. tutkiessa menetelmää \cite{ACarini2012} se saatiin suoritettua ilman laskentavaatimusta valitsemalla lähinnä haluttua vääristynyttä taajuutta oleva näyte $\left| H_k(e^{j \omega}) \right|$. Näytteenotto mahdollistaa kompaktimmat esitykset magnitudivasteista pienemmällä määrällä ($W$) näytteitä. Ennen kaikkea esitetyllä lähestymistavalla impulssivasteen minimivaiheisen komponentin poistamiselta vältytään ja impulssivasteen autokorrelaation laskenta prototyyppisuotimelle voidaan suorittaa yksinkertaisella nopealla Fourier-käänteismuunnoksella neliöidystä magnitudivasteesta, jolla on sama pituus kuin $W$ näytteellä. Sumean logiikan painopisteen mukaisessa klusteroinnissa laskentavaatimus riippuu supistamisessa tarvittavien iteraatioiden määrästä. Klusteroinnin laskentavaatimukset ovat osoittautuneet aika- ja taajuustasoissa samoiksi \cite{ACarini2012}.
+
+\clearpage
+
+\section{Yhteenveto ja johtopäätökset}
+
+Tässä työssä esiteltiin erilaisia säätötekniikan näkökulmasta suunniteltuja digitaalisia korjausmenetelmiä, joilla saadaan korjattua matalataajuuksisia komponentteja huonevasteesta. Tavallisen huoneen ollessa kuunteluympäristönä huoneakustiikka aiheuttaa ongelmia heijastumien, jälkikaikujen ja seisovien aaltojen muodossa. Huonevasteen korjaus puolestaan rajoittuu niin huoneakustiikan, psykoakustiikan kuin signaalinkäsittelynkin saralta. Säätöteknisestä näkökulmasta on varmistettava, että järjestelmänä käsiteltävä huone säilyy stabiilina huonevasteen korjauksen jälkeenkin. Lisäksi vasteen korjaus vain yhden mittapisteen perusteella täydellisesti korjaa vasteen vain aallonpituuden murto-osan etäisyydellä kyseisestä pisteestä. Muissa pisteissä signaalin komponentit voivat tällä korjauksella erota alkuperäisestä signaalista enemmän kuin alkuperäinen vääristynyt signaali. Huonevasteen korjausmenetelmissä käytetään impulssivasteen käänteismuunnokseen perustuvia suotimia ja vastetta mitataan monessa huoneen pisteessä. Lähestymistapoja huoneenvasteen korjaukseen on kuitenkin useita. 
+
+Huonevasteen käänteismuunnoksessa on keskityttävä siihen, että systeemi säilyy stabiilina. Siispä huonevasteen on alunperin oltava minimivaiheinen, käänteismuunnoksessa on käytettävä minimivaiheista huonevasteen approksimaatiota tai korjaus on suoritettava taajuustasossa. Huoneen impulssivasteen asteluku voi olla erittäin korkeaa astetta, jolloin adaptiivisilla eli mukautuvilla suotimilla pienikin huonekalujen, äänilähteiden tai vastaanottajien siirtyminen aiheuttaa suurta kompleksisuutta vaativaa laskentaa. Napa-nolla-kuvauksissa nollien korjaaminen vie suhteettoman paljon ``ylimääräistä'' energiaa ja niiden täysi huomioimatta jättäminen kumoaa joissain tapauksissa napojen aiheuttaman käyttäytymisen. Sumean logiikan korjauksessa tulee vasteiden klusterointimenetelmän lisäksi valita huolella jäsenfunktiot ja säännöt, joita lopullisessa korjauksessa käytetään.
+
+Napa- ja nolla-kuvasten kautta käsiteltävässä korjauksessa hyötysuhteeltaan parhaaseen korjaukseen päästään käyttämällä yleisiä akustisia napoja. Näin voidaan tehdä, koska huoneresonansseja kuvaavat akustiset navat ovat huoneen ominaisuuksia, jotka eivät riipu sijainnista. Koska nollien korjaamiset ovat energiakustannuksiltaan tehottomia operaatioita, voi niiden korjaamisen jättää huomioimatta. Mikäli korjausta suoritetaan taajuustasossa, käsitellään impulssivasteen integraalia eli magnitudivastetta, joten äänisignaalin vaihetta ei tarvitse ottaa huomioon. Tällöin säästytään ylimääräisiltä välioperaatioilta ja korjaus on nopeampaa.
+
+Sumean logiikan klusterointimenetelmillä päästään myös erittäin nopeisiin ja tehokkaisiin korjauksiin, mutta niiden suunnittelu on työlästä ja aikaavievää. Näissä menetelmissä pitää valita huolella niin vasteiden klusterointimenetelmät kuin myös sumean säädön jäsenfunktiot ja säännöt. Kun klustereihin kerätään mahdollisimman toistensa kaltaisia vasteita, saadaan vasteille luotua epähomogeeninen korjain. Eri klustereille voidaan asettaa taajuuskorkeudesta riippuvat korjaukset, jolloin voidaan käyttää epätarkempia taajuuserotteluita korkeilla taajuuksilla, joilla myös ihmiskuulon erottelu on epätarkempaa. Näin ollen samalla laskentakapasiteetilla voidaan korjata laajempaa taajuusaluetta. Sumean logiikan ``ihmisläheinen'' tapa käsitellä suureita aiheuttaa myös sen, että suunnitteluvaiheessa ei pysty määrittämään asioita täysin kvantitatiivisesti eksakteiksi. Sumeassa logiikassa käytettävä laskenta vaatii myös tehokkaampia komponentteja.
+
+Huonevasteen korjauksessa käytettävät digitaaliset menetelmät ovat kehittyneet jatkuvasti jo useita vuosikymmeniä ja niitä tullaan kehittämään edelleen myös jatkossa. Vaikka tutkimusmateriaalia on julkaistu runsaasti, menetelmiä halutaan kaupallistaa, eikä kaikkea täysin uusinta tekniikkaa korjauksen osalta tuoda julkisuuteen. Digitaalisten komponenttien jatkuva kehitys mahdollistaa jatkuvasti myös tehokkaampia ja tarkempia korjausmenetelmiä edullisemmin ja todennäköisesti lähitulevaisuudessa markkinoille tuodaan myös kuluttajakäyttöön edullisempia korjausratkaisuita. Todennäköisesti esitettyjä tehokkaampiin korjausmalleihin päästäisiin, jos alkuperäinen huonevaste muodostettaisiin yleisten akustisten napojen menetelmällä, kuten Haneda et al. ovat esittäneet \cite{YHaneda1994, YHaneda1997}, muunnettaisiin kyseinen vaste taajuustasoon ja suoritettaisiin käänteismuunnos taajuustasossa sumealla logiikalla Carinin et al. \cite{ACarini2012} esittämällä menetelmällä. Menetelmiä yhdistämällä päästään varmasti yksittäisiä menetelmiä parempiin tuloksiin, mutta todennäköisesti parhaiksi todettujen kombinaatioiden julkaisu jätetään kaupallisiin tuotteisiin.
+
+Tulevaisuudessa huonevasteen korjausmenetelmät tulevat olemaan vakinainen osa kaupallisia viritinvahvistimia. Hyvälaatuiset äänentoistolaitteistot toistavat ääntä erittäin laadukkaasti, mutta ilman huonevasteen korjausta käyttäjän sisustus tai äänilähteiden asettelu saattavat aiheuttaa ongelmia huoneakustiikan vuoksi. Näin ollen käyttäjälle voi jäädä huono mielikuva äänentoistolaitteiston valmistajan tuotteiden laadusta. Siispä valmistajat pyrkivät varmasti tuomaan koko ajan tuotteisiinsa enemmän integroituja digitaalisen huonevasteen korjausmenetelmiä.
+
+Koska huonevasteen korjaukseen käytetyt menetelmät perustuvat pulssinsiirtofunktion käänteismuunnoksena toteutettavaan suodatukseen, saadaan tällä vaimennettua myös muita ympäristön häiriöääniä. Esimerkiksi rakennuksen ulkopuolella olevan rakennus- tai räjäytystyömaan äänet saadaan säätöteknisesti vaimennettua vasteesta, sillä ne ovat heijastumien ja jälkikaikujen ohella äänisignaaliin lisänä tulleita ``vääristymiä.'' Nykyisin digitaaliset järjestelmät ovat niin tehokkaita, että korjauksessa päästään huomaamattoman pieneen viiveeseen. Näin ollen ympäristön häiriöääniä saadaan vaimennettua siten, että ääni saadaan korjattua alusta lähtien, vaikka korjaus tapahtuukin hieman todellisen äänen saapumisen jälkeen.
+
+\clearpage
+
+%% Lähdeluettelo
+\addcontentsline{toc}{section}{Viitteet}
+\bibliography{huonevastekorjaus}
+
+\appendix 
+
+\clearpage
+\addcontentsline{toc}{section}{Liite A}
+
+%% Yhtälöiden numerointi A<nro> alkaen nollasta
+\renewcommand{\theequation}{A\arabic{equation}}
+\setcounter{equation}{0}  
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{table}{0}
+
+\section{Yleisten autoregressiokerrointen laskenta}\label{CAPZ calculation}
+
+%%%%%%% VANHEMPI ARTIKKELI! %%%%%%%%
+%Yhtälö \eqref{pole-zero equation error}, jossa j = 1,2,...,M ja k=0,1,2,...,N+P voidaan esittää matriisimuodossa yhtälöllä \begin{equation} \label{basic matrix eq}
+%\textbf{e = h - Ax}, 
+%\end{equation} jossa vektorit \textbf{e}, \textbf{h} ja \textbf{x}, sekä matriisi $\textbf{A}$ määritellään \begin{equation}
+%\textbf{e} = \begin{bmatrix}
+%\textbf{e}_1 \\
+%\textbf{e}_2 \\
+%\vdots \\
+%\textbf{e}_M \\
+%\end{bmatrix} \qquad \textbf{e}_j = \begin{bmatrix}
+%\epsilon_{eq}(\textbf{r}_j, 0) \\
+%\epsilon_{eq}(\textbf{r}_j, 1) \\
+%\vdots \\
+%\epsilon_{eq}(\textbf{r}_j, N+P) \\ 
+%\end{bmatrix},
+%\end{equation} jossa $\textbf{e}_j$ on N+P+1 korkuinen pystyvektori, \begin{equation}
+%\textbf{h} = \begin{bmatrix}
+%\textbf{h}_1 \\
+%\textbf{h}_2 \\
+%\vdots \\
+%\textbf{h}_M \\
+%\end{bmatrix} \qquad \textbf{h}_j = \begin{bmatrix}
+%h(\textbf{r}_j,0) \\
+%h(\textbf{r}_j,1) \\
+%\vdots \\
+%h(\textbf{r}_j,N) \\
+%0 \\
+%\vdots \\
+%0 \\
+%\end{bmatrix},
+%\end{equation} jossa $\textbf{h}_j$ on N+P+1 korkuiden pystyvektori, \begin{equation}
+%\textbf{x} = \begin{bmatrix}
+%\textbf{a} \\
+%\textbf{b}(\textbf{r}_1) \\
+%\textbf{b}(\textbf{r}_2) \\
+%\vdots \\
+%\textbf{b}(\textbf{r}_M) \\
+%\end{bmatrix} \qquad \textbf{a} = \begin{bmatrix}
+%-a_1 \\
+%-a_2 \\
+%\vdots \\
+%-a_p
+%\end{bmatrix} \qquad \textbf{b}(\textbf{r}_j) = \begin{bmatrix}
+%b_0(\textbf{r}_j) \\
+%b_1(\textbf{r}_j) \\
+%\vdots \\
+%b_Q(\textbf{r}_j) \\
+%\end{bmatrix}
+%\end{equation}
+%\begin{equation}
+%\textbf{A} = \begin{bmatrix}
+%\textbf{A}_1 & \textbf{D} \\
+%\textbf{A}_2 & & \textbf{D} & \textbf{0} \\
+%\vdots \\
+%& & \textbf{0} & \ddots \\
+%\textbf{A}_M & & & & \textbf{D} \\
+%\end{bmatrix},
+%\end{equation} joka on (M(N+P+1)) $\times$ (P+M(Q+1)) kokoinen matriisi, ja jossa jälleen P $\times$ (N+P+1) kokoiset matriisit \begin{equation}
+%\textbf{A}_j = \begin{bmatrix}
+%0 & 0 & \hdots & 0 \\
+%h(\textbf{r}_j,0) & 0 & \hdots & 0 \\
+%h(\textbf{r}_j,1) & h(\textbf{r}_j,0) & \hdots & 0 \\
+%\vdots & \vdots & \ddots & \vdots \\
+%h(\textbf{r}_j,P-1) & h(\textbf{r}_j,P-2) & \hdots & h(\textbf{r}_j,0) \\
+%\vdots & \vdots & \ddots & \vdots \\
+%h(\textbf{r}_j,N) & h(\textbf{r}_j,N-1) & \hdots & h(\textbf{r}_j,N-P+1) \\
+%0 & h(\textbf{r}_j,N) & \hdots & h(\textbf{r}_j,N-P+2) \\
+%\vdots & \vdots & \ddots & \vdots \\
+%0 & 0 & \hdots & h(\textbf{r}_j,N) \\
+%\end{bmatrix}
+%\end{equation} ja (Q+1) $\times$ (N+P+1) kokoiset matriisit \begin{equation}
+%\textbf{D} = \begin{bmatrix}
+%1 \\
+% & 1 & 0 \\
+% & & \cdot \\
+% & 0 & & 1 \\
+%0 & \cdot & \cdot & 0 \\
+%\cdot & & & \cdot \\
+%\cdot & & & \cdot \\
+%0 & \cdot & \cdot & 0 \\
+%\end{bmatrix}.
+%\end{equation} Kaavan \eqref{pole-zero common acoustical pole cost} kustannusfunktion $J_{eq}$ matriisivastine on $\textbf{e}^T \textbf{e}$ ja vektori $\textbf{x}$, jolla minimoidaan $\textbf{e}^T \textbf{e}$ saadaan yhtälöstä \begin{equation}
+%\textbf{x} = (\textbf{A}^T \textbf{A})^{-1} \textbf{A}^T h.
+%\end{equation} Tästä saadulla ratkaisulla saadaan minimoitua samanaikaisesti yhtälöt \eqref{napadifferentiaaliyhtalo} ja \eqref{nolladifferentiaaliyhtalo}.
+Yleisiä autoregressiokertoimia, eli akustisia napoja ratkaistaessa kustannusfunktiota \eqref{MPAP PNS minimointi} PNS-menetelmällä yhtälöllä \eqref{MPAP PNS minimointi matrix} minimoimalla  käytetyt matriisit ja pystyvektorit.
+\begin{equation}
+\textbf{a} = \begin{bmatrix}
+a_{CAP}(1) & a_{CAP}(2) & \hdots & a_{CAP}(P)
+\end{bmatrix}^T
+\end{equation}
+\begin{equation}
+\textbf{W} = \begin{bmatrix}
+\textbf{H}_1 & \textbf{H}_2 & \hdots & \textbf{H}_M
+\end{bmatrix}^T
+\end{equation}
+\begin{equation}
+\textbf{v} = \begin{bmatrix}
+\textbf{h}_1 & \textbf{h}_2 & \hdots & \textbf{h}_M
+\end{bmatrix}^T
+\end{equation}
+\begin{equation}
+\textbf{h}_i = \begin{bmatrix}
+h_i(1) & h_i(2) & \hdots & h_i(N-1) & 0 & 0 & \hdots & 0
+\end{bmatrix}^T
+\end{equation}
+\begin{equation}
+\textbf{H}_i = \begin{bmatrix}
+h_i(0) & 0 & \hdots & 0 \\
+h_i(1) & h_i(0) & \hdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+h_i(P-1) & h_i(P-2) & \hdots & h_i(0) \\
+\vdots & \vdots & \ddots & \vdots \\
+h_i(N-1) & h_i(N-2) & \hdots & h_i(N-P) \\
+0 & h_i(N-1) & \hdots & h_i(N-P-1) \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \hdots & h_i(N-1) \\
+\end{bmatrix}
+\end{equation}
+
+\end{document}

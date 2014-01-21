@@ -1,0 +1,117 @@
+\begin{thebibliography}{10}
+
+\bibitem{MMiyoshi1988}
+M.~Miyoshi and Y.~Kaneda, ``Inverse filtering of room acoustics,'' {\em IEEE
+  Transactions on Acoustics, Speech and Signal Processing}, vol.~36:2,
+  pp.~145--152, 1988.
+
+\bibitem{MKarjalainen2005}
+M.~Karjalainen, T.~Paatero, J.~N. Mourjopoulos, and P.~D. Hatziantoniou,
+  ``About room response equalization and dereverberation,'' {\em IEEE Workshop
+  on Applications of Signal Processing to Audio and Acoustics}, vol.~1,
+  pp.~183--186, 2005.
+
+\bibitem{Pierce1991}
+A.~D. Pierce, {\em Acoustics: An Introduction ti Its Physical Principles and
+  Applications, 2nd edition}.
+\newblock American Institute of Physics, 1991.
+\newblock ISBN: 0883186128 9780883186121.
+
+\bibitem{Kahrs2002}
+M.~Kahrs and K.~Brandenburg, {\em Applications of Digital Signal Processing to
+  Audio and Acoustics}.
+\newblock Kluwer Academic Publishers, 2002.
+
+\bibitem{Fastl1997}
+F.~Fastl, ``The psychoacoustics of sound-quality evaluation,'' {\em Acta
+  Acustica united with Acustica}, vol.~83:5, pp.~754--764, 1997.
+
+\bibitem{Karjalainen2002}
+M.~Karjalainen, ``Hieman akustiikkaa,'' Teknillinen korkeakoulu, tammikuu 2002.
+
+\bibitem{Smith1999}
+J.~O. Smith and J.~S. Abel, ``Bark and erb bilinear transforms,'' {\em IEEE
+  Transactions on Speech and Audio Processing}, vol.~7, no.~6, pp.~697 --708,
+  1999.
+
+\bibitem{CBean1989}
+C.~Bean and P.~Craven, ``Loudspeaker and room correction using digital signal
+  processing,'' {\em 86th Audio Engineering Society Convention}, vol.~2756,
+  p.~7, 1989.
+
+\bibitem{YHaneda1994}
+Y.~Haneda, S.~Makino, and Y.~Kaneda, ``Common acoustical pole and zero modeling
+  of room transfer functions,'' {\em IEEE Transactions on Speech and Audio
+  Processing}, vol.~2:2, pp.~320--328, 1994.
+
+\bibitem{SBharitkar2001}
+S.~Bharitkar and C.~Kyriakakis, ``A cluster centroid method for room response
+  equalization at multiple locations,'' {\em IEEE Workshop on the Applications
+  of Signal Processing to Audio and Acoustics}, vol.~1, pp.~55--58, 2001.
+
+\bibitem{Hall2010}
+R.~C. Dorf and R.~H. Bishop, {\em Modern Control Systems (12th Edition)}.
+\newblock Prentice Hall, 2010.
+
+\bibitem{Harris1992}
+C.~Harris, C.~Moore, and M.~Brown, {\em Intelligent Control: Aspects of Fuzzy
+  Logic and Neural Nets}.
+\newblock World Scientific Publishing Co Pte Ltd, 1992.
+
+\bibitem{ACarini2012}
+A.~Carini, S.~Cecchi, F.~Piazza, I.~Omiciuolo, and G.~Sicuranza, ``Multiple
+  position room response equalization in frequency domain,'' {\em IEEE
+  Transactions on Audio, Speech and Language Processing}, vol.~20:1,
+  pp.~122--135, 2012.
+
+\bibitem{S.J.Elliot1989}
+S.~Elliot and P.~Nelson, ``Multiple-point equalization in a room using adaptive
+  digital filters,'' {\em Journal of Audio Engineering Society}, vol.~37:11,
+  pp.~899--907, 1989.
+
+\bibitem{YHaneda1997}
+Y.~Haneda, S.~Makino, and Y.~Kaneda, ``Multiple-point equalization of room
+  transfer functions by using common acoustical poles,'' {\em IEEE Transactions
+  on Speech and Audio Processing}, vol.~5:4, pp.~325--333, 1997.
+
+\bibitem{Antsalo2004}
+P.~Antsalo, M.~Karjalainen, A.~Mäkivirta, and V.~Välimäki, ``Perception of
+  temporal decay of low-frequency room modes,'' in {\em Audio Engineering
+  Society Convention 116}, toukokuu 2004.
+
+\bibitem{Mourjopoulos1991}
+J.~Mourjopoulos and M.~A. Paraskevas, ``Pole and zero modeling of room transfer
+  functions,'' {\em Journal of sound and vibration}, vol.~146:2, pp.~281--302,
+  1991.
+
+\bibitem{Makhoul1975}
+J.~Makhoul, ``Linear prediction: A tutorial review,'' {\em Proceedings of the
+  IEEE}, vol.~63:4, pp.~561--580, huhtikuu 1975.
+\newblock ISSN: 0018-9219.
+
+\bibitem{Hatziantoniou2000}
+P.~Hatziantoniou and J.~Mourjopoulos, ``Generalized fractional-octave smoothing
+  of audio and acoustic responses,'' {\em Journal of the Audio Engineering
+  Society}, vol.~48:4, pp.~259--280, 2000.
+
+\bibitem{Genereux1992}
+R.~Genereux, ``Signal processing considerations for acoustic environment
+  correction,'' in {\em Processing U.K. 7th Conference Digital Signal
+  Processing (DSP)}, pp.~175--195, syyskuu 1992.
+
+\bibitem{Hatziantoniou2003}
+P.~Hatziantoniou and J.~Mourjopoulos, ``Results for room acoustics equalization
+  based on smoothed responses,'' in {\em Processing 114th Audio Engineering
+  Society Convention}, (Amsterdam, Alankomaat), pp.~1--8, 2003.
+
+\bibitem{P.D.Hatziantoniou2004}
+P.~Hatziantoniou and J.~Mourjopoulos, ``Errors in real-time room acoustics
+  dereverberation,'' {\em Journal of the Audio Engineering Society}, vol.~52:9,
+  pp.~883--899, 2004.
+
+\bibitem{Karjalainen1997}
+M.~Karjalainen, A.~Härmä, U.~Laine, and J.~Huopaniemi, ``Warped filters and
+  their audio applications,'' in {\em Processing IEEE Workshop Applat. Signal
+  Processing Audio Acoustics}, (New Paltz, New York), pp.~19--22, lokakuu 1997.
+
+\end{thebibliography}
