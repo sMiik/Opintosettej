@@ -1,0 +1,24 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF-8
+
+
+@Unpublished{ICT-haasteet,
+  Title                    = {ICT-ulkoistamisen haasteet informaatioturvallisuuden näkökulmasta},
+  Author                   = {Hartikainen, Jussi},
+  Note                     = {Pro gradu -tutkielma. Tietojenkäsittelytiede},
+  Year                     = {2012},
+
+  Owner                    = {micsu},
+  Timestamp                = {2015.03.02}
+}
+
+@Article{T-malli,
+  Title                    = {From Embedded Knowledge to Embodied Knowledge: New Product Development as Knowledge Management},
+  Author                   = {Madhavan, Ravindranath and Grover, Rajiv},
+  Journal                  = {ISBM Report 3},
+  Year                     = {1996},
+
+  Owner                    = {micsu},
+  Timestamp                = {2015.02.18}
+}
+

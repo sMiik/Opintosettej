@@ -1,0 +1,60 @@
+% Finnish or English, gives the right language to title page and Finnish enables special chars ä ö å.
+\documentclass[a4paper,english,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{amsfonts,amssymb,amsbsy}
+\usepackage{fancyhdr}
+\usepackage[a4paper]{geometry}
+\usepackage[RGB,ELEC]{/home/micsu/Dropbox/Opinnot/gittisetit/LaTeX/aaltologo}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{titlepage}
+    \centering
+    \vspace*{5\baselineskip}
+    \bfseries
+    \normalsize
+    AS-0.3100 -- Seminar in Automation and Systems Technology \\
+    \vspace{3\baselineskip}
+    \Large
+    Time-of-Flight Cameras for Depth Imaging \\
+   	\vspace*{\baselineskip}
+    \normalsize
+    by Matti Laukkanen \\
+    \vspace*{3\baselineskip}
+    \Large
+    Opponen report \\ 
+    \vspace*{\baselineskip}
+    \normalfont
+    \vfill
+    \small
+    Automation and System Technology \\
+    \vfill
+    Miikka Eloranta \\
+    80294A \\[2\baselineskip]
+    \textbf{\today} \\[2\baselineskip]
+    \vfill
+	\AaltoLogoSmall{1}{?}{aaltoPurple}
+
+
+\end{titlepage}
+
+% DOCUMENT START
+
+Overall coherence is good and the report gives a good overall understanding about the topic. The introduction gives a good overview about the area of depth imaging and Time-of-Flight cameras and the difficulties with the latter in the past. Giving the structure of the report at the end of the introduction is a good practice.
+
+The structure of the report was rational, giving the basics of each chapters topic at the beginning of a section and going to methods more detailed afterwards. Also the chapters are summarized at the end and that gives a good binding to the different subsections of it. The area of the topic that this report covers is also clearly stated and the reader is given references for some out-of-scope areas. Regardless of the couple minor mistakes (e.g. word order or repeating or missing word) the grammatic is also good. There are figure and source references gone wrong in chapter 4.1.  
+
+%There are some things passed as ``known'' assuming it is common knowledge (e.g. the sentence ``The intensity, i.e. amplitude A of the light decreases proportionally to the travelled distance in a known way.''). Although it might belong to the basic education for students at this university, it might be a good idea to give a short description about it or at least give a reference where it could be found. 
+
+Comparing ToF cameras to other solutions -- with all the pros and cons of each -- is a good way to demonstrate why is it developed. The chapter also describes quite well to which cases it fits better than the competitors and why. It is told that e.g. Kinect and passive stereo cameras are quite cheap and laser range finders more expensive but there could also be approximated price differences for different technologies for both state-of-the-art and cheaper systems.
+
+There could have been an external section giving all the acronyms used. Although, all of them are introduced the first time appearing in the report, it'd be good to have a section where they can be checked afterwards and not having to find the first appearance from the report. Perhaps also a section for the symbols used could be given, even though very common symbols are used though the report. As acronym for Time-of-Flight cameras, both TOF and ToF are used. Try to keep it the same through all the report. Also, the stereo vision camera acronym SV is never actually introduced.
+
+The conclusion gives a good brief summary of the report and its contents. While it reports the current problems with Time-of-Flight cameras, it also states the prospects of it giving the improvements in the implementations so far. It leaves the reader wondering, how important part of depth imaging ToF cameras will gain in the future. Job well done.
+
+\end{document}
