@@ -11,6 +11,9 @@
 \usepackage{fancyhdr}
 \usepackage[a4paper]{geometry}
 \usepackage[RGB,ELEC]{/home/micsu/Dropbox/Opinnot/gittisetit/LaTeX/aaltologo}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \begin{document}
 
@@ -82,40 +85,56 @@ Palveluyrityksen valinnassa sertifikaattien ja työkokemuksen lisäksi asiakasyr
 
 \subsection{Jaottelu}
 
-Madhavan et. Al tunnisti osaamisisten mittaroinnissa useamman ulottuvuuden. Niin kutsutussa T-mallissa leveys kuvaa osaamisten kokonaismäärää ja korkeus niiden syvyyttä. Mikäli asiantuntijan osaaminen keskittyy esimerkiksi tiettyyn teknologiaan, on hänen osaamisten T-mallissaan kapea, mutta pitkä piikki. T-mallia käytetään osaamisten jaottelemiseksi tiettyihin kokonaisuuksiin. \cite{ICT-haasteet}
+Madhavan et. Al tunnisti osaamisisten mittaroinnissa useamman ulottuvuuden. Niin kutsutussa T-mallissa leveys kuvaa osaamisten kokonaismäärää ja korkeus niiden syvyyttä. Mikäli asiantuntijan osaaminen keskittyy esimerkiksi tiettyyn teknologiaan, on hänen osaamisten T-mallissaan kapea, mutta korkea piikki. T-mallia käytetään osaamisten jaottelemiseksi tiettyihin kokonaisuuksiin. \cite{ICT-haasteet}
 
-Tässä mallissa osaamiset on jaoteltu seuraavasti: \begin{enumerate}
-\item Henkilökohtaiset kyvykkyydet
-%\begin{itemize}
-%\item Kielitaidot
-%\item Tiimityöskentelytaidot
-%\item Paineensietokyky
-%\item \ldots
-%\end{itemize}
-\item Organisaatio- ja toimialakohtaiset osaamiset
-%\begin{itemize}
-%\item Yrityksen kumppanit ja kumppanuustasot
-%\item Kilpailijat
-%\item Asiakkaan edustajien tuntemus
-%\item \ldots
-%\end{itemize}
-\item Ammatilliset ja teknologiaosaamiset.
-%\begin{itemize}
-%\item Microsoft Exchange 2008
-%\item J2EE-ohjelmointi
-%\item Asiakkaan X järjestelmän Y arkkitehtuuri
-%\item \ldots
-%\end{itemize}
-\end{enumerate} Henkilökohtaisiin kyvykkyyksiin määritellään kaikki henkilön omaan käyttäytymiseen, muiden kanssa kommunikointiin ja kyvykkyyteen toimia tietyissä rooleissa. Näihin kuuluvat muun muassa kielitaidot, tiimityöskentelytaidot tai paineensietokyky. Organisaatio- ja toimialakohtaisiin osaamisiin taas määritelään mm. kaikki yrityksen käytäntöihin liittyvät osaamiset, kilpailijat, kumppanit ja kumppanuustasot, sekä asiakkaan edustajien tuntemus. Viimeisenä ammatillisiin ja teknologiaosaamisiin liittyy kaikki eri teknologioihin, ohjelmointikieliin ja -kehitykseen, asiakkaiden järjestelmien arkkitehtuureihin yms. liittyvät osaamiset. T-malli on valittu, koska osa-alueita on kolme ja kukin sen osio kuvaa yhtä osa-alueista.
+Tässä ICT-palveluyrityksille tarkoitetussa T-mallissa osaamiset on jaoteltu seuraavasti: \begin{enumerate}
+	\item Henkilökohtaiset kyvykkyydet
+	%\begin{itemize}
+		%\item Kielitaidot
+		%\item Tiimityöskentelytaidot
+		%\item Paineensietokyky
+		%\item \ldots
+	%\end{itemize}
+	\item Organisaatio- ja toimialakohtaiset osaamiset
+	%\begin{itemize}
+		%\item Yrityksen kumppanit ja kumppanuustasot
+		%\item Kilpailijat
+		%\item Asiakkaan edustajien tuntemus
+		%\item \ldots
+	%\end{itemize}
+	\item Ammatilliset ja teknologiaosaamiset.
+	%\begin{itemize}
+		%\item Microsoft Exchange 2008
+		%\item J2EE-ohjelmointi
+		%\item Asiakkaan X järjestelmän Y arkkitehtuuri
+		%\item \ldots
+	%\end{itemize}
+\end{enumerate} Kuvassa \ref{fig:Tareas} on esitetty edellä listattujen osa-alueiden sijainnit T-mallilla. Henkilökohtaisiin kyvykkyyksiin määritellään kaikki henkilön omaan käyttäytymiseen, muiden kanssa kommunikointiin ja kyvykkyyteen toimia tietyissä rooleissa. Näihin kuuluvat muun muassa kielitaidot, tiimityöskentelytaidot tai paineensietokyky. Organisaatio- ja toimialakohtaisiin osaamisiin taas määritelään mm. kaikki yrityksen käytäntöihin liittyvät osaamiset, kilpailijat, kumppanit ja kumppanuustasot, sekä asiakkaan edustajien tuntemus. Viimeisenä ammatillisiin ja teknologiaosaamisiin liittyy kaikki eri teknologioihin, ohjelmointikieliin ja -kehitykseen, asiakkaiden järjestelmien arkkitehtuureihin yms. liittyvät osaamiset. T-malli on valittu, koska osa-alueita on kolme ja kukin sen osio kuvaa yhtä osa-alueista.
 
-Koska kullakin työroolilla kaivataan erityyppisiä osaajia, T-mallia piirrettäessä sen kukin haara skaalataan rooliin vaadittavien osaamisten mukaisesti. T-malli piirretään yhtälöiden %\eqref{Tlogics_optim} ja \eqref{Tlogics} mukaisella logiikalla, joka on myös esitetty kuvassa \ref{fig:Tlogics}.
+Koska kullakin työroolilla kaivataan erityyppisiä osaajia, T-mallia piirrettäessä sen kukin haara skaalataan rooliin vaadittavien osaamisten mukaisesti. T-malli piirretään yhtälöiden %\eqref{Tlogics_optim} ja \eqref{Tlogics} mukaisella logiikalla, joka on myös esitetty kuvassa \ref{fig:Tlogics}. Taustalla näkyvä harmaa T on valitun työroolin ``optimi-T,'' joka pitää sisällään kaikki työroolin osaamiset. Harmaa T-malli skaalataan osaamisten lukumäärien mukaisesti symmetriseksi yhtälön \eqref{Tscaleconstants} mukaisesti ja näin saatuja skaalauskertoimia käytetään henkilön T-mallin piirrossa. Yhtälön \eqref{Tscales} muuttuja $W_1$ on skaalauskerroin henkilökohtaisten kyvykkyyksien leveydelle, $W_2$ vastaavasti organisaatio- ja toimialakohtaisten osaamisten leveyksille ja $H_1$ sekä $H_2$ vastaavat korkeusskaalaimet.
 
-%\begin{figure}[hb]
-%\centering
-%\includegraphics[scale=1]{T_drawing_logics.png}
-%\caption{T-mallin piirtologiikka valitulle työroolille.}
-%\label{fig:Tlogics}
-%\end{figure}
+\begin{equation}
+\label{Tscaleconstants}
+\begin{cases}
+A_1 = \fraq{1}{O_1} \\
+A_2 = \fraq{1}{O_2} \\
+B_1 = B_2 = \fraq{1}{5} \\
+\end{cases}
+\end{equation}
+
+\begin{figure}[hb]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{T_areas.png}
+		\caption{T-mallin osaamisalueet ICT-palveluyritykselle.}
+		\label{fig:Tareas}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{T_drawing_logics.png}
+		\caption{T-mallin piirtologiikka valitulle työroolille.}
+		\label{fig:Tlogics}
+	\end{subfigure}
+\end{figure}
 
 T-malli höpöhöpö \cite{T-malli}.
 
