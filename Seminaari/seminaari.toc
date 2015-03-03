@@ -1,8 +1,8 @@
 \select@language {finnish}
 \contentsline {section}{\numberline {1}Johdanto}{2}
 \contentsline {section}{\numberline {2}Motivaatio}{3}
-\contentsline {section}{\numberline {3}Osaaminen -- mit\IeC {\"a} k\IeC {\"a}yt\IeC {\"a}nn\IeC {\"o}ss\IeC {\"a}?}{5}
-\contentsline {subsection}{\numberline {3.1}Jaottelu}{5}
+\contentsline {section}{\numberline {3}Osaaminen -- mit\IeC {\"a} k\IeC {\"a}yt\IeC {\"a}nn\IeC {\"o}ss\IeC {\"a}?}{4}
+\contentsline {subsection}{\numberline {3.1}Jaottelu}{4}
 \contentsline {section}{\numberline {4}Jatkuva kehittyminen}{7}
 \contentsline {subsection}{\numberline {4.1}Kehittymisen suunnittelu}{7}
 \contentsline {section}{\numberline {5}Mik\IeC {\"a} vitun Akatemia?}{8}
