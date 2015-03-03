@@ -5,6 +5,6 @@
 \contentsline {subsection}{\numberline {3.1}Jaottelu}{4}
 \contentsline {section}{\numberline {4}Jatkuva kehittyminen}{7}
 \contentsline {subsection}{\numberline {4.1}Kehittymisen suunnittelu}{7}
-\contentsline {section}{\numberline {5}Mik\IeC {\"a} vitun Akatemia?}{8}
-\contentsline {section}{\numberline {6}Yhteenveto ja johtop\IeC {\"a}\IeC {\"a}t\IeC {\"o}kset}{9}
-\contentsline {section}{Viitteet}{10}
+\contentsline {section}{\numberline {5}Mik\IeC {\"a} vitun Akatemia?}{9}
+\contentsline {section}{\numberline {6}Yhteenveto ja johtop\IeC {\"a}\IeC {\"a}t\IeC {\"o}kset}{10}
+\contentsline {section}{Viitteet}{11}
