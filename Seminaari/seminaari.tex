@@ -6,11 +6,11 @@
 \usepackage[finnish]{babel}
 
 \usepackage{mathtools}
-%\usepackage[lstlisting]{/home/micsu/Dropbox/Opinnot/gittisetit/LaTeX/mcode}
+\usepackage[lstlisting]{../LaTeX/mcode}
 \usepackage{amsfonts,amssymb,amsbsy}
 \usepackage{fancyhdr}
 \usepackage[a4paper]{geometry}
-%\usepackage[RGB,ELEC]{/home/micsu/Dropbox/Opinnot/gittisetit/LaTeX/aaltologo}
+\usepackage[RGB,ELEC]{../LaTeX/aaltologo}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -38,7 +38,7 @@
     80294A \\[2\baselineskip]
     \textbf{\today} \\[2\baselineskip]
     \vfill
-%	\AaltoLogoSmall{1}{?}{aaltoPurple}
+	\AaltoLogoSmall{1}{?}{aaltoPurple}
 
 
 \end{titlepage}
@@ -81,7 +81,7 @@ Siinä, missä osaamista voi kasvattaa itse tekemällä tai koulutuksia käymäl
 
 Varsinainen käytännön osaaminen ei kuitenkaan kartu pelkillä teoriaopinnoilla. Vaikka koulutuksessa todennäköisimmin onkin myös käytännön tekemistä, voi sertifikaattitestejä suorittaa myös ilman varsinaiseen koulutukseen osallistumista. Lisäksi voi olla osaajia, jotka eivät ole vielä sertifioituneet tietyn osaamisen osaajiksi -- joko tähän ei ole ollut aikaa tai henkilö ei yksinkertaisesti menesty teoreettisistä testeissä samalla tasolla kuin käytännön osaamisen saralla -- ja toisaalta on osaamisia, joihin ei yksinkertaisesti voi sertifioitua. Osaaminen pitäisi siis määritellä yleisemmällä tasolla. 
 
-Palveluyrityksen valinnassa sertifikaattien ja työkokemuksen lisäksi asiakasyrityksen tulee huomioida sen kumppanit, kumppanuustasot ja olemassa olevat asiakkaat  -- ennen kaikkea lukeutuuko nykyasiakkaisiin saman toimialan yrityksiä \cite{ICT-haasteet}.
+Palveluyrityksen valinnassa sertifikaattien ja työkokemuksen lisäksi asiakasyrityksen tulee huomioida sen kumppanit, kumppanuustasot ja olemassa olevat asiakkaat  -- ennen kaikkea lukeutuuko nykyasiakkaisiin saman toimialan yrityksiä \cite{ICT-haasteet}. Kuitenkin varsinainen osaaminen määritellään tässä henkilön omana merkintänä tietyllä osaamistasolla välillä 1-5. Osaamistasojen oikeellisuuden varmentamiseksi tähän voivat tehdä arvionsa myös esimiehet ja näiden arvioiden ristiriitaisuudessa erikseen määritelty osaamiseen paremmin erikoistunut mentori. Käydyt koulutukset ja suoritetut sertifikaattitestit ja sertifioitumiset antavat osaamiselle pohjaa, mutta osaamisarvio on silti näistä riippumaton.
 
 \subsection{Jaottelu}
 
@@ -172,24 +172,38 @@ Uudet teknologiat, kasvava yritys, vitusti pilvee Kalliosta
 
 \subsection{Kehittymisen suunnittelu}
 
-Koko organisaation kehityssuunnat määrittyvät yksilöiden kautta. Vaikka organisaatiolla olisikin tietyt tavoitteet kehityssuunniksi, sen toteutuminen on riippuvaista siitä, onko osaamisen kehitystä hankkiva henkilökunta motivoitunutta. Tästä syystä henkilöstön itsensä tulee saada olla vaikuttamassa oman henkilökohtaisen koulutus- ja kehityssuunnitelmansa tekoon.
+Koko organisaation kehityssuunnat määrittyvät yksilöiden kautta. Vaikka organisaatiolla olisikin tietyt tavoitteet kehityssuunniksi, sen toteutuminen on riippuvaista siitä, onko osaamisen kehitystä hankkiva henkilökunta motivoitunutta. Tästä syystä henkilöstön itsensä tulee saada olla vaikuttamassa oman henkilökohtaisen koulutussuunnitelmansa tekoon. Kehittymisen suunnittelu onkin jaoteltu kahteen eri suuntaan: koulutussuunnitteluun sekä organisaation tavoitteisiin. Koulutussuunnittelussa henkilö saa itse asettaa itselleen ylätason tavoitteet, millaisia koulutuksia hän suunnittelee käyvänsä. Koulutussuunnitelma käydään läpi lähiesimiehen kanssa, joka voi viime kädessä ilmoittaa, mikäli suunnitelmaa on esim. budjetäärisistä syistä korjattava.
 
-Kehittymisen suunnittelu onkin jaoteltu kahteen eri suuntaan: koulutus- ja kehityssuunnitteluun sekä organisaation tavoitteisiin. Koulutussuunnittelussa henkilö saa itse asettaa itselleen ylätason tavoitteet, millaisia koulutuksia hän suunnittelee käyvänsä. Kehityssuunnitelmassa syvennytään konkreettisempaan tasoon -- mitä kursseja, sertifioitumisia tai muulla tavoin kehittyvää osaamista halutaan hankkia. Organisaation tavoiteasetannassa johtoryhmä tekee päätökset yrityksen pääasiallisista tavoitteellisista kehityssuunnista. Asiantuntijoiden itselleen asettamia koulutussuunnitelmia käytetään tässä osviittana siitä, millaista koulutusta voitaisiin motivoidusti asettaa henkilöstölle, mutta kehittyvät ja uudet teknologiat sekä mahdolliset asiakastarpeet, joihin kehittyminen on välttämätöntä, määrittävät lopulliset tavoitteet. Johtoryhmän asettamat tavoitteet laskeutuvat asiantuntijoille portaittain siten, että kukin esimies saatuaan tavoitteen tekee päätöksen, millä tavalla hän voi kyseisen tavoitteen toteutumista edesauttaa ja määrittää tavoitteen omille alaisilleen -- tai osalle heistä -- hieman konkreettisemmalla tasolla. Lopulta koko tavoitepolkua voidaan tarkastella johtoryhmän asetannasta asiantuntijoille määriteltyihin tavoitteisiin ja tehdä viimeisiä korjauksia, jos nämä eivät kata alkuperäisen tavoitteen vaatimuksia.
+Organisaation tavoiteasetannassa johtoryhmä tekee päätökset yrityksen pääasiallisista tavoitteellisista kehityssuunnista. Asiantuntijoiden itselleen asettamia koulutussuunnitelmia käytetään tässä osviittana siitä, millaista koulutusta voitaisiin motivoidusti asettaa henkilöstölle, mutta kehittyvät ja uudet teknologiat sekä mahdolliset asiakastarpeet, joihin kehittyminen on välttämätöntä, määrittävät lopulliset tavoitteet. Johtoryhmän asettamat tavoitteet laskeutuvat asiantuntijoille portaittain siten, että kukin esimies saatuaan tavoitteen tekee päätöksen, millä tavalla hän voi kyseisen tavoitteen toteutumista edesauttaa ja määrittää siitä tavoitteen omille alaisilleen -- tai osalle heistä -- hieman konkreettisemmalla tasolla. Lopulta koko tavoitepolkua voidaan tarkastella johtoryhmän asetannasta asiantuntijoille määriteltyihin tavoitteisiin ja tehdä viimeisiä korjauksia, jos nämä eivät kata alkuperäisen tavoitteen vaatimuksia.
+
+\subsection{Urapolut}
+
+Jotta työntekijöitä saataisiin motivoitua kehittämään itseään, tulee heidän urakehittymismahdollisuutensa olla selkeästi tiedossa. Koska jokaiselle roolille on asetettu konkreettiset tavoitteet kullekin roolitasolle 1-5, voidaan nämä visualisoida selvästi ns. urapolkunäkymänä. Urapolkunäkymästä on esitetty esimerkki testitunnukselta kuvassa \ref{fig:urapolkuspiderweb}. Kuvassa oranssilla on kuvattu työrooli, johon työntekijä varsinaisesti on määritelty ja keltaisella roolit, joista vaatimuksia on täyttynyt kuvauksen mukainen määrä. Koska rooleissa on tasot 1-5 ja kullakin tasolla omat vaatimuksensa, ei käytännössä tasolla voi nousta ylöspäin, jos alemman tason vaatimukset eivät täyty. Kuitenkin nämä on visualisoitu erikseen, jotta henkilö itse näkee, kuinka pitkälle hän alemman tason vaatimukset täyttämällä voisi edetä.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=1\textwidth]{urapolkuPlot_tst_usr.png}
+\caption{Esimerkki testihenkilön urapolkunäkymästä, jossa tämänhetkiset roolit on merkitty oranssilla ja muiden roolien vaatimusten täyttöaste keltaisella.}
+\label{fig:urapolkuspiderweb}
+\end{figure}
 
 \pagebreak
 
-\section{Mikä vitun Akatemia?}
+\section{Keskitetyn hallinnan hyödyt}
 
-"Akatemia" yleisenä terminä vai tuotehöpinää?
+\begin{itemize}
+\item Järjestelmä yleisläpinä?
+\item Kehittymisen suunnittelu ja toteutumisen seuranta
+\item CV-generointi
+\end{itemize}
 
 \pagebreak
 
 \section{Yhteenveto ja johtopäätökset}
 
-Vittuun työt ja vittuun työkkäri
+Kai tää ois ihan jeppis?
 
 \pagebreak
-
 
 \clearpage
 

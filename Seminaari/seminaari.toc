@@ -1,10 +1,11 @@
 \select@language {finnish}
 \contentsline {section}{\numberline {1}Johdanto}{2}
 \contentsline {section}{\numberline {2}Motivaatio}{3}
-\contentsline {section}{\numberline {3}Osaaminen -- mit\IeC {\"a} k\IeC {\"a}yt\IeC {\"a}nn\IeC {\"o}ss\IeC {\"a}?}{4}
-\contentsline {subsection}{\numberline {3.1}Jaottelu}{4}
-\contentsline {section}{\numberline {4}Jatkuva kehittyminen}{7}
-\contentsline {subsection}{\numberline {4.1}Kehittymisen suunnittelu}{7}
-\contentsline {section}{\numberline {5}Mik\IeC {\"a} vitun Akatemia?}{9}
-\contentsline {section}{\numberline {6}Yhteenveto ja johtop\IeC {\"a}\IeC {\"a}t\IeC {\"o}kset}{10}
-\contentsline {section}{Viitteet}{11}
+\contentsline {section}{\numberline {3}Osaaminen -- mit\IeC {\"a} k\IeC {\"a}yt\IeC {\"a}nn\IeC {\"o}ss\IeC {\"a}?}{5}
+\contentsline {subsection}{\numberline {3.1}Jaottelu}{5}
+\contentsline {section}{\numberline {4}Jatkuva kehittyminen}{8}
+\contentsline {subsection}{\numberline {4.1}Kehittymisen suunnittelu}{8}
+\contentsline {subsection}{\numberline {4.2}Urapolut}{9}
+\contentsline {section}{\numberline {5}Keskitetyn hallinnan hy\IeC {\"o}dyt}{10}
+\contentsline {section}{\numberline {6}Yhteenveto ja johtop\IeC {\"a}\IeC {\"a}t\IeC {\"o}kset}{11}
+\contentsline {section}{Viitteet}{12}
