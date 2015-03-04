@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.21)  4 MAR 2015 23:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.21)  5 MAR 2015 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1163,40 +1163,41 @@ File: T_drawing_logics.png Graphic file (type png)
 Package pdftex.def Info: T_drawing_logics.png used on input line 125.
 (pdftex.def)             Requested size: 188.21288pt x 188.22217pt.
  [6] [7 <./T_areas.png> <./T_drawing_logics.png>]
-<knowledge_circle.png, id=45, 682.55pt x 316.18124pt>
+[8] <knowledge_circle.png, id=49, 682.55pt x 316.18124pt>
 File: knowledge_circle.png Graphic file (type png)
 
 <use knowledge_circle.png>
-Package pdftex.def Info: knowledge_circle.png used on input line 170.
+Package pdftex.def Info: knowledge_circle.png used on input line 177.
 (pdftex.def)             Requested size: 341.27417pt x 158.09023pt.
- [8
+ [9
 
  <./knowledge_circle.png>]
-<urapolkuPlot_tst_usr.png, id=49, 803.0pt x 401.5pt>
+<urapolkuPlot_tst_usr.png, id=53, 803.0pt x 401.5pt>
 File: urapolkuPlot_tst_usr.png Graphic file (type png)
 
 <use urapolkuPlot_tst_usr.png>
-Package pdftex.def Info: urapolkuPlot_tst_usr.png used on input line 189.
+Package pdftex.def Info: urapolkuPlot_tst_usr.png used on input line 194.
 (pdftex.def)             Requested size: 418.25368pt x 209.1304pt.
- [9] [10 <./urapolkuPlot_tst_usr.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for TS1+pnc on input line 199.
+ [10 <./urapolkuPlot_tst_usr.png (PNG copy)>]
+[11]
+LaTeX Font Info:    Try loading font information for TS1+pnc on input line 206.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pnc.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pnc.fd
 File: ts1pnc.fd 2001/06/04 font definitions for TS1/pnc.
-) [11
+) [12
 
-] [12
+] [13
 
 ]
-(./seminaari.bbl) [13
+(./seminaari.bbl) [14
 
 
 ] (./seminaari.aux) ) 
 Here is how much of TeX's memory you used:
- 18522 strings out of 493105
- 339456 string characters out of 6137072
- 796613 words of memory out of 5000000
- 21613 multiletter control sequences out of 15000+600000
+ 18523 strings out of 493105
+ 339474 string characters out of 6137072
+ 796619 words of memory out of 5000000
+ 21614 multiletter control sequences out of 15000+600000
  30188 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,8n,56p,1012b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1206,15 +1207,16 @@ Here is how much of TeX's memory you used:
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrs
-bk/uncb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on seminaari.pdf (14 pages, 174118 bytes).
+onts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
+Output written on seminaari.pdf (15 pages, 183757 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 111 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

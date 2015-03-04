@@ -113,7 +113,7 @@ Tässä ICT-palveluyrityksille tarkoitetussa T-mallissa osaamiset on jaoteltu se
 	%\end{itemize}
 \end{enumerate} Kuvassa \ref{fig:Tareas} on esitetty edellä listattujen osaamisalueiden sijainnit T-mallilla. Henkilökohtaisiin kyvykkyyksiin määritellään kaikki henkilön omaan käyttäytymiseen, muiden kanssa kommunikointiin ja kyvykkyyteen toimia tietyissä rooleissa. Näihin kuuluvat muun muassa kielitaidot, tiimityöskentelytaidot tai paineensietokyky. Organisaatio- ja toimialakohtaisiin osaamisiin taas määritelään mm. kaikki yrityksen käytäntöihin liittyvät osaamiset, kilpailijat, kumppanit ja kumppanuustasot, sekä asiakkaan edustajien tuntemus. Viimeisenä ammatillisiin ja teknologiaosaamisiin liittyy kaikki eri teknologioihin, ohjelmointikieliin ja -kehitykseen, asiakkaiden järjestelmien arkkitehtuureihin yms. liittyvät osaamiset. T-malli on valittu, koska osa-alueita on kolme ja kukin sen osio kuvaa yhtä osa-alueista.
 
-\begin{figure}[t]
+\begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{T_areas.png}
@@ -132,21 +132,28 @@ Tässä ICT-palveluyrityksille tarkoitetussa T-mallissa osaamiset on jaoteltu se
 Koska kullakin työroolilla kaivataan erityyppisiä osaajia, T-mallia piirrettäessä sen kukin haara skaalataan rooliin vaadittavien osaamisten mukaisesti. T-mallin yläosa piirretään käyttäen yhtälöparin %\eqref{Tlogics_optim} ja \eqref{Tlogics} mukaisella logiikalla, joka on myös esitetty kuvassa \ref{fig:Tlogics}. Taustalla näkyvä harmaa T on valitun työroolin ``optimi-T,'' joka pitää sisällään kaikki työroolin osaamiset. Harmaa T-malli skaalataan osaamisten lukumäärien mukaisesti symmetriseksi yhtälön \eqref{Tscaleconstants} mukaisesti ja näin saatuja skaalauskertoimia käytetään henkilön T-mallin piirrossa. Yhtälön \eqref{Tscaleconstants} muuttuja $A_1$ on skaalauskerroin henkilökohtaisten kyvykkyyksien leveydelle, $A_2$ vastaavasti organisaatio- ja toimialakohtaisten osaamisten leveyksille ja $B_1$ sekä $B_2$ vastaavat korkeusskaalaimet.
 \begin{equation}
 \begin{cases}
-A_i = 1/n_i \\
-B_i = 1/5 \\
-\end{cases}
+A_i = \frac{1}{n_1} \\
+B_i = \frac{1}{5} \\
+\end{cases} \\ , i \in [1,2]
 \label{Tscaleconstants}
 \end{equation} skaalauskertoimia, jossa $A_i$ on osaamisalueen $i$ skaalauskerroin leveydelle ja $n_i$ vastaavan alueen osaamisten kokonaislukumäärä. $B_i$ on vastaavasti korkeuden skaalauskerroin, joka on kaikille $1/5$, koska osaamistasoja on tässä määritelty viisi kappaletta ja korkeus määritetään henkilölle määriteltyjen osaamisten tasojen keskiarvona.
 
-Käyttäen kertoimia yhtälöstä \eqref{Tscaleconstants} saadaan henkilölle määriteltyä kuvan \ref{fig:Tlogics} mukaiset osaamisalueiden 1 ja 2 pisteet $(x_1, y_1)$ ja $(x_2, y_2)$ yhtälöillä
+Osaamisalueessa 3 osaamisen leveys kuvaa osaamisten lukumäärää ``vähintään tasolla x.'' Harmaan alueen leveys määrittyy osaamisten lukumäärästä kaksinkertaisena, sillä tähän alueeseen piirrettävä kuvaaja peilataan $y$-akselin ympäri. Alaspäin mentäessä tasot kasvavat tasaisin väliajoin jolloin T-mallin ``jalasta'' tulee alaspäin porrastettu. Täten jokaisessa ``portaassa'' on vähintään yhtä paljon osaamisia, eli se on vähintään yhtä leveä kuin seuraavassa liikkuessa alaspäin. Koska 3. osaamisalueessa osaamistasokohtainen korkeus on vakio, jokaisella voi tässä käyttää alueen korkeuteen suoraan verrannollista skalaarikerrointa $B_3$, joka vastaa täysin yhtälön \eqref{Tscaleconstants} kerrointa $B_i$. Näin ollen kulmapisteet osaamisalueelle 3 saadaa yhtälöistä
 \begin{equation}
 \begin{cases}
-x_i = (-1)^{i-1} A_i \cdot \frac{O_i}{n_i} = \frac{A_i}{n_i} O_i \\
+A_i = \pm \sum_{o \in O_i} \frac{O_i}{n_i} = \frac{1}{n_i} \pm \sum_{o \in O_i} o \\
+B_i = \frac{1}{5}
+\end{cases} \\ i = 3.
+\label{Tscaleconstants3}
+\end{equation} 
+
+Käyttäen kertoimia yhtälöistä \eqref{Tscaleconstants} ja \eqref{Tscaleconstants3} saadaan henkilölle määriteltyä kuvan \ref{fig:Tlogics} mukaiset osaamisalueiden 1 ja 2 pisteet $(x_1, y_1)$, $(x_2, y_2)$, $(x_3^1, y_3^1$) ja $(x_3^2, y_3^2)$ yhtälöillä
+\begin{equation}
+\begin{cases}
+x_i = (-1)^{i-1} A_i \cdot \frac{n_{io}}{n_i} = \frac{A_i}{n_i} n_{io} \\
 y_i = B_i \cdot \sum_{k \in O_i} \frac{O_k}{n_i} = \frac{B_i}{n_i} \sum_{o \in O_i} o, \\
 \end{cases}
-\end{equation} jossa $O_i$ kattaa henkilölle määritettyjen osaamisten tasot osaamisalueessa $i$.
-
-Osaamisalueessa 3 osaamisen leveys kuvaa osaamisten lukumäärää ``vähintään tasolla x.'' Harmaan alueen leveys määrittyy osaamisten lukumäärästä kaksinkertaisena, sillä tähän alueeseen piirrettävä kuvaaja peilataan $y$-akselin ympäri. Alaspäin mentäessä tasot kasvavat tasaisin väliajoin jolloin T-mallin ``jalasta'' tulee alaspäin porrastettu. Täten jokaisessa ``portaassa'' on vähintään yhtä paljon osaamisia, eli se on vähintään yhtä leveä kuin seuraavassa liikkuessa alaspäin.
+\end{equation} jossa $n_{io}$ on henkilön osaamisten lukumäärä osaamisalueessa $i$, $O_i$ kattaa henkilölle määritettyjen osaamisten tasot osaamisalueessa $i$.
 
 
 T-malli höpöhöpö \cite{T-malli}.
@@ -182,14 +189,14 @@ Organisaation tavoiteasetannassa johtoryhmä tekee päätökset yrityksen pääa
 
 \subsection{Urapolut}
 
-Jotta työntekijöitä saataisiin motivoitua kehittämään itseään, tulee heidän urakehittymismahdollisuutensa olla selkeästi tiedossa. Koska jokaiselle roolille on asetettu konkreettiset tavoitteet kullekin roolitasolle 1-5, voidaan nämä visualisoida selvästi ns. urapolkunäkymänä. Urapolkunäkymästä on esitetty esimerkki testitunnukselta kuvassa \ref{fig:urapolkuspiderweb}. Kuvassa oranssilla on kuvattu työrooli, johon työntekijä varsinaisesti on määritelty ja harmaalla roolit, joista vaatimuksia on täyttynyt prosentuaalisesti esityksen mukainen täyttömäärä. Koska rooleissa on tasot 1-5 ja kullakin tasolla omat vaatimuksensa, ei käytännössä tasolla voi nousta ylöspäin, jos alemman tason vaatimukset eivät täyty. Kuitenkin nämä on täytetty erikseen, jotta henkilö itse näkee, kuinka pitkälle hän alemman tason vaatimukset täyttämällä voisi edetä.
-
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\textwidth]{urapolkuPlot_tst_usr.png}
 \caption{Esimerkki testihenkilön urapolkunäkymästä, jossa tämänhetkiset roolit on merkitty oranssilla ja muiden roolien vaatimusten täyttymisaste harmaalla.}
 \label{fig:urapolkuspiderweb}
 \end{figure}
+
+Jotta työntekijöitä saataisiin motivoitua kehittämään itseään, tulee heidän urakehittymismahdollisuutensa olla selkeästi tiedossa. Koska jokaiselle roolille on asetettu konkreettiset tavoitteet kullekin roolitasolle 1-5, voidaan nämä visualisoida selvästi ns. urapolkunäkymänä. Urapolkunäkymästä on esitetty esimerkki testitunnukselta kuvassa \ref{fig:urapolkuspiderweb}. Kuvassa oranssilla on kuvattu työrooli, johon työntekijä varsinaisesti on määritelty ja harmaalla roolit, joista vaatimuksia on täyttynyt prosentuaalisesti esityksen mukainen täyttömäärä. Koska rooleissa on tasot 1-5 ja kullakin tasolla omat vaatimuksensa, ei käytännössä tasolla voi nousta ylöspäin, jos alemman tason vaatimukset eivät täyty. Kuitenkin nämä on täytetty erikseen, jotta henkilö itse näkee, kuinka pitkälle hän alemman tason vaatimukset täyttämällä voisi edetä.
 
 \clearpage
 
