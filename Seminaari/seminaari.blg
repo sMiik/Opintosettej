@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: seminaari.aux
 The style file: ieeetr.bst
 Database file #1: refet.bib
-You've used 3 entries,
+You've used 2 entries,
             1876 wiz_defined-function locations,
-            494 strings with 3961 characters,
-and the built_in function-call counts, 413 in all, are:
-= -- 33
-> -- 20
+            488 strings with 3796 characters,
+and the built_in function-call counts, 264 in all, are:
+= -- 21
+> -- 12
 < -- 0
-+ -- 8
-- -- 5
-* -- 25
-:= -- 81
-add.period$ -- 3
-call.type$ -- 3
-change.case$ -- 3
++ -- 5
+- -- 3
+* -- 16
+:= -- 56
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 22
-empty$ -- 43
-format.name$ -- 5
-if$ -- 90
+cite$ -- 2
+duplicate$ -- 13
+empty$ -- 26
+format.name$ -- 3
+if$ -- 55
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 2
-newline$ -- 12
-num.names$ -- 3
-pop$ -- 8
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 9
+num.names$ -- 2
+pop$ -- 4
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 5
+skip$ -- 3
 stack$ -- 0
 substring$ -- 0
-swap$ -- 2
+swap$ -- 1
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 3
-width$ -- 4
-write$ -- 26
+while$ -- 2
+width$ -- 3
+write$ -- 18

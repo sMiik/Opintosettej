@@ -5,7 +5,8 @@
 \contentsline {subsection}{\numberline {3.1}Jaottelu}{6}
 \contentsline {section}{\numberline {4}Jatkuva kehittyminen}{9}
 \contentsline {subsection}{\numberline {4.1}Kehittymisen suunnittelu}{9}
-\contentsline {subsection}{\numberline {4.2}Urapolut}{10}
-\contentsline {section}{\numberline {5}Keskitetyn hallinnan hy\IeC {\"o}dyt}{12}
+\contentsline {subsection}{\numberline {4.2}Urapolut}{11}
+\contentsline {section}{\numberline {5}Keskitetty hallinta}{12}
+\contentsline {subsection}{\numberline {5.1}Hy\IeC {\"o}dyt}{12}
 \contentsline {section}{\numberline {6}Yhteenveto ja johtop\IeC {\"a}\IeC {\"a}t\IeC {\"o}kset}{13}
 \contentsline {section}{Viitteet}{14}
