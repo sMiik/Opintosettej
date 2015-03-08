@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.21)  5 MAR 2015 20:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.21)  8 MAR 2015 17:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1099,12 +1099,12 @@ LaTeX Font Info:    Font shape `T1/pnc/bx/n' in size <10.95> not available
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./seminaari.toc
 LaTeX Font Info:    Font shape `T1/pnc/bx/n' in size <12> not available
 (Font)              Font shape `T1/pnc/b/n' tried instead on input line 2.
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1114,116 +1114,139 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-] [2
-
 ]
-Overfull \hbox (5.13489pt too wide) in paragraph at lines 68--69
+Overfull \hbox (5.13489pt too wide) in paragraph at lines 59--60
 []\T1/pnc/m/n/12 Kollegoiden osaa-mis-ten tun-te-mi-sen tär-keys ko-ros-tuu en-
 nen kaik-kea asia-
  []
 
-[3
+[2
 
-] [4]
-Overfull \hbox (0.7113pt too wide) in paragraph at lines 84--85
+] [3]
+Overfull \hbox (0.7113pt too wide) in paragraph at lines 79--80
 []\T1/pnc/m/n/12 Koulutus pel-käs-tään on huo-no mit-ta-ri osaa-mi-sel-le. Sa-m
 an kou-lu-tus-taus-
  []
 
-LaTeX Font Info:    Font shape `T1/pnc/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/pnc/b/n' tried instead on input line 88.
-[5
+[4
 
 ]
-Overfull \hbox (5.43646pt too wide) in paragraph at lines 114--115
+LaTeX Font Info:    Font shape `T1/pnc/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/pnc/b/n' tried instead on input line 86.
+
+Overfull \hbox (5.43646pt too wide) in paragraph at lines 112--113
 \T1/pnc/m/n/12 Kuvassa 1a[] on esi-tet-ty edel-lä lis-tat-tu-jen osaa-mi-sa-lue
 i-den si-jain-nit T-mallilla.
  []
 
 
-Overfull \hbox (0.6735pt too wide) in paragraph at lines 114--115
+Overfull \hbox (0.6735pt too wide) in paragraph at lines 112--113
 \T1/pnc/m/n/12 Hen-ki-lö-koh-tai-siin ky-vyk-kyyk-siin mää-ri-tel-lään kaik-ki 
 hen-ki-lön omaan käyt-
  []
 
-<T_areas.png, id=26, 225.84375pt x 225.84375pt>
+<T_areas.png, id=23, 225.84375pt x 225.84375pt>
 File: T_areas.png Graphic file (type png)
  <use T_areas.png>
-Package pdftex.def Info: T_areas.png used on input line 119.
+Package pdftex.def Info: T_areas.png used on input line 117.
 (pdftex.def)             Requested size: 188.21288pt x 188.22217pt.
 
-Underfull \hbox (badness 3088) in paragraph at lines 120--120
-[]\T1/pnc/m/n/10.95 (a) |Käy-te-tyt osaa-mi-sa-lue-jaot ICT-
- []
-
-<T_drawing_logics.png, id=27, 225.84375pt x 225.84375pt>
+<T_drawing_logics.png, id=24, 301.125pt x 301.125pt>
 File: T_drawing_logics.png Graphic file (type png)
 
 <use T_drawing_logics.png>
-Package pdftex.def Info: T_drawing_logics.png used on input line 125.
-(pdftex.def)             Requested size: 188.21288pt x 188.22217pt.
- [6] [7 <./T_areas.png> <./T_drawing_logics.png>]
-[8] <knowledge_circle.png, id=49, 682.55pt x 316.18124pt>
+Package pdftex.def Info: T_drawing_logics.png used on input line 123.
+(pdftex.def)             Requested size: 188.21288pt x 188.22102pt.
+
+Underfull \hbox (badness 1127) in paragraph at lines 124--124
+[]\T1/pnc/m/n/10.95 (b) |T-mallin piir-to-lo-giik-ka va-li-tul-le
+ []
+
+[5] [6 <./T_areas.png> <./T_drawing_logics.png>] [7]
+<knowledge_circle.png, id=46, 682.55pt x 316.18124pt>
 File: knowledge_circle.png Graphic file (type png)
 
 <use knowledge_circle.png>
-Package pdftex.def Info: knowledge_circle.png used on input line 170.
+Package pdftex.def Info: knowledge_circle.png used on input line 173.
 (pdftex.def)             Requested size: 341.27417pt x 158.09023pt.
- [9
+ [8
 
  <./knowledge_circle.png>]
-<tavoitesample.png, id=53, 589.20125pt x 286.06876pt>
+<tavoitesample.png, id=50, 589.20125pt x 286.06876pt>
 File: tavoitesample.png Graphic file (type png)
  <use tavoitesample.png>
-Package pdftex.def Info: tavoitesample.png used on input line 185.
+Package pdftex.def Info: tavoitesample.png used on input line 188.
 (pdftex.def)             Requested size: 418.25368pt x 203.07095pt.
 
-[10 <./tavoitesample.png>]
-<urapolkuPlot_tst_usr.png, id=57, 803.0pt x 401.5pt>
+[9 <./tavoitesample.png>] <urapolkuPlot_tst_usr.png, id=54, 803.0pt x 401.5pt>
 File: urapolkuPlot_tst_usr.png Graphic file (type png)
 
 <use urapolkuPlot_tst_usr.png>
-Package pdftex.def Info: urapolkuPlot_tst_usr.png used on input line 196.
+Package pdftex.def Info: urapolkuPlot_tst_usr.png used on input line 201.
 (pdftex.def)             Requested size: 418.25368pt x 209.1304pt.
- [11 <./urapolkuPlot_tst_usr.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for TS1+pnc on input line 210.
+ [10 <./urapolkuPlot_tst_usr.png (PNG copy)>]
+[11
+
+] <Akatemia_sampleCV.png, id=61, 1193.9004pt x 844.8363pt>
+File: Akatemia_sampleCV.png Graphic file (type png)
+
+<use Akatemia_sampleCV.png>
+Package pdftex.def Info: Akatemia_sampleCV.png used on input line 224.
+(pdftex.def)             Requested size: 418.25368pt x 295.96785pt.
+ [12 <./Akatemia_sampleCV.png (PNG copy)>]
+Overfull \hbox (7.31375pt too wide) in paragraph at lines 233--234
+\T1/pnc/m/n/12 peas-ti kas-va-vis-sa ICT-palveluyrityksissä. Mi-kä-li mui-den t
+yön-te-ki-jöi-den osaa-
+ []
 
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pnc.fd
-File: ts1pnc.fd 2001/06/04 font definitions for TS1/pnc.
-) [12
+Overfull \hbox (8.72598pt too wide) in paragraph at lines 235--236
+\T1/pnc/m/n/12 ke-hit-ty-vät jat-ku-vas-ti, ei-kä mi-kään niis-tä jää jäl-keen 
+vas-tui-den siir-tyen enem-
+ []
 
-] [13
 
-]
-(./seminaari.bbl) [14
+Overfull \hbox (1.23448pt too wide) in paragraph at lines 237--238
+[]\T1/pnc/m/n/12 Keskitetyn osaa-mis-ten hal-lin-nan yh-tey-teen voi hel-pos-ti
+ liit-tää myös mui-
+ []
 
+
+Overfull \hbox (10.4165pt too wide) in paragraph at lines 237--238
+\T1/pnc/m/n/12 hi-tys-suun-ni-tel-mat ovat kes-ki-te-tys-ti sa-mas-sa jär-jes-t
+el-mäs-sä hen-ki-lös-tön osaa-
+ []
+
+[13
+
+] [14] (./seminaari.bbl) [15
 
 ] (./seminaari.aux) ) 
 Here is how much of TeX's memory you used:
- 18528 strings out of 493105
- 339588 string characters out of 6137072
- 796626 words of memory out of 5000000
- 21618 multiletter control sequences out of 15000+600000
- 30188 words of font info for 53 fonts, out of 8000000 for 9000
+ 18517 strings out of 493105
+ 339448 string characters out of 6137072
+ 796634 words of memory out of 5000000
+ 21607 multiletter control sequences out of 15000+600000
+ 30806 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,8n,56p,1208b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
-}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8
-a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on seminaari.pdf (15 pages, 204079 bytes).
+}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8a.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
+Output written on seminaari.pdf (16 pages, 470279 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
