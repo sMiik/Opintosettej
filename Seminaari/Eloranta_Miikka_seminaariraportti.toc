@@ -2,10 +2,10 @@
 \contentsline {section}{\numberline {1}Johdanto}{2}
 \contentsline {section}{\numberline {2}Osaaminen -- mit\IeC {\"a} k\IeC {\"a}yt\IeC {\"a}nn\IeC {\"o}ss\IeC {\"a}?}{4}
 \contentsline {subsection}{\numberline {2.1}Jaottelu}{5}
-\contentsline {section}{\numberline {3}Jatkuva kehittyminen}{8}
-\contentsline {subsection}{\numberline {3.1}Kehittymisen suunnittelu}{8}
-\contentsline {subsection}{\numberline {3.2}Urapolut}{10}
-\contentsline {section}{\numberline {4}Keskitetty hallinta}{11}
-\contentsline {subsection}{\numberline {4.1}Hy\IeC {\"o}dyt}{11}
-\contentsline {section}{\numberline {5}Yhteenveto ja johtop\IeC {\"a}\IeC {\"a}t\IeC {\"o}kset}{13}
-\contentsline {section}{Viitteet}{15}
+\contentsline {section}{\numberline {3}Jatkuva kehittyminen}{9}
+\contentsline {subsection}{\numberline {3.1}Kehittymisen suunnittelu}{9}
+\contentsline {subsection}{\numberline {3.2}Urapolut}{11}
+\contentsline {section}{\numberline {4}Keskitetty hallinta}{13}
+\contentsline {subsection}{\numberline {4.1}Hy\IeC {\"o}dyt}{13}
+\contentsline {section}{\numberline {5}Yhteenveto ja johtop\IeC {\"a}\IeC {\"a}t\IeC {\"o}kset}{15}
+\contentsline {section}{Viitteet}{17}
