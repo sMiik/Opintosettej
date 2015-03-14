@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.21)  14 MAR 2015 12:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.21)  14 MAR 2015 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1235,7 +1235,7 @@ el-mäs-sä hen-ki-lös-tön osaa-
 Here is how much of TeX's memory you used:
  18518 strings out of 493105
  339770 string characters out of 6137072
- 797644 words of memory out of 5000000
+ 798644 words of memory out of 5000000
  21608 multiletter control sequences out of 15000+600000
  30806 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1253,7 +1253,7 @@ onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/ncntrsbk/uncb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/u
 ncr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on Eloranta_Miikka_seminaariraportti.pdf (18 pages, 472618 bytes
+Output written on Eloranta_Miikka_seminaariraportti.pdf (18 pages, 474589 bytes
 ).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)

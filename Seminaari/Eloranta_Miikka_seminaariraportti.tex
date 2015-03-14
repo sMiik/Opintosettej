@@ -110,7 +110,7 @@ Tässä ICT-palveluyrityksille tarkoitetussa T-mallissa osaamiset on jaoteltu se
 	%\end{itemize}
 \end{enumerate} Kuvassa \ref{fig:Tareas} on esitetty edellä listattujen osaamisalueiden sijainnit T-mallilla. Henkilökohtaisiin kyvykkyyksiin (osaamisalue 1) määritellään kaikki henkilön omaan käyttäytymiseen, muiden kanssa kommunikointiin ja kyvykkyyteen toimia tietyissä rooleissa. Näihin kuuluvat muun muassa kielitaidot, tiimityöskentelytaidot tai paineensietokyky. Organisaatio- ja toimialakohtaisiin osaamisiin (osaamisalue 2) taas määritelään mm. kaikki yrityksen käytäntöihin liittyvät osaamiset, kilpailijat, kumppanit ja kumppanuustasot, sekä asiakkaan edustajien tuntemus. Viimeisenä ammatillisiin ja teknologiaosaamisiin (osaamisalue 3) liittyy kaikki eri teknologioihin, ohjelmointikieliin ja ohjelmistokehitykseen, asiakkaiden järjestelmien arkkitehtuureihin yms. liittyvät osaamiset. T-malli on valittu, koska osa-alueita on kolme ja kukin sen osio kuvaa yhtä osa-alueista.
 
-\begin{figure}[!hb]
+\begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{T_areas.png}
@@ -126,7 +126,7 @@ Tässä ICT-palveluyrityksille tarkoitetussa T-mallissa osaamiset on jaoteltu se
 	\caption{T-mallin osaamisalueet ja piirtologiikka.}
 \end{figure}
 
-Koska kullakin työroolilla kaivataan erityyppisiä osaajia, T-mallia piirrettäessä sen kukin haara skaalataan rooliin vaadittavien osaamisten mukaisesti. T-mallin yläosa piirretään käyttäen yhtälöparin
+Koska kullakin työroolilla kaivataan erityyppisiä osaajia, T-mallia piirrettäessä sen kukin haara skaalataan rooliin vaadittavien osaamisten mukaisesti. Kuvan \ref{fig:Tlogics} esimerkissä on esitetty kulmapisteet, joiden laskentalogiikka esitellään seuraavassa. Piirtologiikan mukaiset kuvan harmaan T:n kulmapisteet ovat $(-1, 1)$, $(-1, 0)$, $(-0,4; 0)$, $(-0,4; -1,5)$, $(0,4; -1,5)$, $(0,4; 0)$, $(1, 0)$ ja $(1, 1)$. T-mallin yläosa piirretään käyttäen yhtälöparin
 \begin{equation}
 \begin{cases}
 A_i = (-1)^{i-1} \cdot \frac{1}{n_i} \\
@@ -138,11 +138,11 @@ B_i = \frac{1}{5} \\
 Osaamisalueessa 3 osaamisen leveys kuvaa osaamisten lukumäärää ``vähintään tasolla x.'' Harmaan alueen leveys määrittyy siihen kuuluvien osaamisten lukumäärästä kaksinkertaisena, sillä tähän alueeseen piirrettävä kuvaaja peilataan $y$-akselin ympäri. Alaspäin mentäessä tasot kasvavat tasaisin väliajoin jolloin T-mallin ``jalasta'' tulee alaspäin porrastettu. Täten jokaisessa ``portaassa'' on vähintään yhtä paljon osaamisia, eli se on vähintään yhtä leveä kuin seuraavas liikkuessa alaspäin. Koska 3. osaamisalueessa osaamistasokohtainen korkeus on vakio, jokaisella voi tässä käyttää alueen korkeuteen suoraan verrannollista skalaarikerrointa $B_3$, joka vastaa yhtälön \eqref{Tscaleconstants} kertoimen $B_i$ negaatiota. Näin ollen kulmapisteiden skalaarikertoimet osaamisalueelle 3 saadaa yhtälöistä
 \begin{equation}
 \begin{cases}
-A_i = \pm \frac{1}{n_i} \\
-B_i = - \frac{1}{5} \\
+A_i = \pm 0,4 \cdot \frac{1}{n_i} = \pm \frac{2}{5 n_i} \\
+B_i = - 1,5 \cdot \frac{1}{5} = - \frac{3}{10} \\
 \end{cases} \\ , i = 3,
 \label{Tscaleconstants3}
-\end{equation} jossa $n_i$ osaamisten kokonaislukumäärä osaamisalueessa $i$.
+\end{equation} jossa kertoimet 0,4 ja 1,5 on lisätty, jotta mallista tulisi nimensä mukaisesti T:n muotoinen ja sen alaosan leveys on 40\% ja korkeus 150\% yläosan leveydestä ja korkeudesta. Osaamisten kokonaislukumäärä osaamisalueessa $i$ on tässä $n_i$.
 
 Käyttäen kertoimia yhtälöistä \eqref{Tscaleconstants} ja \eqref{Tscaleconstants3} saadaan henkilölle määriteltyä kuvan \ref{fig:Tlogics} mukaiset osaamisalueiden 1, 2 ja 3 kulmapisteet yhtälöillä
 \begin{equation}
