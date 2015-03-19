@@ -14,37 +14,10 @@
 \usetikzlibrary{decorations.pathmorphing,decorations.markings}
 \usetikzlibrary{shapes}
 \usetikzlibrary{patterns}
+\usepackage{graphicx}
+\PassOptionsToPackage{demo}{graphicx}
 
 \usepackage[backend=biber,style=oscola]{biblatex}
-
-\makeatletter
-\renewbibmacro*{footcite}{%
-  \bbx@resetpostnotedelim
-  \usebibmacro{cite:citepages}%
-  \global\togglefalse{cbx:loccit}%
-  \ifboolexpr {test {\ifciteseen} or test {\ifciteibid}}
-    {\ifboolexpr {test {\iffieldundef{shorthand}} 
-                  or test {\bbx@ifnottrackingcites}}
-       {\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}
-          {\usebibmacro{footcite:ibid}\bbx@unsetpostnotedelim}
-          {\usebibmacro{footcite:note}}}%
-       {\usebibmacro{footcite:shorthand}}}
-    {\usebibmacro{footcite:full}%
-     \usebibmacro{footcite:save}}}
-
-\renewbibmacro*{postnote}{%
-  \ifboolexpr {test {\iffieldundef{postnote}} or
-               test {\iftoggle{cbx@postnoteprinted}}}%
-    {}
-    {\ifboolexpr{test {\ifnumequal{\value{bbx@suppresspostnotedelim}}{1}}}
-       {\setunit{\addspace}%
-        \bbx@resetpostnotedelim}
-       {\setunit{\postnotedelim}}%
-     \usebibmacro{postnotepagination}}%
-  \global\toggletrue{cbx@postnoteprinted}}
-\makeatother
-
-
 
 \addbibresource{presisrefet.bib}
 
@@ -54,7 +27,7 @@
 \institute[AS]{Automaatio- ja systeemitekniikka\\
 Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 
-\aaltofootertext{Osaamisen kehityksen hallinta}{\today}{\arabic{page}/\pageref{LastPage}\ }
+\aaltofootertext{Osaamisen kehityksen hallinta}{20.03.2015}{\arabic{page}/\pageref{LastPage}\ }
 
 \date{20.03.2015}
 
@@ -87,11 +60,15 @@ Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 
 \begin{frame}{Yleistä}
 \begin{itemize}
-\item Tässä työssä keskitytään ICT\footnote{\tiny{Tieto- ja viestintäteknologia (Information and Communications Technology)}}-palveluyrityksiin ja esitetyt osaamisjaottelut sekä tavoite- ja kehittymisprosessit on määritelty niiden mukaisesti.
+\item Osaamisen kehityksen keskitetty hallinta on ehdotonta etenkin suurissa ja nopeasti kasvavissa palveluyrityksissä
 \begin{itemize}
-\item Osittain yleisemmän tason asiaa, joka soveltuu muillekin aloille.
+\item Henkilöstön osaamisten tunteminen ulkomuistista mahdotonta
 \end{itemize}
-\item Työssä esitellyt menetelmät, mittaroinnit ja kuvaukset on suunniteltu osaamisten kehityksen hallintaa varten kehitettyä järjestelmää varten, mutta työssä esitellään vain näitä -- ei itse järjestelmää.
+\item Työssä keskitytään ICT\footnote{\tiny{Tieto- ja viestintäteknologia (Information and Communications Technology)}}-palveluyrityksiin ja käytetyt menetelmät on määritelty niiden mukaisesti
+\begin{itemize}
+\item Osittain yleisemmän tason asiaa, joka soveltuu muillekin aloille
+\end{itemize}
+\item Työ keskittyy käytettyihin menetelmiin, kuvauksiin ja prosesseihin, ei kehitettyyn järjestelmään
 \end{itemize}
 \end{frame}
 
@@ -100,15 +77,77 @@ Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 \item Parhaat osoitukset osaamisesta ICT-maailmassa ovat sertifioitumiset ja referenssit
 \begin{itemize}
 \item Tarvitaan muitakin kuin teknologiaosaamisia \\ $\rightarrow$ Kaikkiin osaamisiin ei voi sertifioitua
-\item Sertifioituminen ei ole varma tae käytännön osaamisesta
 \end{itemize}
-\item Palveluyrityksen valinnassa asiakas huomioi myös kumppanit, kumppanuustasot ja olemassaolevat asiakkuudet -- ennen kaikkea onko yrityksellä asiakkaana saman toimialan yrityksiä \footcite{ICT-haasteet}
+\item Kilpailutuksessa asiakas huomioi myös kumppanit ja olemassaolevat asiakkuudet -- ennenkaikkea onko palveluyrityksellä jo saman toimialan asiakkaita \footcite{ICT-haasteet}
 \item Saman koulutustaustan ihmiset voivat erota huomattavasti toisistaan \footcite{self-assessment_in_skill_measurement}
 \end{itemize}
 \end{frame}
-
-%% Lähdeluettelo
-\begin{frame}{Viitteet}
-\printbibliography
+\begin{frame}{Osaamisten määritys ja itsearviointi}
+\begin{itemize}
+\item Osaamisia on erityyppisiä ja kaikki halutaan saada merkittäviksi \\ $\rightarrow$ osaamiset on määritettävä irrallaan sertifioinneista (joskin nämä antavat osviittaa)
+\item Osaamisen syvyys määritelty tasolla 1-5, joissa vaatimukset kullekin tasolle
+\item Itsearvioinnin suosio perustuu nopeaan datankeruuseen \footcite{self-assessment_in_skill_measurement}
+\begin{itemize}
+\item Suuri määrä henkilöstöä $\rightarrow$ esimiesten aika ei riitä arviointiin
+\item Esimiehen/erityisasiantuntijan arviolla voidaan korjata/vahvistaa arviointia
+\end{itemize}
+\end{itemize}
 \end{frame}
+\begin{frame}{Osaamisten T-malli}
+\begin{tikzpicture}[remember picture,overlay]  
+  \node [xshift=-0.35\textheight,yshift=-0.35\textheight] at (current page.north east)
+    {\includegraphics[width=0.45\textwidth]{T_drawing_logics2.png}};
+\end{tikzpicture}
+\begin{itemize}
+\item Osaamiset jaotellaan kolmeen \\ osaamisalueeseen
+\begin{enumerate}
+\item Henkilökohtaiset kyvykkyydet
+\item Organisaatio- ja toimialakohtaiset \\ osaamiset
+\item Ammatilliset ja teknologiaosaamiset
+\end{enumerate}
+\item Piirtologiikka työroolikohtaiselle T:lle
+\begin{itemize}
+\item korkeus = osaamisten syvyys (taso)
+\item leveys = osaamisten laajuus (lkm)
+\item 1. ja 2. alueen tasoista lasketaan keskiarvo korkeudeksi
+\item 3. alueen esitys ``vähintään tasolla x,'' josta johtuen porrastus
+\item harmaa T, kun kaikki työroolin vaatimusosaamiset on tasolla 5
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}{Kehittyminen}
+\begin{tikzpicture}[remember picture,overlay]  
+  \node [xshift=-0.4\textheight,yshift=-0.3\textheight] at (current page.north east)
+    {\includegraphics[width=.9\textwidth]{urapolkuPlot_tst_usr.png}};
+\end{tikzpicture}
+\begin{itemize}
+\item Osaamisten kehittyminen \\ jatkuvaa henkilöstömuutosten, \\ teknologiakehitysten yms. \\ mukaisesti
+\item Motivoitunut henkilöstö on kehittymisen \\ edellytys $\rightarrow$ Henkilöstö itse vaikuttaa kehityssuunnitelmiinsa
+\item Motivointina kehittymiseen urapolkujen esitys
+\begin{itemize}
+\item Miten henkilö voisi edetä urallansa muihin rooleihin
+\item Oranssilla nykyrooli ja sen taso, harmaalla vaatimusten täyttymisaste
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}{Yritystason kehitystavoitteet}
+
+\end{frame}
+\begin{frame}{Keskitetty osaamisten hallinta}
+
+\end{frame}
+{
+\usebackgroundtemplate{%
+  \vbox to \paperheight{\vfil\hbox to \paperwidth{\hfil\includegraphics[width=1.5in]{akatemia-logo.png}\hfil}\vfil}
+}
+\begin{frame}{?}
+\begin{center}
+Kysymyksiä, kommentteja?
+\end{center}
+\end{frame}
+}
+%% Lähdeluettelo
+%\begin{frame}{Viitteet}
+%\printbibliography
+%\end{frame}
 \end{document}
