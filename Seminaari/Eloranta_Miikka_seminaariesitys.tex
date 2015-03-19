@@ -17,6 +17,13 @@
 \usepackage{graphicx}
 \PassOptionsToPackage{demo}{graphicx}
 
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 \usepackage[backend=biber,style=oscola]{biblatex}
 
 \addbibresource{presisrefet.bib}
@@ -39,7 +46,7 @@ Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 \begin{itemize}
 \item Yleistä
 \begin{itemize}
-\item Sisällön kuvaus
+\item Työn sisällön kuvaus
 \item Työn sisällön painopisteet ja taustat
 \end{itemize}
 \item Osaamiset
@@ -89,6 +96,7 @@ Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 \item Itsearvioinnin suosio perustuu nopeaan datankeruuseen \footcite{self-assessment_in_skill_measurement}
 \begin{itemize}
 \item Suuri määrä henkilöstöä $\rightarrow$ esimiesten aika ei riitä arviointiin
+\item Myös epätäydellinen data on potentiaalisesti arvokasta
 \item Esimiehen/erityisasiantuntijan arviolla voidaan korjata/vahvistaa arviointia
 \end{itemize}
 \end{itemize}
@@ -118,15 +126,11 @@ Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 \begin{frame}{Kehittyminen}
 \begin{tikzpicture}[remember picture,overlay]  
   \node [xshift=-0.4\textheight,yshift=-0.3\textheight] at (current page.north east)
-    {\includegraphics[width=.9\textwidth]{urapolkuPlot_tst_usr.png}};
+    {\includegraphics[width=.8\textwidth]{urapolkuPlot_tst_usr.png}};
 \end{tikzpicture}
 \begin{itemize}
 \item Osaamisten kehittyminen \\ jatkuvaa henkilöstömuutosten, \\ teknologiakehitysten yms. \\ mukaisesti
-<<<<<<< HEAD
 \item Motivoitunut henkilöstö on kehittymisen \\ edellytys \\ $\rightarrow$ Henkilöstö itse vaikuttaa kehityssuunnitelmiinsa
-=======
-\item Motivoitunut henkilöstö on kehittymisen \\ edellytys $\rightarrow$ Henkilöstö itse vaikuttaa kehityssuunnitelmiinsa
->>>>>>> 0787499f461cf3b376140c658b6a88f15214c516
 \item Motivointina kehittymiseen urapolkujen esitys
 \begin{itemize}
 \item Miten henkilö voisi edetä urallansa muihin rooleihin
@@ -134,16 +138,39 @@ Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 \end{itemize}
 \end{itemize}
 \end{frame}
-\begin{frame}{Yritystason kehitystavoitteet}
-
+\begin{frame}{Yritystason tavoitteet}
+\begin{itemize}
+\item Johdon määrittämät tavoitteet koko yritykselle
+\begin{itemize}
+\item Konkretisoituvat laskeuduttaessa organisaatioportaittain alaspäin
+\item Voi olla määritelty myös henkilöstön kehittymissuunnitelmien perusteella!
+\end{itemize}
+\end{itemize}
+\begin{figure}
+\includegraphics[width=.8\textwidth]{tavoitesample.png}
+\end{figure}
 \end{frame}
-\begin{frame}{Keskitetty osaamisten hallinta}
-
+\begin{frame}{Keskitetty hallinta}
+\begin{itemize}
+\item Haasteet:
+\begin{itemize}
+\item Käytön oltava aktiivista jokaisen työntekijän osalta, jotta koko yrityksen laajuinen osaamisraportointi luotettavaa
+\item Jatkokehitysideoita paljon $\rightarrow$ karsinta ja priorisointi
+\end{itemize}
+\item Hyödyt ja mahdollisuudet:
+\begin{itemize}
+\item Kehittymisen seuranta ja osaamisraportointi helpottuu ja nopeutuu huomattavasti \\ $\rightarrow$ HRM\footnote{\tiny{Henkilöstöhallinto (Human Resource Management)}}-tarpeiden nopea yleiskatsaus
+\item Rajapinnoilla ja integroinneilla voidaan hyödyntää myös mm. HR-järjestelmän dataa \\ $\rightarrow$ Integraatioita hyödyntämällä ja toiminnallisuuksien lisäyksillä suuri määrä jatkokehitysmahdollisuuksia
+\end{itemize}
+\end{itemize}
 \end{frame}
 {
 \usebackgroundtemplate{%
   \vbox to \paperheight{\vfil\hbox to \paperwidth{\hfil\includegraphics[width=1.5in]{akatemia-logo.png}\hfil}\vfil}
 }
+\begin{frame}{Malli-CV}
+\includegraphics[width=\textwidth]{Akatemia_sampleCV.png} \blfootnote{\tiny{Järjestelmän käyttäjätiedot integroitu Microsoft Active Directory:sta ja CV luotu Microsoft SQL Server Reporting Services -raporttipohjalle järjestelmän datasta.}}
+\end{frame}
 \begin{frame}{?}
 \begin{center}
 Kysymyksiä, kommentteja?
