@@ -15,6 +15,39 @@
 \usetikzlibrary{shapes}
 \usetikzlibrary{patterns}
 
+\usepackage[backend=biber,style=oscola]{biblatex}
+
+\makeatletter
+\renewbibmacro*{footcite}{%
+  \bbx@resetpostnotedelim
+  \usebibmacro{cite:citepages}%
+  \global\togglefalse{cbx:loccit}%
+  \ifboolexpr {test {\ifciteseen} or test {\ifciteibid}}
+    {\ifboolexpr {test {\iffieldundef{shorthand}} 
+                  or test {\bbx@ifnottrackingcites}}
+       {\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}
+          {\usebibmacro{footcite:ibid}\bbx@unsetpostnotedelim}
+          {\usebibmacro{footcite:note}}}%
+       {\usebibmacro{footcite:shorthand}}}
+    {\usebibmacro{footcite:full}%
+     \usebibmacro{footcite:save}}}
+
+\renewbibmacro*{postnote}{%
+  \ifboolexpr {test {\iffieldundef{postnote}} or
+               test {\iftoggle{cbx@postnoteprinted}}}%
+    {}
+    {\ifboolexpr{test {\ifnumequal{\value{bbx@suppresspostnotedelim}}{1}}}
+       {\setunit{\addspace}%
+        \bbx@resetpostnotedelim}
+       {\setunit{\postnotedelim}}%
+     \usebibmacro{postnotepagination}}%
+  \global\toggletrue{cbx@postnoteprinted}}
+\makeatother
+
+
+
+\addbibresource{presisrefet.bib}
+
 \title{Osaamisen kehityksen hallinta}
 
 \author[M. Eloranta]{Miikka Eloranta}
@@ -33,6 +66,7 @@ Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 \begin{itemize}
 \item Yleistä
 \begin{itemize}
+\item Sisällön kuvaus
 \item Työn sisällön painopisteet ja taustat
 \end{itemize}
 \item Osaamiset
@@ -61,4 +95,20 @@ Sähkötekniikan korkeakoulu, Aalto-yliopisto}
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Osaamiset}
+\begin{itemize}
+\item Parhaat osoitukset osaamisesta ICT-maailmassa ovat sertifioitumiset ja referenssit
+\begin{itemize}
+\item Tarvitaan muitakin kuin teknologiaosaamisia \\ $\rightarrow$ Kaikkiin osaamisiin ei voi sertifioitua
+\item Sertifioituminen ei ole varma tae käytännön osaamisesta
+\end{itemize}
+\item Palveluyrityksen valinnassa asiakas huomioi myös kumppanit, kumppanuustasot ja olemassaolevat asiakkuudet -- ennen kaikkea onko yrityksellä asiakkaana saman toimialan yrityksiä \footcite{ICT-haasteet}
+\item Saman koulutustaustan ihmiset voivat erota huomattavasti toisistaan \footcite{self-assessment_in_skill_measurement}
+\end{itemize}
+\end{frame}
+
+%% Lähdeluettelo
+\begin{frame}{Viitteet}
+\printbibliography
+\end{frame}
 \end{document}
